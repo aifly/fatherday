@@ -18,6 +18,7 @@ const father = path + f;
 
 import FButton from './static/components/f-button.jsx';
 import FPhoto from './static/components/f-photo.jsx';
+import FStripe from './static/components/f-stripe.jsx';
 
 
 class App extends React.Component {
@@ -39,12 +40,13 @@ class App extends React.Component {
          * */
         return (
             <div className="f-main-ui">
-                <section className="f-main-content" style={{background:'url('+bg+') repeat'}}>
+                <section className="f-main-content" style={{backgroundColor:'#46a17d'}}>
                     <div className="f-father">
                         <img src={father} alt=""/>
                         <canvas ref="canvas" className="f-ganen opacity0"></canvas>
                         <canvas ref="canvas1" className="f-ganen1"></canvas>
                     </div>
+                    <FStripe des="right"></FStripe>
                     <div className="f-text">
                         <img src={text} alt=""/>
                     </div>
@@ -55,7 +57,14 @@ class App extends React.Component {
                     <div className="f-btn">
                         <FButton></FButton>
                     </div>
+
                     <FPhoto></FPhoto>
+                    <FStripe des="left"></FStripe>
+                    <div className="f-btn">
+                        <FButton content="不来张自己的么"></FButton>
+                    </div>
+                    <FPhoto></FPhoto>
+                    <FStripe des="right"></FStripe>
                 </section>
             </div>
         )

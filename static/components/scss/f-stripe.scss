@@ -2,12 +2,12 @@
 @mixin pos($v) {
   @if
   $v == a {
-  position: absolute;
-} @else if $v == r {
-  position: relative;
-} @else if $v == f {
-  position: fixed;
-}
+    position: absolute;
+  } @else if $v == r {
+    position: relative;
+  } @else if $v == f {
+    position: fixed;
+  }
 }
 
 @mixin br($v:50%) {
@@ -105,36 +105,15 @@
   flex-flow: $v;
 }
 
-.f-button-group{
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
-  @include pos(r);
-  width:120px;
-  height:36px;
-  margin:0 auto;
-  .f-button1,.f-button2{
-    @include pos(a);
-    width:100%;
-
-    height:36px;
-    line-height:36px;
-    text-align: center;
-    color:#fff;
-    z-index:2;
-    @include br(4px);
-    &.active{
-     // opacity:0;
-      left:3px;
-      top:3px;
-    }
+.f-stripe{
+  width:10rem;
+  @include pos(a);
+  background:rgba(17,107,85,.4);
+  &.right{
+    @include transform(rotate(-30deg) scale(2));
   }
-  .f-button2{
-   //@include transform(translate3d(3px,3px,0));
-    left:3px;
-    top:3px;
-    z-index:1;
-    -webkit-filter:blur(2px);
-
+  &.left{
+    @include transform(rotate(30deg) scale(2));
   }
-
+  height:2rem;
 }

@@ -1,4 +1,3 @@
-
 @mixin pos($v) {
   @if
   $v == a {
@@ -108,17 +107,24 @@
 
 .f-photo-C{
   @include pos(r);
+  z-index: 100;
   width:70vw;
-  margin:20px auto;
+  margin:1.3rem auto;
   padding:0.6rem 0.6rem 1.8rem 0.6rem;
   box-sizing: border-box;
   @include br(5px);
+  //@include transform(rotate(-13deg));
   .f-tape{
     @include pos(a);
     width:100px;
     left:-1rem;
     top:-1rem;
+    &:nth-of-type(2){
+      left:72%;
+      top:83%;
+    }
   }
+
 
 }
  

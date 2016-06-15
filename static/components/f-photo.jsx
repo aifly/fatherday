@@ -39,9 +39,11 @@ export default class FPhoto extends React.Component{
             <figure className="f-photo-C" style={style}>
                 <img src={this.state.fatherPhoto} alt=""/>
                 <figcaption className="f-tape">
-                    <img src={tape} alt=""/>
+                    <img src={tape} alt="" draggable="false"/>
                 </figcaption>
-                <figcaption className="f-tape"></figcaption>
+                <figcaption className="f-tape">
+                    <img src={tape} alt="" draggable="false"/>
+                </figcaption>
             </figure>
         )
     }

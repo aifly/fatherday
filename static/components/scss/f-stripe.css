@@ -1,0 +1,13 @@
+.f-stripe {
+  width: 10rem;
+  position: absolute;
+  background: rgba(17, 107, 85, 0.4);
+  height: 2rem; }
+  .f-stripe.right {
+    -webkit-transform: rotate(-30deg) scale(2);
+    transform: rotate(-30deg) scale(2); }
+  .f-stripe.left {
+    -webkit-transform: rotate(30deg) scale(2);
+    transform: rotate(30deg) scale(2); }
+
+/*# sourceMappingURL=f-stripe.css.map */

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AA2GA,SAAS;EACP,KAAK,EAAC,KAAK;EAxGT,QAAQ,EAAE,QAAQ;EA0GpB,UAAU,EAAC,sBAAkB;EAO7B,MAAM,EAAC,IAAI;EANX,eAAO;IArDP,iBAAiB,EAsDI,uBAAuB;IArD5C,SAAS,EAqDY,uBAAuB;EAE5C,cAAM;IAxDN,iBAAiB,EAyDI,sBAAwB;IAxD7C,SAAS,EAwDY,sBAAwB",
+"sources": ["f-stripe.scss"],
+"names": [],
+"file": "f-stripe.css"
+}
