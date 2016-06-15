@@ -1,0 +1,76 @@
+html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+html, body {
+  height: 100%; }
+
+img {
+  border: none;
+  vertical-align: top;
+  width: 100%;
+  height: auto; }
+
+input, textarea {
+  outline: none; }
+
+body {
+  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch; }
+
+.f-main-ui {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.f-main-content {
+  width: 100vw;
+  height: 200vh;
+  position: relative; }
+  .f-main-content .f-father {
+    height: 2.5rem;
+    position: relative; }
+    .f-main-content .f-father img {
+      height: 100%;
+      width: auto; }
+    .f-main-content .f-father canvas {
+      position: absolute;
+      right: 0;
+      top: .2rem;
+      -webkit-transition: opacity 5s 1s;
+      transition: opacity 5s 1s; }
+    .f-main-content .f-father .opacity0 {
+      opacity: 0; }
+  .f-main-content .f-text {
+    position: absolute;
+    width: 80vw;
+    top: 1.3rem;
+    left: 5vw; }
+  .f-main-content .f-input-C {
+    margin-top: -2.8rem; }
+    .f-main-content .f-input-C .f-input {
+      position: absolute;
+      width: 80vw;
+      height: 4rem;
+      background: transparent;
+      z-index: 10;
+      left: 10vw;
+      top: 3.4rem; }
+  .f-main-content .f-btn {
+    width: 100vw;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 1rem; }
+
+/*# sourceMappingURL=index.css.map */

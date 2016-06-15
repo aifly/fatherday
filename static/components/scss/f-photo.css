@@ -1,0 +1,14 @@
+.f-photo-C {
+  position: relative;
+  width: 70vw;
+  margin: 20px auto;
+  padding: 0.6rem 0.6rem 1.8rem 0.6rem;
+  box-sizing: border-box;
+  border-radius: 5px; }
+  .f-photo-C .f-tape {
+    position: absolute;
+    width: 100px;
+    left: -1rem;
+    top: -1rem; }
+
+/*# sourceMappingURL=f-photo.css.map */
