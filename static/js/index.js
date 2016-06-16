@@ -106,17 +106,17 @@
 
 	__webpack_require__(173);
 
-	var _staticImagesBgPng = __webpack_require__(174);
-
-	var _staticImagesBgPng2 = _interopRequireDefault(_staticImagesBgPng);
-
-	var _staticImagesTextPng = __webpack_require__(175);
+	var _staticImagesTextPng = __webpack_require__(174);
 
 	var _staticImagesTextPng2 = _interopRequireDefault(_staticImagesTextPng);
 
-	var _staticImagesInputBgPng = __webpack_require__(176);
+	var _staticImagesInputBgPng = __webpack_require__(175);
 
 	var _staticImagesInputBgPng2 = _interopRequireDefault(_staticImagesInputBgPng);
+
+	var _staticImagesLinePng = __webpack_require__(176);
+
+	var _staticImagesLinePng2 = _interopRequireDefault(_staticImagesLinePng);
 
 	var _staticImagesGanenPng = __webpack_require__(177);
 
@@ -130,17 +130,33 @@
 
 	var _staticComponentsFButtonJsx2 = _interopRequireDefault(_staticComponentsFButtonJsx);
 
-	var _staticComponentsFPhotoJsx = __webpack_require__(189);
+	var _staticComponentsFPhotoJsx = __webpack_require__(190);
 
 	var _staticComponentsFPhotoJsx2 = _interopRequireDefault(_staticComponentsFPhotoJsx);
 
-	var _staticComponentsFStripeJsx = __webpack_require__(194);
+	var _staticComponentsFStripeJsx = __webpack_require__(195);
 
 	var _staticComponentsFStripeJsx2 = _interopRequireDefault(_staticComponentsFStripeJsx);
 
+	var _staticComponentsFLoadingJsx = __webpack_require__(198);
+
+	var _staticComponentsFLoadingJsx2 = _interopRequireDefault(_staticComponentsFLoadingJsx);
+
+	var _staticJsPubsub = __webpack_require__(182);
+
+	var _staticJsPubsub2 = _interopRequireDefault(_staticJsPubsub);
+
+	var _staticComponentsFIndexPageJsx = __webpack_require__(201);
+
+	var _staticComponentsFIndexPageJsx2 = _interopRequireDefault(_staticComponentsFIndexPageJsx);
+
+	var _iscroll = __webpack_require__(183);
+
+	var _iscroll2 = _interopRequireDefault(_iscroll);
+
 	var path = './static/js/';
 
-	var bg = path + _staticImagesBgPng2['default'];
+	var text = path + _staticImagesTextPng2['default'];
 
 	var inputBg = path + _staticImagesInputBgPng2['default'];
 
@@ -155,6 +171,8 @@
 	        _classCallCheck(this, App);
 
 	        _get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, args);
+	        this.defaultTap = this.defaultTap.bind(this);
+	        this.onBlur = this.onBlur.bind(this);
 	        this.state = {
 	            fatherPhoto: '',
 	            myPhoto: ''
@@ -162,18 +180,40 @@
 	    }
 
 	    _createClass(App, [{
+	        key: 'onBlur',
+	        value: function onBlur() {}
+	    }, {
+	        key: 'defaultTap',
+	        value: function defaultTap(e) {
+
+	            if (e.target.nodeName === "TEXTAREA") {
+	                return;
+	            }
+
+	            e.preventDefault();
+
+	            $(e.target).trigger('blur');
+
+	            return false;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            /*
 	             <input ref="file" type="file" onChange={this.onChange}/>
 	             {this.state.fatherPhoto &&<img src={this.state.fatherPhoto} alt=""/>}
 	             * */
-	            return _react2['default'].createElement('div', { className: 'f-main-ui' }, _react2['default'].createElement('section', { className: 'f-main-content', style: { backgroundColor: '#46a17d' } }, _react2['default'].createElement('div', { className: 'f-father' }, _react2['default'].createElement('img', { src: father, alt: '' }), _react2['default'].createElement('canvas', { ref: 'canvas', className: 'f-ganen opacity0' }), _react2['default'].createElement('canvas', { ref: 'canvas1', className: 'f-ganen1' })), _react2['default'].createElement(_staticComponentsFStripeJsx2['default'], { des: 'right' }), _react2['default'].createElement('div', { className: 'f-text' }, _react2['default'].createElement('img', { src: _staticImagesTextPng2['default'], alt: '' })), _react2['default'].createElement('section', { className: 'f-input-C' }, _react2['default'].createElement('img', { src: inputBg, alt: '' }), _react2['default'].createElement('textarea', { name: '', id: '', className: 'f-input', placeholder: '献上你的祝福吧!' })), _react2['default'].createElement('div', { className: 'f-btn' }, _react2['default'].createElement(_staticComponentsFButtonJsx2['default'], null)), _react2['default'].createElement(_staticComponentsFPhotoJsx2['default'], null), _react2['default'].createElement(_staticComponentsFStripeJsx2['default'], { des: 'left' }), _react2['default'].createElement('div', { className: 'f-btn' }, _react2['default'].createElement(_staticComponentsFButtonJsx2['default'], { content: '不来张自己的么' })), _react2['default'].createElement(_staticComponentsFPhotoJsx2['default'], null), _react2['default'].createElement(_staticComponentsFStripeJsx2['default'], { des: 'right' })));
+	            return _react2['default'].createElement('div', { onTouchEnd: this.defaultTap }, _react2['default'].createElement(_staticComponentsFLoadingJsx2['default'], { loadingText: '正在上传...' }), _react2['default'].createElement('div', { className: 'f-main-ui' }, _react2['default'].createElement('div', { className: 'f-main-all' }, _react2['default'].createElement(_staticComponentsFIndexPageJsx2['default'], null), _react2['default'].createElement('section', { className: 'f-main-content', style: { backgroundColor: '#46a17d' } }, _react2['default'].createElement('div', { className: 'f-father' }, _react2['default'].createElement('img', { src: father, alt: '' }), _react2['default'].createElement('canvas', { ref: 'canvas', className: 'f-ganen opacity0' }), _react2['default'].createElement('canvas', { ref: 'canvas1', className: 'f-ganen1' })), _react2['default'].createElement(_staticComponentsFStripeJsx2['default'], { des: 'right' }), _react2['default'].createElement('div', { className: 'f-text' }, _react2['default'].createElement('img', { src: text, alt: '' })), _react2['default'].createElement('section', { className: 'f-input-C' }, _react2['default'].createElement('img', { src: inputBg, alt: '' }), _react2['default'].createElement('textarea', { name: '', onBlur: this.onBlur, id: '', ref: 'input', className: 'f-input', placeholder: '献上你的祝福吧!' })), _react2['default'].createElement('div', { className: 'f-btn' }, _react2['default'].createElement(_staticComponentsFButtonJsx2['default'], { type: 'father', r: 'me' })), _react2['default'].createElement(_staticComponentsFPhotoJsx2['default'], { display: 'none', type: 'father' }), _react2['default'].createElement(_staticComponentsFStripeJsx2['default'], { des: 'left' }), _react2['default'].createElement('div', { className: 'f-btn' }, _react2['default'].createElement(_staticComponentsFButtonJsx2['default'], { type: 'me', display: 'none', r: 'father1', content: '不来张自己的么' })), _react2['default'].createElement(_staticComponentsFPhotoJsx2['default'], { display: 'none', type: 'me' }), _react2['default'].createElement(_staticComponentsFStripeJsx2['default'], { des: 'right' }), _react2['default'].createElement('img', { src: _staticImagesLinePng2['default'], alt: '' }), _react2['default'].createElement('div', { className: 'f-btn' }, _react2['default'].createElement(_staticComponentsFButtonJsx2['default'], { content: '确定', r: 'upload', upload: false, theme: { color1: '#77c4d3', color2: '#116b55' } }))))));
 	        }
+	    }, {
+	        key: 'refresh',
+	        value: function refresh() {}
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            var _this = this;
+
+	            window.iscroll = new _iscroll2['default']('.f-main-ui');
 
 	            var canvas = this.refs.canvas;
 	            var canvas1 = this.refs.canvas1;
@@ -20606,7 +20646,7 @@
 
 
 	// module
-	exports.push([module.id, "html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\ninput, textarea {\r\n  outline: none; }\r\n\r\nbody {\r\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\r\n  font-size: 14px;\r\n  height: 100%;\r\n  overflow: hidden;\r\n  -webkit-overflow-scrolling: touch; }\r\n\r\n.f-main-ui {\r\n  width: 100vw;\r\n  height: 100vh;\r\n  box-sizing: border-box;\r\n  overflow-y: auto;\r\n  overflow-x: hidden; }\r\n\r\n.f-main-content {\r\n  overflow: hidden;\r\n  width: 100vw;\r\n  height: 200vh;\r\n  position: relative; }\r\n  .f-main-content .f-father {\r\n    height: 2.5rem;\r\n    position: relative; }\r\n    .f-main-content .f-father img {\r\n      height: 100%;\r\n      width: auto; }\r\n    .f-main-content .f-father canvas {\r\n      position: absolute;\r\n      right: 0;\r\n      top: .2rem;\r\n      -webkit-transition: opacity 5s 1s;\r\n      transition: opacity 5s 1s; }\r\n    .f-main-content .f-father .opacity0 {\r\n      opacity: 0; }\r\n  .f-main-content .f-text {\r\n    position: absolute;\r\n    width: 80vw;\r\n    top: 1.3rem;\r\n    left: 5vw; }\r\n  .f-main-content .f-input-C {\r\n    margin-top: -2.8rem;\r\n    position: relative;\r\n    width: 9rem;\r\n    left: .5rem; }\r\n    .f-main-content .f-input-C .f-input {\r\n      position: absolute;\r\n      width: 80%;\r\n      height: 3.7rem;\r\n      background: transparent;\r\n      z-index: 10;\r\n      left: 10%;\r\n      top: 3.2rem; }\r\n  .f-main-content .f-btn {\r\n    width: 100vw;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    margin-top: 1rem; }\r\n\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
+	exports.push([module.id, "html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: top;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\ninput, textarea {\r\n  outline: none; }\r\n\r\nbody {\r\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\r\n  font-size: 14px;\r\n  height: 100%;\r\n  overflow: hidden;\r\n  -webkit-overflow-scrolling: touch;\r\n  background: #46a17d; }\r\n\r\n.f-main-ui {\r\n  width: 100vw;\r\n  height: 100vh;\r\n  box-sizing: border-box;\r\n  overflow: hidden; }\r\n  .f-main-ui .f-main-all {\r\n    width: 100%; }\r\n\r\n.f-main-content {\r\n  overflow: hidden;\r\n  width: 100vw;\r\n  min-height: 90vh;\r\n  padding-bottom: 10vh;\r\n  position: relative; }\r\n  .f-main-content .f-father {\r\n    height: 2.5rem;\r\n    position: relative; }\r\n    .f-main-content .f-father img {\r\n      height: 100%;\r\n      width: auto; }\r\n    .f-main-content .f-father canvas {\r\n      position: absolute;\r\n      right: 0;\r\n      top: .2rem;\r\n      -webkit-transition: opacity 5s 1s;\r\n      transition: opacity 5s 1s; }\r\n    .f-main-content .f-father .opacity0 {\r\n      opacity: 0; }\r\n  .f-main-content .f-text {\r\n    position: absolute;\r\n    width: 80vw;\r\n    top: 1.3rem;\r\n    left: 5vw;\r\n    z-index: 2; }\r\n  .f-main-content .f-input-C {\r\n    z-index: 1;\r\n    margin-top: -2.8rem;\r\n    position: relative;\r\n    width: 9rem;\r\n    left: .5rem; }\r\n    .f-main-content .f-input-C .f-input {\r\n      position: absolute;\r\n      width: 80%;\r\n      height: 3.7rem;\r\n      background: transparent;\r\n      z-index: 10;\r\n      left: 10%;\r\n      top: 3.2rem; }\r\n  .f-main-content .f-btn {\r\n    width: 100vw;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    margin-top: 1rem; }\r\n\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
 
 	// exports
 
@@ -21848,7 +21888,7 @@
 
 	"use strict";
 
-	module.exports = __webpack_require__.p + "535c3f3c4869b78529fbe63db639f4c4.png";
+	module.exports = __webpack_require__.p + "736ee407589e4eb30b45c474b0cafbd7.png";
 
 /***/ },
 /* 175 */
@@ -21856,15 +21896,15 @@
 
 	"use strict";
 
-	module.exports = __webpack_require__.p + "689c80b00d3a4b8f0991c8dfefaed44b.png";
+	module.exports = __webpack_require__.p + "0efce9fc70373730a4735020b7017747.png";
 
 /***/ },
 /* 176 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	"use strict";
 
-	module.exports = __webpack_require__.p + "a153a07b8a211e80908a59eaeac110c5.png";
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAABTCAMAAAA4Jka5AAADAFBMVEUAAAD/+/H/+/D/+/D/+vD/+/D/+vD/+u//+vD/+u///PH/+/D/+u//+/D/+u//+/D/+/D/+/D/+u//+/D++u//+/H/+/H/+/D/+/H/+/D/+u//+/D/+/H/+/H/+/H/+/H//PT/+/D/+vD++/H/+/D/+/H/+/H//PL//vX/+/D/+vH//PL++u///vT//vX//vT///3/+/H++e3//PT///b//vj///v//PH/+/D/+u/+//f/+u////j//vX/+/H/+u7///3//fT/+/D//vf///z///7//PL//vn/+/D/+u/79On5/fP++vP59en08ez/+vD++u///fJiZ4X/+/JfZH///PC7RCm9Qyj++/L///X+/PBgZYP//vP+/fJhZoP//fH///dbYYD//vS4Qif///teY4P/+e+7QCTy7+j59u1jaIb///P68eW6PB90eJK0QyiwRSv////89+v37eH28+n/9+z18+5cYH3k4dz159u3OBr/+u79+e78+fHv7OPf3Njt6uf59/L9/PWDhp1ZXXr69Om1MhVvdI7/8+fDw8tQVnf039Lo5eLV09KPkqZ5fJXCUTa2SS+5ucPQz9TEwsTAWD6sTDO1tb68TTLNaE////jAQCP+7N+srbt+gZjPzcyWl6iuPCHOmYdVW3yrQShobYmlp7ba19TirJrq3NC0OyCSkp/s6OLY1trJyM6fobH73s/u0sTMb1fjjnjrwbK3UDjHYEd+gJNlaH+Ii6L85djXemJrcI29vcOrqrPj4uLmtaTTb1anpq+cnanUrp/TpZSLjZ3w18rTgGrMjXrGhXHLfWje3N+ZnK+2tbjrxrfBSCvDeWT40MDn1cnOYUbDZU7vzL5naoloa4X72MjxvavizsHXjXjKycfew7bIWT/rmoTkva3dmIPqsZ7u49bciXNsboZ3eIi7XETano3KUzj1xbTVlYJxcojhpJHXtab0taHtpZHEcFnfgWns6++hoKnx59vbuqyvVT/iyLuHiJa4ZE62cFzpzr+rJwmyr7E5eMalAAAAT3RSTlMAQpA4C3l0AQcD+7kS6uAf8hUoxqYPM8EcGPfbSisjYqheL8yuaI1tsEY90Nb05u30TuiD2LrQgJRb+YnC4ZlY5qBRl+/dnlZVnfT8Wfvm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";
 
 /***/ },
 /* 177 */
@@ -21948,7 +21988,11 @@
 
 	var _jsPubsub2 = _interopRequireDefault(_jsPubsub);
 
-	var _reactTapEventPlugin = __webpack_require__(183);
+	var _iscroll = __webpack_require__(183);
+
+	var _iscroll2 = _interopRequireDefault(_iscroll);
+
+	var _reactTapEventPlugin = __webpack_require__(184);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
@@ -21967,14 +22011,21 @@
 	        this.onChange = this.onChange.bind(this);
 	        this.state = {
 	            btn1ClassList: "f-button1",
-	            fatherPhoto: ''
+	            fatherPhoto: '',
+	            display: 'block',
+	            content: ''
 	        };
 	    }
 
 	    _createClass(FButton, [{
 	        key: 'uploadImage',
 	        value: function uploadImage() {
-	            this.refs['f-file'].click();
+
+	            if (this.props.upload) {
+	                this.refs['f-file'].click();
+	            } else {
+	                alert('确定');
+	            }
 	        }
 	    }, {
 	        key: 'touchStart',
@@ -21997,11 +22048,24 @@
 	                btn2Style = {
 	                backgroundColor: this.props.theme.color2
 	            };
-	            return _react2['default'].createElement('div', { className: 'f-button-group', onTouchEnd: this.touchEnd }, _react2['default'].createElement('div', { ref: 'btn1', style: btn1Style, className: 'f-button1', onTouchTap: this.uploadImage, onTouchStart: this.touchStart }, this.props.content), _react2['default'].createElement('div', { className: 'f-button2', style: btn2Style }, this.props.content), _react2['default'].createElement('input', { type: 'file', ref: 'f-file', style: { opacity: 0 }, onChange: this.onChange }));
+
+	            return _react2['default'].createElement('div', { ref: this.props.r, className: 'f-button-group', style: { display: this.state.display } }, _react2['default'].createElement('div', { ref: 'btn1', style: btn1Style, onTouchEnd: this.touchEnd, className: 'f-button1',
+	                onTouchTap: this.uploadImage, onTouchStart: this.touchStart }, this.state.content), _react2['default'].createElement('div', { className: 'f-button2', style: btn2Style }, this.state.content), _react2['default'].createElement('input', { type: 'file', ref: 'f-file', style: { opacity: 0, position: 'fixed', zIndex: -1 },
+	                onChange: this.onChange }));
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.setState({
+	                display: this.props.display,
+	                content: this.props.content
+	            });
 	        }
 	    }, {
 	        key: 'onChange',
 	        value: function onChange() {
+
+	            _jsPubsub2['default'].publish('start');
 	            var formData = new FormData();
 	            if (this.refs['f-file'].files.length <= 0) {
 	                return;
@@ -22022,8 +22086,23 @@
 
 	                    if (data.getret === 0) {
 	                        var url = 'http://webapi.zmiti.com/' + data.geturl[0];
-	                        console.log(url);
-	                        _jsPubsub2['default'].publish("changeFatherPhoto", url);
+	                        _jsPubsub2['default'].publish("changeFatherPhoto", { url: url, type: s.props.type });
+	                        if (s.props.type === 'father') {
+	                            $('.f-button-group').show();
+	                            s.setState({
+	                                content: "重新上传"
+	                            });
+	                        }
+
+	                        var img = new Image();
+	                        img.onload = function () {
+
+	                            setTimeout(function () {
+	                                window.iscroll.refresh();
+	                                _jsPubsub2['default'].publish('stop');
+	                            }, 1);
+	                        };
+	                        img.src = url;
 	                    }
 	                },
 	                error: function error(msg) {}
@@ -22040,8 +22119,10 @@
 	    content: "秀秀老爸的照片",
 	    theme: {
 	        color1: '#f2921f',
-	        color2: '#2f8764'
+	        color2: '#116b55'
 	    },
+	    display: 'block',
+	    upload: true,
 	    baseUrl: "http://webapi.zmiti.com/v1/upload/pub_upload_file/"
 	};
 	module.exports = exports['default'];
@@ -22085,7 +22166,7 @@
 
 
 	// module
-	exports.push([module.id, ".f-button-group {\r\n  -webkit-user-select: none;\r\n  -webkit-user-drag: none;\r\n  position: relative;\r\n  width: 120px;\r\n  height: 36px;\r\n  margin: 0 auto; }\r\n  .f-button-group .f-button1, .f-button-group .f-button2 {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 36px;\r\n    line-height: 36px;\r\n    text-align: center;\r\n    color: #fff;\r\n    z-index: 2;\r\n    border-radius: 4px; }\r\n    .f-button-group .f-button1.active, .f-button-group .f-button2.active {\r\n      left: 3px;\r\n      top: 3px; }\r\n  .f-button-group .f-button2 {\r\n    left: 3px;\r\n    top: 3px;\r\n    z-index: 1;\r\n    -webkit-filter: blur(2px); }\r\n\r\n/*# sourceMappingURL=f-button.css.map */\r\n", ""]);
+	exports.push([module.id, ".f-button-group {\r\n  -webkit-user-select: none;\r\n  -webkit-user-drag: none;\r\n  position: relative;\r\n  width: 120px;\r\n  height: 36px;\r\n  margin: 0 auto; }\r\n  .f-button-group .f-button1, .f-button-group .f-button2 {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 36px;\r\n    line-height: 36px;\r\n    text-align: center;\r\n    color: #fff;\r\n    z-index: 2;\r\n    border-radius: 4px; }\r\n    .f-button-group .f-button1.active, .f-button-group .f-button2.active {\r\n      left: 3px;\r\n      top: 3px; }\r\n  .f-button-group .f-button2 {\r\n    left: 3px;\r\n    top: 3px;\r\n    z-index: 1; }\r\n\r\n/*# sourceMappingURL=f-button.css.map */\r\n", ""]);
 
 	// exports
 
@@ -22345,8 +22426,2111 @@
 /* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(184);
-	var defaultClickRejectionStrategy = __webpack_require__(185);
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*! iScroll v5.2.0 ~ (c) 2008-2016 Matteo Spinelli ~ http://cubiq.org/license */
+	(function (window, document, Math) {
+	var rAF = window.requestAnimationFrame	||
+		window.webkitRequestAnimationFrame	||
+		window.mozRequestAnimationFrame		||
+		window.oRequestAnimationFrame		||
+		window.msRequestAnimationFrame		||
+		function (callback) { window.setTimeout(callback, 1000 / 60); };
+
+	var utils = (function () {
+		var me = {};
+
+		var _elementStyle = document.createElement('div').style;
+		var _vendor = (function () {
+			var vendors = ['t', 'webkitT', 'MozT', 'msT', 'OT'],
+				transform,
+				i = 0,
+				l = vendors.length;
+
+			for ( ; i < l; i++ ) {
+				transform = vendors[i] + 'ransform';
+				if ( transform in _elementStyle ) return vendors[i].substr(0, vendors[i].length-1);
+			}
+
+			return false;
+		})();
+
+		function _prefixStyle (style) {
+			if ( _vendor === false ) return false;
+			if ( _vendor === '' ) return style;
+			return _vendor + style.charAt(0).toUpperCase() + style.substr(1);
+		}
+
+		me.getTime = Date.now || function getTime () { return new Date().getTime(); };
+
+		me.extend = function (target, obj) {
+			for ( var i in obj ) {
+				target[i] = obj[i];
+			}
+		};
+
+		me.addEvent = function (el, type, fn, capture) {
+			el.addEventListener(type, fn, !!capture);
+		};
+
+		me.removeEvent = function (el, type, fn, capture) {
+			el.removeEventListener(type, fn, !!capture);
+		};
+
+		me.prefixPointerEvent = function (pointerEvent) {
+			return window.MSPointerEvent ?
+				'MSPointer' + pointerEvent.charAt(7).toUpperCase() + pointerEvent.substr(8):
+				pointerEvent;
+		};
+
+		me.momentum = function (current, start, time, lowerMargin, wrapperSize, deceleration) {
+			var distance = current - start,
+				speed = Math.abs(distance) / time,
+				destination,
+				duration;
+
+			deceleration = deceleration === undefined ? 0.0006 : deceleration;
+
+			destination = current + ( speed * speed ) / ( 2 * deceleration ) * ( distance < 0 ? -1 : 1 );
+			duration = speed / deceleration;
+
+			if ( destination < lowerMargin ) {
+				destination = wrapperSize ? lowerMargin - ( wrapperSize / 2.5 * ( speed / 8 ) ) : lowerMargin;
+				distance = Math.abs(destination - current);
+				duration = distance / speed;
+			} else if ( destination > 0 ) {
+				destination = wrapperSize ? wrapperSize / 2.5 * ( speed / 8 ) : 0;
+				distance = Math.abs(current) + destination;
+				duration = distance / speed;
+			}
+
+			return {
+				destination: Math.round(destination),
+				duration: duration
+			};
+		};
+
+		var _transform = _prefixStyle('transform');
+
+		me.extend(me, {
+			hasTransform: _transform !== false,
+			hasPerspective: _prefixStyle('perspective') in _elementStyle,
+			hasTouch: 'ontouchstart' in window,
+			hasPointer: !!(window.PointerEvent || window.MSPointerEvent), // IE10 is prefixed
+			hasTransition: _prefixStyle('transition') in _elementStyle
+		});
+
+		/*
+		This should find all Android browsers lower than build 535.19 (both stock browser and webview)
+		- galaxy S2 is ok
+	    - 2.3.6 : `AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1`
+	    - 4.0.4 : `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+	   - galaxy S3 is badAndroid (stock brower, webview)
+	     `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+	   - galaxy S4 is badAndroid (stock brower, webview)
+	     `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
+	   - galaxy S5 is OK
+	     `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
+	   - galaxy S6 is OK
+	     `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`
+	  */
+		me.isBadAndroid = (function() {
+			var appVersion = window.navigator.appVersion;
+			// Android browser is not a chrome browser.
+			if (/Android/.test(appVersion) && !(/Chrome\/\d/.test(appVersion))) {
+				var safariVersion = appVersion.match(/Safari\/(\d+.\d)/);
+				if(safariVersion && typeof safariVersion === "object" && safariVersion.length >= 2) {
+					return parseFloat(safariVersion[1]) < 535.19;
+				} else {
+					return true;
+				}
+			} else {
+				return false;
+			}
+		})();
+
+		me.extend(me.style = {}, {
+			transform: _transform,
+			transitionTimingFunction: _prefixStyle('transitionTimingFunction'),
+			transitionDuration: _prefixStyle('transitionDuration'),
+			transitionDelay: _prefixStyle('transitionDelay'),
+			transformOrigin: _prefixStyle('transformOrigin')
+		});
+
+		me.hasClass = function (e, c) {
+			var re = new RegExp("(^|\\s)" + c + "(\\s|$)");
+			return re.test(e.className);
+		};
+
+		me.addClass = function (e, c) {
+			if ( me.hasClass(e, c) ) {
+				return;
+			}
+
+			var newclass = e.className.split(' ');
+			newclass.push(c);
+			e.className = newclass.join(' ');
+		};
+
+		me.removeClass = function (e, c) {
+			if ( !me.hasClass(e, c) ) {
+				return;
+			}
+
+			var re = new RegExp("(^|\\s)" + c + "(\\s|$)", 'g');
+			e.className = e.className.replace(re, ' ');
+		};
+
+		me.offset = function (el) {
+			var left = -el.offsetLeft,
+				top = -el.offsetTop;
+
+			// jshint -W084
+			while (el = el.offsetParent) {
+				left -= el.offsetLeft;
+				top -= el.offsetTop;
+			}
+			// jshint +W084
+
+			return {
+				left: left,
+				top: top
+			};
+		};
+
+		me.preventDefaultException = function (el, exceptions) {
+			for ( var i in exceptions ) {
+				if ( exceptions[i].test(el[i]) ) {
+					return true;
+				}
+			}
+
+			return false;
+		};
+
+		me.extend(me.eventType = {}, {
+			touchstart: 1,
+			touchmove: 1,
+			touchend: 1,
+
+			mousedown: 2,
+			mousemove: 2,
+			mouseup: 2,
+
+			pointerdown: 3,
+			pointermove: 3,
+			pointerup: 3,
+
+			MSPointerDown: 3,
+			MSPointerMove: 3,
+			MSPointerUp: 3
+		});
+
+		me.extend(me.ease = {}, {
+			quadratic: {
+				style: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+				fn: function (k) {
+					return k * ( 2 - k );
+				}
+			},
+			circular: {
+				style: 'cubic-bezier(0.1, 0.57, 0.1, 1)',	// Not properly "circular" but this looks better, it should be (0.075, 0.82, 0.165, 1)
+				fn: function (k) {
+					return Math.sqrt( 1 - ( --k * k ) );
+				}
+			},
+			back: {
+				style: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				fn: function (k) {
+					var b = 4;
+					return ( k = k - 1 ) * k * ( ( b + 1 ) * k + b ) + 1;
+				}
+			},
+			bounce: {
+				style: '',
+				fn: function (k) {
+					if ( ( k /= 1 ) < ( 1 / 2.75 ) ) {
+						return 7.5625 * k * k;
+					} else if ( k < ( 2 / 2.75 ) ) {
+						return 7.5625 * ( k -= ( 1.5 / 2.75 ) ) * k + 0.75;
+					} else if ( k < ( 2.5 / 2.75 ) ) {
+						return 7.5625 * ( k -= ( 2.25 / 2.75 ) ) * k + 0.9375;
+					} else {
+						return 7.5625 * ( k -= ( 2.625 / 2.75 ) ) * k + 0.984375;
+					}
+				}
+			},
+			elastic: {
+				style: '',
+				fn: function (k) {
+					var f = 0.22,
+						e = 0.4;
+
+					if ( k === 0 ) { return 0; }
+					if ( k == 1 ) { return 1; }
+
+					return ( e * Math.pow( 2, - 10 * k ) * Math.sin( ( k - f / 4 ) * ( 2 * Math.PI ) / f ) + 1 );
+				}
+			}
+		});
+
+		me.tap = function (e, eventName) {
+			var ev = document.createEvent('Event');
+			ev.initEvent(eventName, true, true);
+			ev.pageX = e.pageX;
+			ev.pageY = e.pageY;
+			e.target.dispatchEvent(ev);
+		};
+
+		me.click = function (e) {
+			var target = e.target,
+				ev;
+
+			if ( !(/(SELECT|INPUT|TEXTAREA)/i).test(target.tagName) ) {
+				ev = document.createEvent('MouseEvents');
+				ev.initMouseEvent('click', true, true, e.view, 1,
+					target.screenX, target.screenY, target.clientX, target.clientY,
+					e.ctrlKey, e.altKey, e.shiftKey, e.metaKey,
+					0, null);
+
+				ev._constructed = true;
+				target.dispatchEvent(ev);
+			}
+		};
+
+		return me;
+	})();
+	function IScroll (el, options) {
+		this.wrapper = typeof el == 'string' ? document.querySelector(el) : el;
+		this.scroller = this.wrapper.children[0];
+		this.scrollerStyle = this.scroller.style;		// cache style for better performance
+
+		this.options = {
+
+			resizeScrollbars: true,
+
+			mouseWheelSpeed: 20,
+
+			snapThreshold: 0.334,
+
+	// INSERT POINT: OPTIONS
+			disablePointer : !utils.hasPointer,
+			disableTouch : utils.hasPointer || !utils.hasTouch,
+			disableMouse : utils.hasPointer || utils.hasTouch,
+			startX: 0,
+			startY: 0,
+			scrollY: true,
+			directionLockThreshold: 5,
+			momentum: true,
+
+			bounce: true,
+			bounceTime: 600,
+			bounceEasing: '',
+
+			preventDefault: true,
+			preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ },
+
+			HWCompositing: true,
+			useTransition: true,
+			useTransform: true,
+			bindToWrapper: typeof window.onmousedown === "undefined"
+		};
+
+		for ( var i in options ) {
+			this.options[i] = options[i];
+		}
+
+		// Normalize options
+		this.translateZ = this.options.HWCompositing && utils.hasPerspective ? ' translateZ(0)' : '';
+
+		this.options.useTransition = utils.hasTransition && this.options.useTransition;
+		this.options.useTransform = utils.hasTransform && this.options.useTransform;
+
+		this.options.eventPassthrough = this.options.eventPassthrough === true ? 'vertical' : this.options.eventPassthrough;
+		this.options.preventDefault = !this.options.eventPassthrough && this.options.preventDefault;
+
+		// If you want eventPassthrough I have to lock one of the axes
+		this.options.scrollY = this.options.eventPassthrough == 'vertical' ? false : this.options.scrollY;
+		this.options.scrollX = this.options.eventPassthrough == 'horizontal' ? false : this.options.scrollX;
+
+		// With eventPassthrough we also need lockDirection mechanism
+		this.options.freeScroll = this.options.freeScroll && !this.options.eventPassthrough;
+		this.options.directionLockThreshold = this.options.eventPassthrough ? 0 : this.options.directionLockThreshold;
+
+		this.options.bounceEasing = typeof this.options.bounceEasing == 'string' ? utils.ease[this.options.bounceEasing] || utils.ease.circular : this.options.bounceEasing;
+
+		this.options.resizePolling = this.options.resizePolling === undefined ? 60 : this.options.resizePolling;
+
+		if ( this.options.tap === true ) {
+			this.options.tap = 'tap';
+		}
+
+		if ( this.options.shrinkScrollbars == 'scale' ) {
+			this.options.useTransition = false;
+		}
+
+		this.options.invertWheelDirection = this.options.invertWheelDirection ? -1 : 1;
+
+	// INSERT POINT: NORMALIZATION
+
+		// Some defaults
+		this.x = 0;
+		this.y = 0;
+		this.directionX = 0;
+		this.directionY = 0;
+		this._events = {};
+
+	// INSERT POINT: DEFAULTS
+
+		this._init();
+		this.refresh();
+
+		this.scrollTo(this.options.startX, this.options.startY);
+		this.enable();
+	}
+
+	IScroll.prototype = {
+		version: '5.2.0',
+
+		_init: function () {
+			this._initEvents();
+
+			if ( this.options.scrollbars || this.options.indicators ) {
+				this._initIndicators();
+			}
+
+			if ( this.options.mouseWheel ) {
+				this._initWheel();
+			}
+
+			if ( this.options.snap ) {
+				this._initSnap();
+			}
+
+			if ( this.options.keyBindings ) {
+				this._initKeys();
+			}
+
+	// INSERT POINT: _init
+
+		},
+
+		destroy: function () {
+			this._initEvents(true);
+			clearTimeout(this.resizeTimeout);
+	 		this.resizeTimeout = null;
+			this._execEvent('destroy');
+		},
+
+		_transitionEnd: function (e) {
+			if ( e.target != this.scroller || !this.isInTransition ) {
+				return;
+			}
+
+			this._transitionTime();
+			if ( !this.resetPosition(this.options.bounceTime) ) {
+				this.isInTransition = false;
+				this._execEvent('scrollEnd');
+			}
+		},
+
+		_start: function (e) {
+			// React to left mouse button only
+			if ( utils.eventType[e.type] != 1 ) {
+			  // for button property
+			  // http://unixpapa.com/js/mouse.html
+			  var button;
+		    if (!e.which) {
+		      /* IE case */
+		      button = (e.button < 2) ? 0 :
+		               ((e.button == 4) ? 1 : 2);
+		    } else {
+		      /* All others */
+		      button = e.button;
+		    }
+				if ( button !== 0 ) {
+					return;
+				}
+			}
+
+			if ( !this.enabled || (this.initiated && utils.eventType[e.type] !== this.initiated) ) {
+				return;
+			}
+
+			if ( this.options.preventDefault && !utils.isBadAndroid && !utils.preventDefaultException(e.target, this.options.preventDefaultException) ) {
+				e.preventDefault();
+			}
+
+			var point = e.touches ? e.touches[0] : e,
+				pos;
+
+			this.initiated	= utils.eventType[e.type];
+			this.moved		= false;
+			this.distX		= 0;
+			this.distY		= 0;
+			this.directionX = 0;
+			this.directionY = 0;
+			this.directionLocked = 0;
+
+			this.startTime = utils.getTime();
+
+			if ( this.options.useTransition && this.isInTransition ) {
+				this._transitionTime();
+				this.isInTransition = false;
+				pos = this.getComputedPosition();
+				this._translate(Math.round(pos.x), Math.round(pos.y));
+				this._execEvent('scrollEnd');
+			} else if ( !this.options.useTransition && this.isAnimating ) {
+				this.isAnimating = false;
+				this._execEvent('scrollEnd');
+			}
+
+			this.startX    = this.x;
+			this.startY    = this.y;
+			this.absStartX = this.x;
+			this.absStartY = this.y;
+			this.pointX    = point.pageX;
+			this.pointY    = point.pageY;
+
+			this._execEvent('beforeScrollStart');
+		},
+
+		_move: function (e) {
+			if ( !this.enabled || utils.eventType[e.type] !== this.initiated ) {
+				return;
+			}
+
+			if ( this.options.preventDefault ) {	// increases performance on Android? TODO: check!
+				e.preventDefault();
+			}
+
+			var point		= e.touches ? e.touches[0] : e,
+				deltaX		= point.pageX - this.pointX,
+				deltaY		= point.pageY - this.pointY,
+				timestamp	= utils.getTime(),
+				newX, newY,
+				absDistX, absDistY;
+
+			this.pointX		= point.pageX;
+			this.pointY		= point.pageY;
+
+			this.distX		+= deltaX;
+			this.distY		+= deltaY;
+			absDistX		= Math.abs(this.distX);
+			absDistY		= Math.abs(this.distY);
+
+			// We need to move at least 10 pixels for the scrolling to initiate
+			if ( timestamp - this.endTime > 300 && (absDistX < 10 && absDistY < 10) ) {
+				return;
+			}
+
+			// If you are scrolling in one direction lock the other
+			if ( !this.directionLocked && !this.options.freeScroll ) {
+				if ( absDistX > absDistY + this.options.directionLockThreshold ) {
+					this.directionLocked = 'h';		// lock horizontally
+				} else if ( absDistY >= absDistX + this.options.directionLockThreshold ) {
+					this.directionLocked = 'v';		// lock vertically
+				} else {
+					this.directionLocked = 'n';		// no lock
+				}
+			}
+
+			if ( this.directionLocked == 'h' ) {
+				if ( this.options.eventPassthrough == 'vertical' ) {
+					e.preventDefault();
+				} else if ( this.options.eventPassthrough == 'horizontal' ) {
+					this.initiated = false;
+					return;
+				}
+
+				deltaY = 0;
+			} else if ( this.directionLocked == 'v' ) {
+				if ( this.options.eventPassthrough == 'horizontal' ) {
+					e.preventDefault();
+				} else if ( this.options.eventPassthrough == 'vertical' ) {
+					this.initiated = false;
+					return;
+				}
+
+				deltaX = 0;
+			}
+
+			deltaX = this.hasHorizontalScroll ? deltaX : 0;
+			deltaY = this.hasVerticalScroll ? deltaY : 0;
+
+			newX = this.x + deltaX;
+			newY = this.y + deltaY;
+
+			// Slow down if outside of the boundaries
+			if ( newX > 0 || newX < this.maxScrollX ) {
+				newX = this.options.bounce ? this.x + deltaX / 3 : newX > 0 ? 0 : this.maxScrollX;
+			}
+			if ( newY > 0 || newY < this.maxScrollY ) {
+				newY = this.options.bounce ? this.y + deltaY / 3 : newY > 0 ? 0 : this.maxScrollY;
+			}
+
+			this.directionX = deltaX > 0 ? -1 : deltaX < 0 ? 1 : 0;
+			this.directionY = deltaY > 0 ? -1 : deltaY < 0 ? 1 : 0;
+
+			if ( !this.moved ) {
+				this._execEvent('scrollStart');
+			}
+
+			this.moved = true;
+
+			this._translate(newX, newY);
+
+	/* REPLACE START: _move */
+
+			if ( timestamp - this.startTime > 300 ) {
+				this.startTime = timestamp;
+				this.startX = this.x;
+				this.startY = this.y;
+			}
+
+	/* REPLACE END: _move */
+
+		},
+
+		_end: function (e) {
+			if ( !this.enabled || utils.eventType[e.type] !== this.initiated ) {
+				return;
+			}
+
+			if ( this.options.preventDefault && !utils.preventDefaultException(e.target, this.options.preventDefaultException) ) {
+				e.preventDefault();
+			}
+
+			var point = e.changedTouches ? e.changedTouches[0] : e,
+				momentumX,
+				momentumY,
+				duration = utils.getTime() - this.startTime,
+				newX = Math.round(this.x),
+				newY = Math.round(this.y),
+				distanceX = Math.abs(newX - this.startX),
+				distanceY = Math.abs(newY - this.startY),
+				time = 0,
+				easing = '';
+
+			this.isInTransition = 0;
+			this.initiated = 0;
+			this.endTime = utils.getTime();
+
+			// reset if we are outside of the boundaries
+			if ( this.resetPosition(this.options.bounceTime) ) {
+				return;
+			}
+
+			this.scrollTo(newX, newY);	// ensures that the last position is rounded
+
+			// we scrolled less than 10 pixels
+			if ( !this.moved ) {
+				if ( this.options.tap ) {
+					utils.tap(e, this.options.tap);
+				}
+
+				if ( this.options.click ) {
+					utils.click(e);
+				}
+
+				this._execEvent('scrollCancel');
+				return;
+			}
+
+			if ( this._events.flick && duration < 200 && distanceX < 100 && distanceY < 100 ) {
+				this._execEvent('flick');
+				return;
+			}
+
+			// start momentum animation if needed
+			if ( this.options.momentum && duration < 300 ) {
+				momentumX = this.hasHorizontalScroll ? utils.momentum(this.x, this.startX, duration, this.maxScrollX, this.options.bounce ? this.wrapperWidth : 0, this.options.deceleration) : { destination: newX, duration: 0 };
+				momentumY = this.hasVerticalScroll ? utils.momentum(this.y, this.startY, duration, this.maxScrollY, this.options.bounce ? this.wrapperHeight : 0, this.options.deceleration) : { destination: newY, duration: 0 };
+				newX = momentumX.destination;
+				newY = momentumY.destination;
+				time = Math.max(momentumX.duration, momentumY.duration);
+				this.isInTransition = 1;
+			}
+
+
+			if ( this.options.snap ) {
+				var snap = this._nearestSnap(newX, newY);
+				this.currentPage = snap;
+				time = this.options.snapSpeed || Math.max(
+						Math.max(
+							Math.min(Math.abs(newX - snap.x), 1000),
+							Math.min(Math.abs(newY - snap.y), 1000)
+						), 300);
+				newX = snap.x;
+				newY = snap.y;
+
+				this.directionX = 0;
+				this.directionY = 0;
+				easing = this.options.bounceEasing;
+			}
+
+	// INSERT POINT: _end
+
+			if ( newX != this.x || newY != this.y ) {
+				// change easing function when scroller goes out of the boundaries
+				if ( newX > 0 || newX < this.maxScrollX || newY > 0 || newY < this.maxScrollY ) {
+					easing = utils.ease.quadratic;
+				}
+
+				this.scrollTo(newX, newY, time, easing);
+				return;
+			}
+
+			this._execEvent('scrollEnd');
+		},
+
+		_resize: function () {
+			var that = this;
+
+			clearTimeout(this.resizeTimeout);
+
+			this.resizeTimeout = setTimeout(function () {
+				that.refresh();
+			}, this.options.resizePolling);
+		},
+
+		resetPosition: function (time) {
+			var x = this.x,
+				y = this.y;
+
+			time = time || 0;
+
+			if ( !this.hasHorizontalScroll || this.x > 0 ) {
+				x = 0;
+			} else if ( this.x < this.maxScrollX ) {
+				x = this.maxScrollX;
+			}
+
+			if ( !this.hasVerticalScroll || this.y > 0 ) {
+				y = 0;
+			} else if ( this.y < this.maxScrollY ) {
+				y = this.maxScrollY;
+			}
+
+			if ( x == this.x && y == this.y ) {
+				return false;
+			}
+
+			this.scrollTo(x, y, time, this.options.bounceEasing);
+
+			return true;
+		},
+
+		disable: function () {
+			this.enabled = false;
+		},
+
+		enable: function () {
+			this.enabled = true;
+		},
+
+		refresh: function () {
+			var rf = this.wrapper.offsetHeight;		// Force reflow
+
+
+
+			this.wrapperWidth	= this.wrapper.clientWidth;
+			this.wrapperHeight	= this.wrapper.clientHeight;
+
+
+
+	/* REPLACE START: refresh */
+
+			this.scrollerWidth	= this.scroller.offsetWidth;
+			this.scrollerHeight	= this.scroller.offsetHeight;
+
+			this.maxScrollX		= this.wrapperWidth - this.scrollerWidth;
+			this.maxScrollY		= this.wrapperHeight - this.scrollerHeight;
+
+	/* REPLACE END: refresh */
+
+			this.hasHorizontalScroll	= this.options.scrollX && this.maxScrollX < 0;
+			this.hasVerticalScroll		= this.options.scrollY && this.maxScrollY < 0;
+
+			if ( !this.hasHorizontalScroll ) {
+				this.maxScrollX = 0;
+				this.scrollerWidth = this.wrapperWidth;
+			}
+
+			if ( !this.hasVerticalScroll ) {
+				this.maxScrollY = 0;
+				this.scrollerHeight = this.wrapperHeight;
+			}
+
+
+			this.endTime = 0;
+			this.directionX = 0;
+			this.directionY = 0;
+
+			this.wrapperOffset = utils.offset(this.wrapper);
+
+			this._execEvent('refresh');
+
+			this.resetPosition();
+
+	// INSERT POINT: _refresh
+
+		},
+
+		on: function (type, fn) {
+			if ( !this._events[type] ) {
+				this._events[type] = [];
+			}
+
+			this._events[type].push(fn);
+		},
+
+		off: function (type, fn) {
+			if ( !this._events[type] ) {
+				return;
+			}
+
+			var index = this._events[type].indexOf(fn);
+
+			if ( index > -1 ) {
+				this._events[type].splice(index, 1);
+			}
+		},
+
+		_execEvent: function (type) {
+
+			if ( !this._events[type] ) {
+				return;
+			}
+
+			var i = 0,
+				l = this._events[type].length;
+
+			if ( !l ) {
+				return;
+			}
+
+			for ( ; i < l; i++ ) {
+				this._events[type][i].apply(this, [].slice.call(arguments, 1));
+			}
+		},
+
+		scrollBy: function (x, y, time, easing) {
+			x = this.x + x;
+			y = this.y + y;
+			time = time || 0;
+
+			this.scrollTo(x, y, time, easing);
+		},
+
+		scrollTo: function (x, y, time, easing) {
+			easing = easing || utils.ease.circular;
+
+			this.isInTransition = this.options.useTransition && time > 0;
+			var transitionType = this.options.useTransition && easing.style;
+			if ( !time || transitionType ) {
+					if(transitionType) {
+						this._transitionTimingFunction(easing.style);
+						this._transitionTime(time);
+					}
+				this._translate(x, y);
+			} else {
+				this._animate(x, y, time, easing.fn);
+			}
+		},
+
+		scrollToElement: function (el, time, offsetX, offsetY, easing) {
+			el = el.nodeType ? el : this.scroller.querySelector(el);
+
+			if ( !el ) {
+				return;
+			}
+
+			var pos = utils.offset(el);
+
+			pos.left -= this.wrapperOffset.left;
+			pos.top  -= this.wrapperOffset.top;
+
+			// if offsetX/Y are true we center the element to the screen
+			if ( offsetX === true ) {
+				offsetX = Math.round(el.offsetWidth / 2 - this.wrapper.offsetWidth / 2);
+			}
+			if ( offsetY === true ) {
+				offsetY = Math.round(el.offsetHeight / 2 - this.wrapper.offsetHeight / 2);
+			}
+
+			pos.left -= offsetX || 0;
+			pos.top  -= offsetY || 0;
+
+			pos.left = pos.left > 0 ? 0 : pos.left < this.maxScrollX ? this.maxScrollX : pos.left;
+			pos.top  = pos.top  > 0 ? 0 : pos.top  < this.maxScrollY ? this.maxScrollY : pos.top;
+
+			time = time === undefined || time === null || time === 'auto' ? Math.max(Math.abs(this.x-pos.left), Math.abs(this.y-pos.top)) : time;
+
+			this.scrollTo(pos.left, pos.top, time, easing);
+		},
+
+		_transitionTime: function (time) {
+			time = time || 0;
+
+			var durationProp = utils.style.transitionDuration;
+			this.scrollerStyle[durationProp] = time + 'ms';
+
+			if ( !time && utils.isBadAndroid ) {
+				this.scrollerStyle[durationProp] = '0.0001ms';
+				// remove 0.0001ms
+				var self = this;
+				rAF(function() {
+					if(self.scrollerStyle[durationProp] === '0.0001ms') {
+						self.scrollerStyle[durationProp] = '0s';
+					}
+				});
+			}
+
+
+			if ( this.indicators ) {
+				for ( var i = this.indicators.length; i--; ) {
+					this.indicators[i].transitionTime(time);
+				}
+			}
+
+
+	// INSERT POINT: _transitionTime
+
+		},
+
+		_transitionTimingFunction: function (easing) {
+			this.scrollerStyle[utils.style.transitionTimingFunction] = easing;
+
+
+			if ( this.indicators ) {
+				for ( var i = this.indicators.length; i--; ) {
+					this.indicators[i].transitionTimingFunction(easing);
+				}
+			}
+
+
+	// INSERT POINT: _transitionTimingFunction
+
+		},
+
+		_translate: function (x, y) {
+			if ( this.options.useTransform ) {
+
+	/* REPLACE START: _translate */
+
+				this.scrollerStyle[utils.style.transform] = 'translate(' + x + 'px,' + y + 'px)' + this.translateZ;
+
+	/* REPLACE END: _translate */
+
+			} else {
+				x = Math.round(x);
+				y = Math.round(y);
+				this.scrollerStyle.left = x + 'px';
+				this.scrollerStyle.top = y + 'px';
+			}
+
+			this.x = x;
+			this.y = y;
+
+
+		if ( this.indicators ) {
+			for ( var i = this.indicators.length; i--; ) {
+				this.indicators[i].updatePosition();
+			}
+		}
+
+
+	// INSERT POINT: _translate
+
+		},
+
+		_initEvents: function (remove) {
+			var eventType = remove ? utils.removeEvent : utils.addEvent,
+				target = this.options.bindToWrapper ? this.wrapper : window;
+
+			eventType(window, 'orientationchange', this);
+			eventType(window, 'resize', this);
+
+			if ( this.options.click ) {
+				eventType(this.wrapper, 'click', this, true);
+			}
+
+			if ( !this.options.disableMouse ) {
+				eventType(this.wrapper, 'mousedown', this);
+				eventType(target, 'mousemove', this);
+				eventType(target, 'mousecancel', this);
+				eventType(target, 'mouseup', this);
+			}
+
+			if ( utils.hasPointer && !this.options.disablePointer ) {
+				eventType(this.wrapper, utils.prefixPointerEvent('pointerdown'), this);
+				eventType(target, utils.prefixPointerEvent('pointermove'), this);
+				eventType(target, utils.prefixPointerEvent('pointercancel'), this);
+				eventType(target, utils.prefixPointerEvent('pointerup'), this);
+			}
+
+			if ( utils.hasTouch && !this.options.disableTouch ) {
+				eventType(this.wrapper, 'touchstart', this);
+				eventType(target, 'touchmove', this);
+				eventType(target, 'touchcancel', this);
+				eventType(target, 'touchend', this);
+			}
+
+			eventType(this.scroller, 'transitionend', this);
+			eventType(this.scroller, 'webkitTransitionEnd', this);
+			eventType(this.scroller, 'oTransitionEnd', this);
+			eventType(this.scroller, 'MSTransitionEnd', this);
+		},
+
+		getComputedPosition: function () {
+			var matrix = window.getComputedStyle(this.scroller, null),
+				x, y;
+
+			if ( this.options.useTransform ) {
+				matrix = matrix[utils.style.transform].split(')')[0].split(', ');
+				x = +(matrix[12] || matrix[4]);
+				y = +(matrix[13] || matrix[5]);
+			} else {
+				x = +matrix.left.replace(/[^-\d.]/g, '');
+				y = +matrix.top.replace(/[^-\d.]/g, '');
+			}
+
+			return { x: x, y: y };
+		},
+		_initIndicators: function () {
+			var interactive = this.options.interactiveScrollbars,
+				customStyle = typeof this.options.scrollbars != 'string',
+				indicators = [],
+				indicator;
+
+			var that = this;
+
+			this.indicators = [];
+
+			if ( this.options.scrollbars ) {
+				// Vertical scrollbar
+				if ( this.options.scrollY ) {
+					indicator = {
+						el: createDefaultScrollbar('v', interactive, this.options.scrollbars),
+						interactive: interactive,
+						defaultScrollbars: true,
+						customStyle: customStyle,
+						resize: this.options.resizeScrollbars,
+						shrink: this.options.shrinkScrollbars,
+						fade: this.options.fadeScrollbars,
+						listenX: false
+					};
+
+					this.wrapper.appendChild(indicator.el);
+					indicators.push(indicator);
+				}
+
+				// Horizontal scrollbar
+				if ( this.options.scrollX ) {
+					indicator = {
+						el: createDefaultScrollbar('h', interactive, this.options.scrollbars),
+						interactive: interactive,
+						defaultScrollbars: true,
+						customStyle: customStyle,
+						resize: this.options.resizeScrollbars,
+						shrink: this.options.shrinkScrollbars,
+						fade: this.options.fadeScrollbars,
+						listenY: false
+					};
+
+					this.wrapper.appendChild(indicator.el);
+					indicators.push(indicator);
+				}
+			}
+
+			if ( this.options.indicators ) {
+				// TODO: check concat compatibility
+				indicators = indicators.concat(this.options.indicators);
+			}
+
+			for ( var i = indicators.length; i--; ) {
+				this.indicators.push( new Indicator(this, indicators[i]) );
+			}
+
+			// TODO: check if we can use array.map (wide compatibility and performance issues)
+			function _indicatorsMap (fn) {
+				if (that.indicators) {
+					for ( var i = that.indicators.length; i--; ) {
+						fn.call(that.indicators[i]);
+					}
+				}
+			}
+
+			if ( this.options.fadeScrollbars ) {
+				this.on('scrollEnd', function () {
+					_indicatorsMap(function () {
+						this.fade();
+					});
+				});
+
+				this.on('scrollCancel', function () {
+					_indicatorsMap(function () {
+						this.fade();
+					});
+				});
+
+				this.on('scrollStart', function () {
+					_indicatorsMap(function () {
+						this.fade(1);
+					});
+				});
+
+				this.on('beforeScrollStart', function () {
+					_indicatorsMap(function () {
+						this.fade(1, true);
+					});
+				});
+			}
+
+
+			this.on('refresh', function () {
+				_indicatorsMap(function () {
+					this.refresh();
+				});
+			});
+
+			this.on('destroy', function () {
+				_indicatorsMap(function () {
+					this.destroy();
+				});
+
+				delete this.indicators;
+			});
+		},
+
+		_initWheel: function () {
+			utils.addEvent(this.wrapper, 'wheel', this);
+			utils.addEvent(this.wrapper, 'mousewheel', this);
+			utils.addEvent(this.wrapper, 'DOMMouseScroll', this);
+
+			this.on('destroy', function () {
+				clearTimeout(this.wheelTimeout);
+				this.wheelTimeout = null;
+				utils.removeEvent(this.wrapper, 'wheel', this);
+				utils.removeEvent(this.wrapper, 'mousewheel', this);
+				utils.removeEvent(this.wrapper, 'DOMMouseScroll', this);
+			});
+		},
+
+		_wheel: function (e) {
+			if ( !this.enabled ) {
+				return;
+			}
+
+			e.preventDefault();
+
+			var wheelDeltaX, wheelDeltaY,
+				newX, newY,
+				that = this;
+
+			if ( this.wheelTimeout === undefined ) {
+				that._execEvent('scrollStart');
+			}
+
+			// Execute the scrollEnd event after 400ms the wheel stopped scrolling
+			clearTimeout(this.wheelTimeout);
+			this.wheelTimeout = setTimeout(function () {
+				if(!that.options.snap) {
+					that._execEvent('scrollEnd');
+				}
+				that.wheelTimeout = undefined;
+			}, 400);
+
+			if ( 'deltaX' in e ) {
+				if (e.deltaMode === 1) {
+					wheelDeltaX = -e.deltaX * this.options.mouseWheelSpeed;
+					wheelDeltaY = -e.deltaY * this.options.mouseWheelSpeed;
+				} else {
+					wheelDeltaX = -e.deltaX;
+					wheelDeltaY = -e.deltaY;
+				}
+			} else if ( 'wheelDeltaX' in e ) {
+				wheelDeltaX = e.wheelDeltaX / 120 * this.options.mouseWheelSpeed;
+				wheelDeltaY = e.wheelDeltaY / 120 * this.options.mouseWheelSpeed;
+			} else if ( 'wheelDelta' in e ) {
+				wheelDeltaX = wheelDeltaY = e.wheelDelta / 120 * this.options.mouseWheelSpeed;
+			} else if ( 'detail' in e ) {
+				wheelDeltaX = wheelDeltaY = -e.detail / 3 * this.options.mouseWheelSpeed;
+			} else {
+				return;
+			}
+
+			wheelDeltaX *= this.options.invertWheelDirection;
+			wheelDeltaY *= this.options.invertWheelDirection;
+
+			if ( !this.hasVerticalScroll ) {
+				wheelDeltaX = wheelDeltaY;
+				wheelDeltaY = 0;
+			}
+
+			if ( this.options.snap ) {
+				newX = this.currentPage.pageX;
+				newY = this.currentPage.pageY;
+
+				if ( wheelDeltaX > 0 ) {
+					newX--;
+				} else if ( wheelDeltaX < 0 ) {
+					newX++;
+				}
+
+				if ( wheelDeltaY > 0 ) {
+					newY--;
+				} else if ( wheelDeltaY < 0 ) {
+					newY++;
+				}
+
+				this.goToPage(newX, newY);
+
+				return;
+			}
+
+			newX = this.x + Math.round(this.hasHorizontalScroll ? wheelDeltaX : 0);
+			newY = this.y + Math.round(this.hasVerticalScroll ? wheelDeltaY : 0);
+
+			this.directionX = wheelDeltaX > 0 ? -1 : wheelDeltaX < 0 ? 1 : 0;
+			this.directionY = wheelDeltaY > 0 ? -1 : wheelDeltaY < 0 ? 1 : 0;
+
+			if ( newX > 0 ) {
+				newX = 0;
+			} else if ( newX < this.maxScrollX ) {
+				newX = this.maxScrollX;
+			}
+
+			if ( newY > 0 ) {
+				newY = 0;
+			} else if ( newY < this.maxScrollY ) {
+				newY = this.maxScrollY;
+			}
+
+			this.scrollTo(newX, newY, 0);
+
+	// INSERT POINT: _wheel
+		},
+
+		_initSnap: function () {
+			this.currentPage = {};
+
+			if ( typeof this.options.snap == 'string' ) {
+				this.options.snap = this.scroller.querySelectorAll(this.options.snap);
+			}
+
+			this.on('refresh', function () {
+				var i = 0, l,
+					m = 0, n,
+					cx, cy,
+					x = 0, y,
+					stepX = this.options.snapStepX || this.wrapperWidth,
+					stepY = this.options.snapStepY || this.wrapperHeight,
+					el;
+
+				this.pages = [];
+
+				if ( !this.wrapperWidth || !this.wrapperHeight || !this.scrollerWidth || !this.scrollerHeight ) {
+					return;
+				}
+
+				if ( this.options.snap === true ) {
+					cx = Math.round( stepX / 2 );
+					cy = Math.round( stepY / 2 );
+
+					while ( x > -this.scrollerWidth ) {
+						this.pages[i] = [];
+						l = 0;
+						y = 0;
+
+						while ( y > -this.scrollerHeight ) {
+							this.pages[i][l] = {
+								x: Math.max(x, this.maxScrollX),
+								y: Math.max(y, this.maxScrollY),
+								width: stepX,
+								height: stepY,
+								cx: x - cx,
+								cy: y - cy
+							};
+
+							y -= stepY;
+							l++;
+						}
+
+						x -= stepX;
+						i++;
+					}
+				} else {
+					el = this.options.snap;
+					l = el.length;
+					n = -1;
+
+					for ( ; i < l; i++ ) {
+						if ( i === 0 || el[i].offsetLeft <= el[i-1].offsetLeft ) {
+							m = 0;
+							n++;
+						}
+
+						if ( !this.pages[m] ) {
+							this.pages[m] = [];
+						}
+
+						x = Math.max(-el[i].offsetLeft, this.maxScrollX);
+						y = Math.max(-el[i].offsetTop, this.maxScrollY);
+						cx = x - Math.round(el[i].offsetWidth / 2);
+						cy = y - Math.round(el[i].offsetHeight / 2);
+
+						this.pages[m][n] = {
+							x: x,
+							y: y,
+							width: el[i].offsetWidth,
+							height: el[i].offsetHeight,
+							cx: cx,
+							cy: cy
+						};
+
+						if ( x > this.maxScrollX ) {
+							m++;
+						}
+					}
+				}
+
+				this.goToPage(this.currentPage.pageX || 0, this.currentPage.pageY || 0, 0);
+
+				// Update snap threshold if needed
+				if ( this.options.snapThreshold % 1 === 0 ) {
+					this.snapThresholdX = this.options.snapThreshold;
+					this.snapThresholdY = this.options.snapThreshold;
+				} else {
+					this.snapThresholdX = Math.round(this.pages[this.currentPage.pageX][this.currentPage.pageY].width * this.options.snapThreshold);
+					this.snapThresholdY = Math.round(this.pages[this.currentPage.pageX][this.currentPage.pageY].height * this.options.snapThreshold);
+				}
+			});
+
+			this.on('flick', function () {
+				var time = this.options.snapSpeed || Math.max(
+						Math.max(
+							Math.min(Math.abs(this.x - this.startX), 1000),
+							Math.min(Math.abs(this.y - this.startY), 1000)
+						), 300);
+
+				this.goToPage(
+					this.currentPage.pageX + this.directionX,
+					this.currentPage.pageY + this.directionY,
+					time
+				);
+			});
+		},
+
+		_nearestSnap: function (x, y) {
+			if ( !this.pages.length ) {
+				return { x: 0, y: 0, pageX: 0, pageY: 0 };
+			}
+
+			var i = 0,
+				l = this.pages.length,
+				m = 0;
+
+			// Check if we exceeded the snap threshold
+			if ( Math.abs(x - this.absStartX) < this.snapThresholdX &&
+				Math.abs(y - this.absStartY) < this.snapThresholdY ) {
+				return this.currentPage;
+			}
+
+			if ( x > 0 ) {
+				x = 0;
+			} else if ( x < this.maxScrollX ) {
+				x = this.maxScrollX;
+			}
+
+			if ( y > 0 ) {
+				y = 0;
+			} else if ( y < this.maxScrollY ) {
+				y = this.maxScrollY;
+			}
+
+			for ( ; i < l; i++ ) {
+				if ( x >= this.pages[i][0].cx ) {
+					x = this.pages[i][0].x;
+					break;
+				}
+			}
+
+			l = this.pages[i].length;
+
+			for ( ; m < l; m++ ) {
+				if ( y >= this.pages[0][m].cy ) {
+					y = this.pages[0][m].y;
+					break;
+				}
+			}
+
+			if ( i == this.currentPage.pageX ) {
+				i += this.directionX;
+
+				if ( i < 0 ) {
+					i = 0;
+				} else if ( i >= this.pages.length ) {
+					i = this.pages.length - 1;
+				}
+
+				x = this.pages[i][0].x;
+			}
+
+			if ( m == this.currentPage.pageY ) {
+				m += this.directionY;
+
+				if ( m < 0 ) {
+					m = 0;
+				} else if ( m >= this.pages[0].length ) {
+					m = this.pages[0].length - 1;
+				}
+
+				y = this.pages[0][m].y;
+			}
+
+			return {
+				x: x,
+				y: y,
+				pageX: i,
+				pageY: m
+			};
+		},
+
+		goToPage: function (x, y, time, easing) {
+			easing = easing || this.options.bounceEasing;
+
+			if ( x >= this.pages.length ) {
+				x = this.pages.length - 1;
+			} else if ( x < 0 ) {
+				x = 0;
+			}
+
+			if ( y >= this.pages[x].length ) {
+				y = this.pages[x].length - 1;
+			} else if ( y < 0 ) {
+				y = 0;
+			}
+
+			var posX = this.pages[x][y].x,
+				posY = this.pages[x][y].y;
+
+			time = time === undefined ? this.options.snapSpeed || Math.max(
+				Math.max(
+					Math.min(Math.abs(posX - this.x), 1000),
+					Math.min(Math.abs(posY - this.y), 1000)
+				), 300) : time;
+
+			this.currentPage = {
+				x: posX,
+				y: posY,
+				pageX: x,
+				pageY: y
+			};
+
+			this.scrollTo(posX, posY, time, easing);
+		},
+
+		next: function (time, easing) {
+			var x = this.currentPage.pageX,
+				y = this.currentPage.pageY;
+
+			x++;
+
+			if ( x >= this.pages.length && this.hasVerticalScroll ) {
+				x = 0;
+				y++;
+			}
+
+			this.goToPage(x, y, time, easing);
+		},
+
+		prev: function (time, easing) {
+			var x = this.currentPage.pageX,
+				y = this.currentPage.pageY;
+
+			x--;
+
+			if ( x < 0 && this.hasVerticalScroll ) {
+				x = 0;
+				y--;
+			}
+
+			this.goToPage(x, y, time, easing);
+		},
+
+		_initKeys: function (e) {
+			// default key bindings
+			var keys = {
+				pageUp: 33,
+				pageDown: 34,
+				end: 35,
+				home: 36,
+				left: 37,
+				up: 38,
+				right: 39,
+				down: 40
+			};
+			var i;
+
+			// if you give me characters I give you keycode
+			if ( typeof this.options.keyBindings == 'object' ) {
+				for ( i in this.options.keyBindings ) {
+					if ( typeof this.options.keyBindings[i] == 'string' ) {
+						this.options.keyBindings[i] = this.options.keyBindings[i].toUpperCase().charCodeAt(0);
+					}
+				}
+			} else {
+				this.options.keyBindings = {};
+			}
+
+			for ( i in keys ) {
+				this.options.keyBindings[i] = this.options.keyBindings[i] || keys[i];
+			}
+
+			utils.addEvent(window, 'keydown', this);
+
+			this.on('destroy', function () {
+				utils.removeEvent(window, 'keydown', this);
+			});
+		},
+
+		_key: function (e) {
+			if ( !this.enabled ) {
+				return;
+			}
+
+			var snap = this.options.snap,	// we are using this alot, better to cache it
+				newX = snap ? this.currentPage.pageX : this.x,
+				newY = snap ? this.currentPage.pageY : this.y,
+				now = utils.getTime(),
+				prevTime = this.keyTime || 0,
+				acceleration = 0.250,
+				pos;
+
+			if ( this.options.useTransition && this.isInTransition ) {
+				pos = this.getComputedPosition();
+
+				this._translate(Math.round(pos.x), Math.round(pos.y));
+				this.isInTransition = false;
+			}
+
+			this.keyAcceleration = now - prevTime < 200 ? Math.min(this.keyAcceleration + acceleration, 50) : 0;
+
+			switch ( e.keyCode ) {
+				case this.options.keyBindings.pageUp:
+					if ( this.hasHorizontalScroll && !this.hasVerticalScroll ) {
+						newX += snap ? 1 : this.wrapperWidth;
+					} else {
+						newY += snap ? 1 : this.wrapperHeight;
+					}
+					break;
+				case this.options.keyBindings.pageDown:
+					if ( this.hasHorizontalScroll && !this.hasVerticalScroll ) {
+						newX -= snap ? 1 : this.wrapperWidth;
+					} else {
+						newY -= snap ? 1 : this.wrapperHeight;
+					}
+					break;
+				case this.options.keyBindings.end:
+					newX = snap ? this.pages.length-1 : this.maxScrollX;
+					newY = snap ? this.pages[0].length-1 : this.maxScrollY;
+					break;
+				case this.options.keyBindings.home:
+					newX = 0;
+					newY = 0;
+					break;
+				case this.options.keyBindings.left:
+					newX += snap ? -1 : 5 + this.keyAcceleration>>0;
+					break;
+				case this.options.keyBindings.up:
+					newY += snap ? 1 : 5 + this.keyAcceleration>>0;
+					break;
+				case this.options.keyBindings.right:
+					newX -= snap ? -1 : 5 + this.keyAcceleration>>0;
+					break;
+				case this.options.keyBindings.down:
+					newY -= snap ? 1 : 5 + this.keyAcceleration>>0;
+					break;
+				default:
+					return;
+			}
+
+			if ( snap ) {
+				this.goToPage(newX, newY);
+				return;
+			}
+
+			if ( newX > 0 ) {
+				newX = 0;
+				this.keyAcceleration = 0;
+			} else if ( newX < this.maxScrollX ) {
+				newX = this.maxScrollX;
+				this.keyAcceleration = 0;
+			}
+
+			if ( newY > 0 ) {
+				newY = 0;
+				this.keyAcceleration = 0;
+			} else if ( newY < this.maxScrollY ) {
+				newY = this.maxScrollY;
+				this.keyAcceleration = 0;
+			}
+
+			this.scrollTo(newX, newY, 0);
+
+			this.keyTime = now;
+		},
+
+		_animate: function (destX, destY, duration, easingFn) {
+			var that = this,
+				startX = this.x,
+				startY = this.y,
+				startTime = utils.getTime(),
+				destTime = startTime + duration;
+
+			function step () {
+				var now = utils.getTime(),
+					newX, newY,
+					easing;
+
+				if ( now >= destTime ) {
+					that.isAnimating = false;
+					that._translate(destX, destY);
+
+					if ( !that.resetPosition(that.options.bounceTime) ) {
+						that._execEvent('scrollEnd');
+					}
+
+					return;
+				}
+
+				now = ( now - startTime ) / duration;
+				easing = easingFn(now);
+				newX = ( destX - startX ) * easing + startX;
+				newY = ( destY - startY ) * easing + startY;
+				that._translate(newX, newY);
+
+				if ( that.isAnimating ) {
+					rAF(step);
+				}
+			}
+
+			this.isAnimating = true;
+			step();
+		},
+		handleEvent: function (e) {
+			switch ( e.type ) {
+				case 'touchstart':
+				case 'pointerdown':
+				case 'MSPointerDown':
+				case 'mousedown':
+					this._start(e);
+					break;
+				case 'touchmove':
+				case 'pointermove':
+				case 'MSPointerMove':
+				case 'mousemove':
+					this._move(e);
+					break;
+				case 'touchend':
+				case 'pointerup':
+				case 'MSPointerUp':
+				case 'mouseup':
+				case 'touchcancel':
+				case 'pointercancel':
+				case 'MSPointerCancel':
+				case 'mousecancel':
+					this._end(e);
+					break;
+				case 'orientationchange':
+				case 'resize':
+					this._resize();
+					break;
+				case 'transitionend':
+				case 'webkitTransitionEnd':
+				case 'oTransitionEnd':
+				case 'MSTransitionEnd':
+					this._transitionEnd(e);
+					break;
+				case 'wheel':
+				case 'DOMMouseScroll':
+				case 'mousewheel':
+					this._wheel(e);
+					break;
+				case 'keydown':
+					this._key(e);
+					break;
+				case 'click':
+					if ( this.enabled && !e._constructed ) {
+						e.preventDefault();
+						e.stopPropagation();
+					}
+					break;
+			}
+		}
+	};
+	function createDefaultScrollbar (direction, interactive, type) {
+		var scrollbar = document.createElement('div'),
+			indicator = document.createElement('div');
+
+		if ( type === true ) {
+			scrollbar.style.cssText = 'position:absolute;z-index:9999';
+			indicator.style.cssText = '-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;position:absolute;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.9);border-radius:3px';
+		}
+
+		indicator.className = 'iScrollIndicator';
+
+		if ( direction == 'h' ) {
+			if ( type === true ) {
+				scrollbar.style.cssText += ';height:7px;left:2px;right:2px;bottom:0';
+				indicator.style.height = '100%';
+			}
+			scrollbar.className = 'iScrollHorizontalScrollbar';
+		} else {
+			if ( type === true ) {
+				scrollbar.style.cssText += ';width:7px;bottom:2px;top:2px;right:1px';
+				indicator.style.width = '100%';
+			}
+			scrollbar.className = 'iScrollVerticalScrollbar';
+		}
+
+		scrollbar.style.cssText += ';overflow:hidden';
+
+		if ( !interactive ) {
+			scrollbar.style.pointerEvents = 'none';
+		}
+
+		scrollbar.appendChild(indicator);
+
+		return scrollbar;
+	}
+
+	function Indicator (scroller, options) {
+		this.wrapper = typeof options.el == 'string' ? document.querySelector(options.el) : options.el;
+		this.wrapperStyle = this.wrapper.style;
+		this.indicator = this.wrapper.children[0];
+		this.indicatorStyle = this.indicator.style;
+		this.scroller = scroller;
+
+		this.options = {
+			listenX: true,
+			listenY: true,
+			interactive: false,
+			resize: true,
+			defaultScrollbars: false,
+			shrink: false,
+			fade: false,
+			speedRatioX: 0,
+			speedRatioY: 0
+		};
+
+		for ( var i in options ) {
+			this.options[i] = options[i];
+		}
+
+		this.sizeRatioX = 1;
+		this.sizeRatioY = 1;
+		this.maxPosX = 0;
+		this.maxPosY = 0;
+
+		if ( this.options.interactive ) {
+			if ( !this.options.disableTouch ) {
+				utils.addEvent(this.indicator, 'touchstart', this);
+				utils.addEvent(window, 'touchend', this);
+			}
+			if ( !this.options.disablePointer ) {
+				utils.addEvent(this.indicator, utils.prefixPointerEvent('pointerdown'), this);
+				utils.addEvent(window, utils.prefixPointerEvent('pointerup'), this);
+			}
+			if ( !this.options.disableMouse ) {
+				utils.addEvent(this.indicator, 'mousedown', this);
+				utils.addEvent(window, 'mouseup', this);
+			}
+		}
+
+		if ( this.options.fade ) {
+			this.wrapperStyle[utils.style.transform] = this.scroller.translateZ;
+			var durationProp = utils.style.transitionDuration;
+			this.wrapperStyle[durationProp] = utils.isBadAndroid ? '0.0001ms' : '0ms';
+			// remove 0.0001ms
+			var self = this;
+			if(utils.isBadAndroid) {
+				rAF(function() {
+					if(self.wrapperStyle[durationProp] === '0.0001ms') {
+						self.wrapperStyle[durationProp] = '0s';
+					}
+				});
+			}
+			this.wrapperStyle.opacity = '0';
+		}
+	}
+
+	Indicator.prototype = {
+		handleEvent: function (e) {
+			switch ( e.type ) {
+				case 'touchstart':
+				case 'pointerdown':
+				case 'MSPointerDown':
+				case 'mousedown':
+					this._start(e);
+					break;
+				case 'touchmove':
+				case 'pointermove':
+				case 'MSPointerMove':
+				case 'mousemove':
+					this._move(e);
+					break;
+				case 'touchend':
+				case 'pointerup':
+				case 'MSPointerUp':
+				case 'mouseup':
+				case 'touchcancel':
+				case 'pointercancel':
+				case 'MSPointerCancel':
+				case 'mousecancel':
+					this._end(e);
+					break;
+			}
+		},
+
+		destroy: function () {
+			if ( this.options.fadeScrollbars ) {
+				clearTimeout(this.fadeTimeout);
+				this.fadeTimeout = null;
+			}
+			if ( this.options.interactive ) {
+				utils.removeEvent(this.indicator, 'touchstart', this);
+				utils.removeEvent(this.indicator, utils.prefixPointerEvent('pointerdown'), this);
+				utils.removeEvent(this.indicator, 'mousedown', this);
+
+				utils.removeEvent(window, 'touchmove', this);
+				utils.removeEvent(window, utils.prefixPointerEvent('pointermove'), this);
+				utils.removeEvent(window, 'mousemove', this);
+
+				utils.removeEvent(window, 'touchend', this);
+				utils.removeEvent(window, utils.prefixPointerEvent('pointerup'), this);
+				utils.removeEvent(window, 'mouseup', this);
+			}
+
+			if ( this.options.defaultScrollbars ) {
+				this.wrapper.parentNode.removeChild(this.wrapper);
+			}
+		},
+
+		_start: function (e) {
+			var point = e.touches ? e.touches[0] : e;
+
+			e.preventDefault();
+			e.stopPropagation();
+
+			this.transitionTime();
+
+			this.initiated = true;
+			this.moved = false;
+			this.lastPointX	= point.pageX;
+			this.lastPointY	= point.pageY;
+
+			this.startTime	= utils.getTime();
+
+			if ( !this.options.disableTouch ) {
+				utils.addEvent(window, 'touchmove', this);
+			}
+			if ( !this.options.disablePointer ) {
+				utils.addEvent(window, utils.prefixPointerEvent('pointermove'), this);
+			}
+			if ( !this.options.disableMouse ) {
+				utils.addEvent(window, 'mousemove', this);
+			}
+
+			this.scroller._execEvent('beforeScrollStart');
+		},
+
+		_move: function (e) {
+			var point = e.touches ? e.touches[0] : e,
+				deltaX, deltaY,
+				newX, newY,
+				timestamp = utils.getTime();
+
+			if ( !this.moved ) {
+				this.scroller._execEvent('scrollStart');
+			}
+
+			this.moved = true;
+
+			deltaX = point.pageX - this.lastPointX;
+			this.lastPointX = point.pageX;
+
+			deltaY = point.pageY - this.lastPointY;
+			this.lastPointY = point.pageY;
+
+			newX = this.x + deltaX;
+			newY = this.y + deltaY;
+
+			this._pos(newX, newY);
+
+	// INSERT POINT: indicator._move
+
+			e.preventDefault();
+			e.stopPropagation();
+		},
+
+		_end: function (e) {
+			if ( !this.initiated ) {
+				return;
+			}
+
+			this.initiated = false;
+
+			e.preventDefault();
+			e.stopPropagation();
+
+			utils.removeEvent(window, 'touchmove', this);
+			utils.removeEvent(window, utils.prefixPointerEvent('pointermove'), this);
+			utils.removeEvent(window, 'mousemove', this);
+
+			if ( this.scroller.options.snap ) {
+				var snap = this.scroller._nearestSnap(this.scroller.x, this.scroller.y);
+
+				var time = this.options.snapSpeed || Math.max(
+						Math.max(
+							Math.min(Math.abs(this.scroller.x - snap.x), 1000),
+							Math.min(Math.abs(this.scroller.y - snap.y), 1000)
+						), 300);
+
+				if ( this.scroller.x != snap.x || this.scroller.y != snap.y ) {
+					this.scroller.directionX = 0;
+					this.scroller.directionY = 0;
+					this.scroller.currentPage = snap;
+					this.scroller.scrollTo(snap.x, snap.y, time, this.scroller.options.bounceEasing);
+				}
+			}
+
+			if ( this.moved ) {
+				this.scroller._execEvent('scrollEnd');
+			}
+		},
+
+		transitionTime: function (time) {
+			time = time || 0;
+			var durationProp = utils.style.transitionDuration;
+			this.indicatorStyle[durationProp] = time + 'ms';
+
+			if ( !time && utils.isBadAndroid ) {
+				this.indicatorStyle[durationProp] = '0.0001ms';
+				// remove 0.0001ms
+				var self = this;
+				rAF(function() {
+					if(self.indicatorStyle[durationProp] === '0.0001ms') {
+						self.indicatorStyle[durationProp] = '0s';
+					}
+				});
+			}
+		},
+
+		transitionTimingFunction: function (easing) {
+			this.indicatorStyle[utils.style.transitionTimingFunction] = easing;
+		},
+
+		refresh: function () {
+			this.transitionTime();
+
+			if ( this.options.listenX && !this.options.listenY ) {
+				this.indicatorStyle.display = this.scroller.hasHorizontalScroll ? 'block' : 'none';
+			} else if ( this.options.listenY && !this.options.listenX ) {
+				this.indicatorStyle.display = this.scroller.hasVerticalScroll ? 'block' : 'none';
+			} else {
+				this.indicatorStyle.display = this.scroller.hasHorizontalScroll || this.scroller.hasVerticalScroll ? 'block' : 'none';
+			}
+
+			if ( this.scroller.hasHorizontalScroll && this.scroller.hasVerticalScroll ) {
+				utils.addClass(this.wrapper, 'iScrollBothScrollbars');
+				utils.removeClass(this.wrapper, 'iScrollLoneScrollbar');
+
+				if ( this.options.defaultScrollbars && this.options.customStyle ) {
+					if ( this.options.listenX ) {
+						this.wrapper.style.right = '8px';
+					} else {
+						this.wrapper.style.bottom = '8px';
+					}
+				}
+			} else {
+				utils.removeClass(this.wrapper, 'iScrollBothScrollbars');
+				utils.addClass(this.wrapper, 'iScrollLoneScrollbar');
+
+				if ( this.options.defaultScrollbars && this.options.customStyle ) {
+					if ( this.options.listenX ) {
+						this.wrapper.style.right = '2px';
+					} else {
+						this.wrapper.style.bottom = '2px';
+					}
+				}
+			}
+
+			var r = this.wrapper.offsetHeight;	// force refresh
+
+			if ( this.options.listenX ) {
+				this.wrapperWidth = this.wrapper.clientWidth;
+				if ( this.options.resize ) {
+					this.indicatorWidth = Math.max(Math.round(this.wrapperWidth * this.wrapperWidth / (this.scroller.scrollerWidth || this.wrapperWidth || 1)), 8);
+					this.indicatorStyle.width = this.indicatorWidth + 'px';
+				} else {
+					this.indicatorWidth = this.indicator.clientWidth;
+				}
+
+				this.maxPosX = this.wrapperWidth - this.indicatorWidth;
+
+				if ( this.options.shrink == 'clip' ) {
+					this.minBoundaryX = -this.indicatorWidth + 8;
+					this.maxBoundaryX = this.wrapperWidth - 8;
+				} else {
+					this.minBoundaryX = 0;
+					this.maxBoundaryX = this.maxPosX;
+				}
+
+				this.sizeRatioX = this.options.speedRatioX || (this.scroller.maxScrollX && (this.maxPosX / this.scroller.maxScrollX));
+			}
+
+			if ( this.options.listenY ) {
+				this.wrapperHeight = this.wrapper.clientHeight;
+				if ( this.options.resize ) {
+					this.indicatorHeight = Math.max(Math.round(this.wrapperHeight * this.wrapperHeight / (this.scroller.scrollerHeight || this.wrapperHeight || 1)), 8);
+					this.indicatorStyle.height = this.indicatorHeight + 'px';
+				} else {
+					this.indicatorHeight = this.indicator.clientHeight;
+				}
+
+				this.maxPosY = this.wrapperHeight - this.indicatorHeight;
+
+				if ( this.options.shrink == 'clip' ) {
+					this.minBoundaryY = -this.indicatorHeight + 8;
+					this.maxBoundaryY = this.wrapperHeight - 8;
+				} else {
+					this.minBoundaryY = 0;
+					this.maxBoundaryY = this.maxPosY;
+				}
+
+				this.maxPosY = this.wrapperHeight - this.indicatorHeight;
+				this.sizeRatioY = this.options.speedRatioY || (this.scroller.maxScrollY && (this.maxPosY / this.scroller.maxScrollY));
+			}
+
+			this.updatePosition();
+		},
+
+		updatePosition: function () {
+			var x = this.options.listenX && Math.round(this.sizeRatioX * this.scroller.x) || 0,
+				y = this.options.listenY && Math.round(this.sizeRatioY * this.scroller.y) || 0;
+
+			if ( !this.options.ignoreBoundaries ) {
+				if ( x < this.minBoundaryX ) {
+					if ( this.options.shrink == 'scale' ) {
+						this.width = Math.max(this.indicatorWidth + x, 8);
+						this.indicatorStyle.width = this.width + 'px';
+					}
+					x = this.minBoundaryX;
+				} else if ( x > this.maxBoundaryX ) {
+					if ( this.options.shrink == 'scale' ) {
+						this.width = Math.max(this.indicatorWidth - (x - this.maxPosX), 8);
+						this.indicatorStyle.width = this.width + 'px';
+						x = this.maxPosX + this.indicatorWidth - this.width;
+					} else {
+						x = this.maxBoundaryX;
+					}
+				} else if ( this.options.shrink == 'scale' && this.width != this.indicatorWidth ) {
+					this.width = this.indicatorWidth;
+					this.indicatorStyle.width = this.width + 'px';
+				}
+
+				if ( y < this.minBoundaryY ) {
+					if ( this.options.shrink == 'scale' ) {
+						this.height = Math.max(this.indicatorHeight + y * 3, 8);
+						this.indicatorStyle.height = this.height + 'px';
+					}
+					y = this.minBoundaryY;
+				} else if ( y > this.maxBoundaryY ) {
+					if ( this.options.shrink == 'scale' ) {
+						this.height = Math.max(this.indicatorHeight - (y - this.maxPosY) * 3, 8);
+						this.indicatorStyle.height = this.height + 'px';
+						y = this.maxPosY + this.indicatorHeight - this.height;
+					} else {
+						y = this.maxBoundaryY;
+					}
+				} else if ( this.options.shrink == 'scale' && this.height != this.indicatorHeight ) {
+					this.height = this.indicatorHeight;
+					this.indicatorStyle.height = this.height + 'px';
+				}
+			}
+
+			this.x = x;
+			this.y = y;
+
+			if ( this.scroller.options.useTransform ) {
+				this.indicatorStyle[utils.style.transform] = 'translate(' + x + 'px,' + y + 'px)' + this.scroller.translateZ;
+			} else {
+				this.indicatorStyle.left = x + 'px';
+				this.indicatorStyle.top = y + 'px';
+			}
+		},
+
+		_pos: function (x, y) {
+			if ( x < 0 ) {
+				x = 0;
+			} else if ( x > this.maxPosX ) {
+				x = this.maxPosX;
+			}
+
+			if ( y < 0 ) {
+				y = 0;
+			} else if ( y > this.maxPosY ) {
+				y = this.maxPosY;
+			}
+
+			x = this.options.listenX ? Math.round(x / this.sizeRatioX) : this.scroller.x;
+			y = this.options.listenY ? Math.round(y / this.sizeRatioY) : this.scroller.y;
+
+			this.scroller.scrollTo(x, y);
+		},
+
+		fade: function (val, hold) {
+			if ( hold && !this.visible ) {
+				return;
+			}
+
+			clearTimeout(this.fadeTimeout);
+			this.fadeTimeout = null;
+
+			var time = val ? 250 : 500,
+				delay = val ? 0 : 300;
+
+			val = val ? '1' : '0';
+
+			this.wrapperStyle[utils.style.transitionDuration] = time + 'ms';
+
+			this.fadeTimeout = setTimeout((function (val) {
+				this.wrapperStyle.opacity = val;
+				this.visible = +val;
+			}).bind(this, val), delay);
+		}
+	};
+
+	IScroll.utils = utils;
+
+	if ( typeof module != 'undefined' && module.exports ) {
+		module.exports = IScroll;
+	} else if ( true ) {
+	        !(__WEBPACK_AMD_DEFINE_RESULT__ = function () { return IScroll; }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.IScroll = IScroll;
+	}
+
+	})(window, document, Math);
+
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(185);
+	var defaultClickRejectionStrategy = __webpack_require__(186);
 
 	var alreadyInjected = false;
 
@@ -22368,14 +24552,14 @@
 	  alreadyInjected = true;
 
 	  __webpack_require__(47).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(186)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(187)(shouldRejectClick)
 	  });
 	};
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22430,7 +24614,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -22441,7 +24625,7 @@
 
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22469,10 +24653,10 @@
 	var EventPluginUtils = __webpack_require__(49);
 	var EventPropagators = __webpack_require__(46);
 	var SyntheticUIEvent = __webpack_require__(72);
-	var TouchEventUtils = __webpack_require__(187);
+	var TouchEventUtils = __webpack_require__(188);
 	var ViewportMetrics = __webpack_require__(73);
 
-	var keyOf = __webpack_require__(188);
+	var keyOf = __webpack_require__(189);
 	var topLevelTypes = EventConstants.topLevelTypes;
 
 	var isStartish = EventPluginUtils.isStartish;
@@ -22617,7 +24801,7 @@
 
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports) {
 
 	/**
@@ -22665,7 +24849,7 @@
 
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports) {
 
 	/**
@@ -22705,7 +24889,7 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22764,17 +24948,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(190);
+	__webpack_require__(191);
 
 	var _jsPubsub = __webpack_require__(182);
 
 	var _jsPubsub2 = _interopRequireDefault(_jsPubsub);
 
-	var _imagesPhotobgPng = __webpack_require__(192);
+	var _imagesPhotobgPng = __webpack_require__(193);
 
 	var _imagesPhotobgPng2 = _interopRequireDefault(_imagesPhotobgPng);
 
-	var _imagesTapePng = __webpack_require__(193);
+	var _imagesTapePng = __webpack_require__(194);
 
 	var _imagesTapePng2 = _interopRequireDefault(_imagesTapePng);
 
@@ -22787,7 +24971,8 @@
 	        _get(Object.getPrototypeOf(FPhoto.prototype), 'constructor', this).apply(this, args);
 	        this.state = {
 	            fatherPhoto: './static/images/1.png',
-	            myPhoto: ''
+	            myPhoto: '',
+	            display: 'block'
 	        };
 	    }
 
@@ -22795,7 +24980,8 @@
 	        key: 'changeFatherPhoto',
 	        value: function changeFatherPhoto(fatherPhoto) {
 	            this.setState({
-	                fatherPhoto: fatherPhoto
+	                fatherPhoto: fatherPhoto,
+	                display: 'block'
 	            });
 	        }
 	    }, {
@@ -22803,8 +24989,14 @@
 	        value: function componentDidMount() {
 	            var _this = this;
 
+	            this.setState({
+	                display: this.props.display
+	            });
+
 	            _jsPubsub2['default'].subscribe('changeFatherPhoto', function (b, a) {
-	                _this.changeFatherPhoto(a);
+	                if (a.type === _this.props.type) {
+	                    _this.changeFatherPhoto(a.url);
+	                }
 	            });
 	        }
 	    }, {
@@ -22812,7 +25004,8 @@
 	        value: function render() {
 
 	            var style = {
-	                background: 'url(' + _imagesPhotobgPng2['default'] + ') repeat center center'
+	                background: 'url(' + _imagesPhotobgPng2['default'] + ') repeat center center',
+	                display: this.state.display
 	            };
 	            return _react2['default'].createElement('figure', { className: 'f-photo-C', style: style }, _react2['default'].createElement('img', { src: this.state.fatherPhoto, alt: '' }), _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: _imagesTapePng2['default'], alt: '', draggable: 'false' })), _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: _imagesTapePng2['default'], alt: '', draggable: 'false' })));
 	        }
@@ -22823,10 +25016,14 @@
 
 	exports['default'] = FPhoto;
 	;
+
+	FPhoto.defaultProps = {
+	    display: 'block'
+	};
 	module.exports = exports['default'];
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
@@ -22834,7 +25031,7 @@
 	// load the styles
 	'use strict';
 
-	var content = __webpack_require__(191);
+	var content = __webpack_require__(192);
 	if (typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(171)(content, {});
@@ -22856,7 +25053,7 @@
 	}
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(170)();
@@ -22864,18 +25061,10 @@
 
 
 	// module
-	exports.push([module.id, ".f-photo-C {\r\n  position: relative;\r\n  z-index: 100;\r\n  width: 70vw;\r\n  margin: 1.3rem auto;\r\n  padding: 0.6rem 0.6rem 1.8rem 0.6rem;\r\n  box-sizing: border-box;\r\n  border-radius: 5px; }\r\n  .f-photo-C .f-tape {\r\n    position: absolute;\r\n    width: 100px;\r\n    left: -1rem;\r\n    top: -1rem; }\r\n    .f-photo-C .f-tape:nth-of-type(2) {\r\n      left: 72%;\r\n      top: 83%; }\r\n\r\n/*# sourceMappingURL=f-photo.css.map */\r\n", ""]);
+	exports.push([module.id, ".f-photo-C {\r\n  position: relative;\r\n  z-index: 100;\r\n  width: 70vw;\r\n  margin: 1.3rem auto;\r\n  padding: 0.6rem 0.6rem 1.8rem 0.6rem;\r\n  box-sizing: border-box;\r\n  border-radius: 5px;\r\n  -webkit-transform: rotate(-13deg);\r\n  transform: rotate(-13deg); }\r\n  .f-photo-C .f-tape {\r\n    position: absolute;\r\n    width: 100px;\r\n    left: -1rem;\r\n    top: -1rem; }\r\n    .f-photo-C .f-tape:nth-of-type(2) {\r\n      left: 72%;\r\n      top: 83%; }\r\n\r\n/*# sourceMappingURL=f-photo.css.map */\r\n", ""]);
 
 	// exports
 
-
-/***/ },
-/* 192 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMDIyMDVBN0Y3MzFFNjExQTJGN0E3MjBCM0VFNzJBQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxMDBCOTJDNjMyRTMxMUU2QTVDMENENDc5OTRFMzM3MCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxMDBCOTJDNTMyRTMxMUU2QTVDMENENDc5OTRFMzM3MCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk5RjRDN0QyQjgzMkU2MTE4MzM3QzQxRENCN0ZCRjE4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAwMjIwNUE3RjczMUU2MTFBMkY3QTcyMEIzRUU3MkFCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+6Hc9/gAAARtJREFUeNpUUkFyxDAIA8zm/+/rTPsRB1OBsmzLwREgQDjWr5/vOHFSzFQy1WytpSKmBaTtZEaCkprqlVa94444axldUwUs6jlVoeJm+KLKM9PMXvoCYjekgXbs7AiyaBEZiCLiVdc1n34iJbIxqABVEFFsGKnMQQ9cMHjCso0pcHA6J973jQSjcHkO4GJ0HVQiFOy9Rx4XYAtgKsTpFMcaRunWXbVxAcZrDfQAjyH7b9ObLjX78Kbx87Pe07j6tHCuRSfaBujbUDOrfq6Vcqcld+Pq3EZ6jpM0Wudar+tCKKgH14V23fG5JU6YrsBgSDMq1RI2/hUkUfTfd8Hta2A9wacG06RV+OimJL4O7grM4TXE/VoLT/pXgAEAkvIXGulYxQEAAAAASUVORK5CYII=";
 
 /***/ },
 /* 193 */
@@ -22883,10 +25072,18 @@
 
 	"use strict";
 
-	module.exports = "data:image/png;base64,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";
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAhFBMVEXc4N/X29rh5eTY3Nva3t3Z3dze4uHb397d4eDf4+Lg5OPh4+Ld4N/X3Nrf4eDc4d/g5ePX3dvb4d/Z3t3a3dzf4N/V2dje4eDi5OPg4uHf4uHf5OLc397d4ODU2tnc4uDW2tnc4uHV29rb4+De4+Hf5OPY3tzc4+HY3dzc4eDi5eTg4eBtZ+UaAAAAsUlEQVQYGQXBB2IEMQgDQIEBIe9erqf3Xv7/v8wgNq/7zedhW+7+8fX2gubmcX94eneX7nY7AQ2SeADZtQUBVAGIMTLDngNVJbkKkSMiGtO7p081I7okoBsMgOwGmciRaZbB1mxwAGGWbLnPks8CAKJbUoGtAlpCRNjIGDYGquRTDTOz72MSqpLP6r7PcVpLANlg4PZiXc/nOCIzM3NwvbhZlr+TIdIuLYir62VZfufPP5CDCGkHYOsUAAAAAElFTkSuQmCC";
 
 /***/ },
 /* 194 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	module.exports = "data:image/png;base64,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";
+
+/***/ },
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22945,7 +25142,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(195);
+	__webpack_require__(196);
 
 	var FStripe = (function (_React$Component) {
 	    _inherits(FStripe, _React$Component);
@@ -22970,7 +25167,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
@@ -22978,7 +25175,7 @@
 	// load the styles
 	'use strict';
 
-	var content = __webpack_require__(196);
+	var content = __webpack_require__(197);
 	if (typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(171)(content, {});
@@ -23000,7 +25197,7 @@
 	}
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(170)();
@@ -23012,6 +25209,1412 @@
 
 	// exports
 
+
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () {
+	    function defineProperties(target, props) {
+	        for (var i = 0; i < props.length; i++) {
+	            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	        }
+	    }return function (Constructor, protoProps, staticProps) {
+	        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	    };
+	})();
+
+	var _get = function get(_x, _x2, _x3) {
+	    var _again = true;_function: while (_again) {
+	        var object = _x,
+	            property = _x2,
+	            receiver = _x3;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+	            var parent = Object.getPrototypeOf(object);if (parent === null) {
+	                return undefined;
+	            } else {
+	                _x = parent;_x2 = property;_x3 = receiver;_again = true;desc = parent = undefined;continue _function;
+	            }
+	        } else if ('value' in desc) {
+	            return desc.value;
+	        } else {
+	            var getter = desc.get;if (getter === undefined) {
+	                return undefined;
+	            }return getter.call(receiver);
+	        }
+	    }
+	};
+
+	function _interopRequireDefault(obj) {
+	    return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+	    if (!(instance instanceof Constructor)) {
+	        throw new TypeError('Cannot call a class as a function');
+	    }
+	}
+
+	function _inherits(subClass, superClass) {
+	    if (typeof superClass !== 'function' && superClass !== null) {
+	        throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(199);
+
+	var _jsPubsub = __webpack_require__(182);
+
+	var _jsPubsub2 = _interopRequireDefault(_jsPubsub);
+
+	var FLoading = (function (_React$Component) {
+	    _inherits(FLoading, _React$Component);
+
+	    function FLoading(args) {
+	        _classCallCheck(this, FLoading);
+
+	        _get(Object.getPrototypeOf(FLoading.prototype), 'constructor', this).apply(this, args);
+	        this.state = {
+	            starting: false
+	        };
+	    }
+
+	    _createClass(FLoading, [{
+	        key: 'start',
+	        value: function start() {
+	            var _this = this;
+
+	            this.setState({
+	                starting: true
+	            });
+	            this._loading();
+	            this.timer = setInterval(function () {
+	                _this._loading();
+	            }, 2100);
+	        }
+	    }, {
+	        key: '_loading',
+	        value: function _loading() {
+	            var bar = new ProgressBar.Path('#heart-path1', {
+	                easing: 'easeInOut',
+	                duration: 1000
+	            });
+
+	            bar.set(0);
+	            bar.animate(1); // Number from 0.0 to 1.0
+	        }
+	    }, {
+	        key: 'stop',
+	        value: function stop() {
+	            this.setState({
+	                starting: false
+	            });
+	            this.timer && clearInterval(this.timer);
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+
+	            _jsPubsub2['default'].subscribe("start", function () {
+	                _this2.start();
+	            });
+
+	            _jsPubsub2['default'].subscribe('stop', function () {
+	                _this2.stop();
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2['default'].createElement('div', { className: 'f-loading-C', style: { display: this.state.starting ? 'block' : 'none' } }, _react2['default'].createElement('div', { className: 'loading' }, _react2['default'].createElement('span', null, this.props.loadingText), _react2['default'].createElement('svg', { xmlns: 'http://www.w3.org/2000/svg', version: '1.1', x: '0px', y: '0px', viewBox: '0 0 100 100' }, _react2['default'].createElement('path', { 'fill-opacity': '0', 'stroke-width': '2', stroke: '#bbb', d: 'M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z' }), _react2['default'].createElement('path', { id: 'heart-path1', 'fill-opacity': '0', 'stroke-width': '3', stroke: '#ED6A5A', d: 'M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z' }))));
+	        }
+	    }]);
+
+	    return FLoading;
+	})(_react2['default'].Component);
+
+	exports['default'] = FLoading;
+
+	FLoading.defaultProps = {
+	    loadingText: ''
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 199 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	'use strict';
+
+	var content = __webpack_require__(200);
+	if (typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(171)(content, {});
+	if (content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if (false) {
+		// When the styles change, update the <style> tags
+		if (!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./f-loading.css", function () {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./f-loading.css");
+				if (typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function () {
+			update();
+		});
+	}
+
+/***/ },
+/* 200 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(170)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".f-loading-C {\r\n  width: 100%;\r\n  height: 100vh;\r\n  z-index: 1000;\r\n  position: fixed;\r\n  background: #2b81af;\r\n  left: 0;\r\n  top: 0; }\r\n  .f-loading-C svg {\r\n    background: transparent;\r\n    fill: none; }\r\n  .f-loading-C .loading {\r\n    width: 100px;\r\n    height: 100px;\r\n    position: absolute;\r\n    top: 50%;\r\n    margin-top: -50px;\r\n    left: 50%;\r\n    margin-left: -50px; }\r\n\r\n/*# sourceMappingURL=f-loading.css.map */\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 201 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () {
+	    function defineProperties(target, props) {
+	        for (var i = 0; i < props.length; i++) {
+	            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ('value' in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	        }
+	    }return function (Constructor, protoProps, staticProps) {
+	        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	    };
+	})();
+
+	var _get = function get(_x, _x2, _x3) {
+	    var _again = true;_function: while (_again) {
+	        var object = _x,
+	            property = _x2,
+	            receiver = _x3;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+	            var parent = Object.getPrototypeOf(object);if (parent === null) {
+	                return undefined;
+	            } else {
+	                _x = parent;_x2 = property;_x3 = receiver;_again = true;desc = parent = undefined;continue _function;
+	            }
+	        } else if ('value' in desc) {
+	            return desc.value;
+	        } else {
+	            var getter = desc.get;if (getter === undefined) {
+	                return undefined;
+	            }return getter.call(receiver);
+	        }
+	    }
+	};
+
+	function _interopRequireDefault(obj) {
+	    return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+	    if (!(instance instanceof Constructor)) {
+	        throw new TypeError('Cannot call a class as a function');
+	    }
+	}
+
+	function _inherits(subClass, superClass) {
+	    if (typeof superClass !== 'function' && superClass !== null) {
+	        throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+	    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(202);
+
+	var _imagesIndexBgPng = __webpack_require__(204);
+
+	var _imagesIndexBgPng2 = _interopRequireDefault(_imagesIndexBgPng);
+
+	var _imagesHeartPng = __webpack_require__(205);
+
+	var _imagesHeartPng2 = _interopRequireDefault(_imagesHeartPng);
+
+	var _imagesCameraPng = __webpack_require__(206);
+
+	var _imagesCameraPng2 = _interopRequireDefault(_imagesCameraPng);
+
+	var _imagesNecktiePng = __webpack_require__(207);
+
+	var _imagesNecktiePng2 = _interopRequireDefault(_imagesNecktiePng);
+
+	var _imagesFFatherPng = __webpack_require__(208);
+
+	var _imagesFFatherPng2 = _interopRequireDefault(_imagesFFatherPng);
+
+	var _imagesLovePng = __webpack_require__(209);
+
+	var _imagesLovePng2 = _interopRequireDefault(_imagesLovePng);
+
+	var _imagesLogoPng = __webpack_require__(210);
+
+	var _imagesLogoPng2 = _interopRequireDefault(_imagesLogoPng);
+
+	var _imagesFFatherTextPng = __webpack_require__(211);
+
+	var _imagesFFatherTextPng2 = _interopRequireDefault(_imagesFFatherTextPng);
+
+	var _jsTween = __webpack_require__(212);
+
+	var _jsTween2 = _interopRequireDefault(_jsTween);
+
+	var _jsRequestAnimationFrame = __webpack_require__(213);
+
+	var _jsRequestAnimationFrame2 = _interopRequireDefault(_jsRequestAnimationFrame);
+
+	var _utilMethodEs6 = __webpack_require__(172);
+
+	var path = './static/js/';
+	var indexBg = path + _imagesIndexBgPng2['default'];
+
+	var heart = path + _imagesHeartPng2['default'];
+
+	var camera = path + _imagesCameraPng2['default'];
+
+	var necktie = path + _imagesNecktiePng2['default'];
+
+	var ffather = path + _imagesFFatherPng2['default'];
+
+	var love = path + _imagesLovePng2['default'];
+
+	var logo = _imagesLogoPng2['default'];
+
+	var ftext = path + _imagesFFatherTextPng2['default'];
+
+	var imgArr = [indexBg, heart, camera, necktie, ffather, love, logo, ftext];
+
+	_utilMethodEs6.utilMethods.loading(imgArr, null, function () {
+	    loaded();
+	});
+
+	var FIndexPage = (function (_React$Component) {
+	    _inherits(FIndexPage, _React$Component);
+
+	    function FIndexPage(args) {
+	        _classCallCheck(this, FIndexPage);
+
+	        _get(Object.getPrototypeOf(FIndexPage.prototype), 'constructor', this).apply(this, args);
+	    }
+
+	    _createClass(FIndexPage, [{
+	        key: 'render',
+	        value: function render() {
+	            function l() {
+	                console.log(arguments);
+	            }
+
+	            window.log = l;
+	            var style = {
+	                background: '#5fbd98 url(' + indexBg + ') no-repeat center bottom'
+	            };
+	            return _react2['default'].createElement('div', { ref: 'index-page', className: 'f-index-page-C', style: style }, _react2['default'].createElement('div', { className: 'f-heart', ref: 'heart' }, _react2['default'].createElement('img', { src: heart, alt: '' })), _react2['default'].createElement('div', { className: 'f-camera', ref: 'camera' }, _react2['default'].createElement('img', { src: camera, alt: '' })), _react2['default'].createElement('div', { className: 'f-necktie', ref: 'necktie' }, _react2['default'].createElement('img', { src: necktie, alt: '' })), _react2['default'].createElement('div', { className: 'f-father-text', ref: 'father-text' }, _react2['default'].createElement('img', { src: ftext, alt: '' })), _react2['default'].createElement('div', { className: 'f-father', ref: 'father' }, _react2['default'].createElement('img', { src: ffather, alt: '' })), _react2['default'].createElement('div', { className: 'f-love', ref: 'love' }, _react2['default'].createElement('img', { src: love, alt: '' })), _react2['default'].createElement('div', { className: 'f-logo', ref: 'logo' }, _react2['default'].createElement('img', { src: logo, alt: '' })));
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+
+	            var s = this,
+	                heart = s.refs['heart'],
+	                camera = s.refs['camera'],
+	                necktie = s.refs['necktie'],
+	                fatherText = s.refs['father-text'],
+	                father = s.refs['father'],
+	                love = s.refs['love'],
+	                logo = s.refs['logo'];
+
+	            var isStarting = true;
+
+	            function animate(time) {
+	                isStarting && (0, _jsRequestAnimationFrame2['default'])(animate);
+	                _jsTween2['default'].update(time);
+	            }
+	            animate();
+
+	            heart.scale = { scale: 0 };
+	            necktie.X = { x: -100, opacity: 0 };
+	            camera.scale = { scale: 0 };
+	            fatherText.scale = { scale: 0 };
+	            father.X = { x: 300 };
+	            love.X = { opacity: 0 };
+	            logo.X = { opacity: 0 };
+
+	            if (!heart.timer) {
+	                heart.timer = new _jsTween2['default'].Tween(heart.scale).to({ scale: 1.4 }, 2000).delay(1400).easing(_jsTween2['default'].Easing.Elastic.InOut).onUpdate(function () {
+	                    s.setTransform(heart, 'scale(' + heart.scale.scale + ')');
+	                }).onComplete(function () {
+	                    s.setTransform(heart, 'scale(1.4)');
+	                    //isStarting =false;
+	                });
+
+	                necktie.timer = new _jsTween2['default'].Tween(necktie.X).to({ x: 0, opacity: 1 }, 2000).delay(100).easing(_jsTween2['default'].Easing.Elastic.InOut).onUpdate(function () {
+	                    s.setTransform(necktie, 'translate3d(' + necktie.X.x + 'px,0,0)');
+	                    necktie.style.opacity = necktie.X.opacity;
+	                }).onComplete(function () {
+	                    s.setTransform(necktie, 'translate3d(0,0,0)');
+	                    necktie.style.opacity = 1;
+	                });
+
+	                camera.timer = new _jsTween2['default'].Tween(camera.scale).to({ scale: 1 }, 1000).easing(_jsTween2['default'].Easing.Elastic.InOut).onUpdate(function () {
+	                    s.setTransform(camera, 'scale(' + camera.scale.scale + ')');
+	                }).onComplete(function () {
+	                    s.setTransform(camera, 'scale(1)');
+	                    //isStarting =false;
+	                });
+
+	                fatherText.timer = new _jsTween2['default'].Tween(fatherText.scale).to({ scale: 1 }, 2000).easing(_jsTween2['default'].Easing.Elastic.InOut).onUpdate(function () {
+	                    s.setTransform(fatherText, 'scale(' + fatherText.scale.scale + ')');
+	                }).onComplete(function () {
+	                    s.setTransform(fatherText, 'scale(1)');
+	                    //isStarting =false;
+	                });
+
+	                father.timer = new _jsTween2['default'].Tween(father.X).to({ x: 0 }, 2000).easing(_jsTween2['default'].Easing.Elastic.InOut).onUpdate(function () {
+	                    s.setTransform(father, 'translate3d(' + father.X.x + 'px,0,0)');
+	                }).onComplete(function () {
+	                    s.setTransform(father, 'translate3d(0,0,0)');
+	                });
+
+	                love.timer = new _jsTween2['default'].Tween(love.X).to({ opacity: 1 }, 3000).easing(_jsTween2['default'].Easing.Elastic.Out).onUpdate(function () {
+	                    love.style.opacity = love.X.opacity;
+	                }).onComplete(function () {
+	                    love.style.opacity = 1;
+	                });
+
+	                logo.timer = new _jsTween2['default'].Tween(logo.X).to({ opacity: 1 }, 3000).easing(_jsTween2['default'].Easing.Elastic.InOut).onUpdate(function () {
+	                    logo.style.opacity = logo.X.opacity;
+	                }).onComplete(function () {
+	                    logo.style.opacity = 1;
+	                    isStarting = false;
+	                });
+
+	                heart.timer.chain(necktie.timer, camera.timer);
+	                camera.timer.chain(fatherText.timer, love.timer);
+	                fatherText.timer.chain(father.timer, logo.timer);
+
+	                heart.timer.start();
+	            }
+
+	            $(this.refs['index-page']).swipe('up', function (e, _this) {
+	                isStarting = false;
+	                _this.classList.add('hide');
+	                setTimeout(function () {
+	                    window.defaultTouched = true;
+	                    $(_this).remove();
+	                }, 1000);
+	            });
+	        }
+	    }, {
+	        key: 'setTransform',
+	        value: function setTransform(obj, value) {
+	            obj.style.transform = value;
+	            obj.style.WebkitTransform = value;
+	        }
+	    }]);
+
+	    return FIndexPage;
+	})(_react2['default'].Component);
+
+	exports['default'] = FIndexPage;
+	module.exports = exports['default'];
+
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	'use strict';
+
+	var content = __webpack_require__(203);
+	if (typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(171)(content, {});
+	if (content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if (false) {
+		// When the styles change, update the <style> tags
+		if (!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./f-index-page.css", function () {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./f-index-page.css");
+				if (typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function () {
+			update();
+		});
+	}
+
+/***/ },
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(170)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".f-index-page-C {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  z-index: 200;\r\n  overflow: hidden; }\r\n  .f-index-page-C.hide {\r\n    -webkit-transform: translate3d(0, -100%, 0);\r\n    transform: translate3d(0, -100%, 0);\r\n    -webkit-transition: -webkit-transform 500ms;\r\n    transition: transform 500ms; }\r\n  .f-index-page-C div {\r\n    position: absolute; }\r\n  .f-index-page-C .f-heart {\r\n    top: 3rem;\r\n    left: -1.5rem;\r\n    -webkit-transform: scale(0);\r\n    transform: scale(0); }\r\n  .f-index-page-C .f-camera {\r\n    width: 4rem;\r\n    left: 8vw;\r\n    top: 4vh;\r\n    z-index: 1;\r\n    -webkit-transform: scale(0);\r\n    transform: scale(0); }\r\n  .f-index-page-C .f-necktie {\r\n    width: 3rem;\r\n    top: 3rem;\r\n    left: 1.5rem;\r\n    z-index: 0;\r\n    -webkit-transform: translate3d(-100px, 0, 0);\r\n    transform: translate3d(-100px, 0, 0);\r\n    opacity: 0; }\r\n  .f-index-page-C .f-father-text {\r\n    width: 7rem;\r\n    right: .1rem;\r\n    top: 2.2rem;\r\n    -webkit-transform: scale(0);\r\n    transform: scale(0); }\r\n  .f-index-page-C .f-father {\r\n    width: 5rem;\r\n    bottom: 0;\r\n    right: 0;\r\n    -webkit-transform: translate3d(300px, 0, 0);\r\n    transform: translate3d(300px, 0, 0); }\r\n  .f-index-page-C .f-love {\r\n    width: 4rem;\r\n    bottom: 1.6rem;\r\n    left: 1.3rem;\r\n    opacity: 0; }\r\n  .f-index-page-C .f-logo {\r\n    width: 1.5rem;\r\n    bottom: 1rem;\r\n    left: 1rem;\r\n    opacity: 0; }\r\n\r\n/*# sourceMappingURL=f-index-page.css.map */\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "452d9d0b8adbd486018cd9efc9f32fca.png";
+
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "6494c4107266ab70637aaf84fe037c51.png";
+
+/***/ },
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "0b47c8040bdb6051e3239369ab4c515b.png";
+
+/***/ },
+/* 207 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "2726f84f5c020a6d77c527b8ea63d36b.png";
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "4a468dccca0d222e9c879f9e7c1731b3.png";
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "a6d66009897f2f61913f6f1597fd2bbe.png";
+
+/***/ },
+/* 210 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	module.exports = "data:image/png;base64,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";
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = __webpack_require__.p + "cbba0b1c9a0abc9b83f4202112b3fb40.png";
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Tween.js - Licensed under the MIT license
+	 * https://github.com/tweenjs/tween.js
+	 * ----------------------------------------------
+	 *
+	 * See https://github.com/tweenjs/tween.js/graphs/contributors for the full list of contributors.
+	 * Thank you all, you're awesome!
+	 */
+
+	// Include a performance.now polyfill
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	(function () {
+
+		if ('performance' in window === false) {
+			window.performance = {};
+		}
+
+		// IE 8
+		Date.now = Date.now || function () {
+			return new Date().getTime();
+		};
+
+		if ('now' in window.performance === false) {
+			var offset = window.performance.timing && window.performance.timing.navigationStart ? window.performance.timing.navigationStart : Date.now();
+
+			window.performance.now = function () {
+				return Date.now() - offset;
+			};
+		}
+	})();
+
+	var TWEEN = TWEEN || (function () {
+
+		var _tweens = [];
+
+		return {
+
+			getAll: function getAll() {
+
+				return _tweens;
+			},
+
+			removeAll: function removeAll() {
+
+				_tweens = [];
+			},
+
+			add: function add(tween) {
+
+				_tweens.push(tween);
+			},
+
+			remove: function remove(tween) {
+
+				var i = _tweens.indexOf(tween);
+
+				if (i !== -1) {
+					_tweens.splice(i, 1);
+				}
+			},
+
+			update: function update(time) {
+
+				if (_tweens.length === 0) {
+					return false;
+				}
+
+				var i = 0;
+
+				time = time !== undefined ? time : window.performance.now();
+
+				while (i < _tweens.length) {
+
+					if (_tweens[i].update(time)) {
+						i++;
+					} else {
+						_tweens.splice(i, 1);
+					}
+				}
+
+				return true;
+			}
+		};
+	})();
+
+	TWEEN.Tween = function (object) {
+
+		var _object = object;
+		var _valuesStart = {};
+		var _valuesEnd = {};
+		var _valuesStartRepeat = {};
+		var _duration = 1000;
+		var _repeat = 0;
+		var _yoyo = false;
+		var _isPlaying = false;
+		var _reversed = false;
+		var _delayTime = 0;
+		var _startTime = null;
+		var _easingFunction = TWEEN.Easing.Linear.None;
+		var _interpolationFunction = TWEEN.Interpolation.Linear;
+		var _chainedTweens = [];
+		var _onStartCallback = null;
+		var _onStartCallbackFired = false;
+		var _onUpdateCallback = null;
+		var _onCompleteCallback = null;
+		var _onStopCallback = null;
+
+		// Set all starting values present on the target object
+		for (var field in object) {
+			_valuesStart[field] = parseFloat(object[field], 10);
+		}
+
+		this.to = function (properties, duration) {
+
+			if (duration !== undefined) {
+				_duration = duration;
+			}
+
+			_valuesEnd = properties;
+
+			return this;
+		};
+
+		this.start = function (time) {
+
+			TWEEN.add(this);
+
+			_isPlaying = true;
+
+			_onStartCallbackFired = false;
+
+			_startTime = time !== undefined ? time : window.performance.now();
+			_startTime += _delayTime;
+
+			for (var property in _valuesEnd) {
+
+				// Check if an Array was provided as property value
+				if (_valuesEnd[property] instanceof Array) {
+
+					if (_valuesEnd[property].length === 0) {
+						continue;
+					}
+
+					// Create a local copy of the Array with the start value at the front
+					_valuesEnd[property] = [_object[property]].concat(_valuesEnd[property]);
+				}
+
+				// If `to()` specifies a property that doesn't exist in the source object,
+				// we should not set that property in the object
+				if (_valuesStart[property] === undefined) {
+					continue;
+				}
+
+				_valuesStart[property] = _object[property];
+
+				if (_valuesStart[property] instanceof Array === false) {
+					_valuesStart[property] *= 1.0; // Ensures we're using numbers, not strings
+				}
+
+				_valuesStartRepeat[property] = _valuesStart[property] || 0;
+			}
+
+			return this;
+		};
+
+		this.stop = function () {
+
+			if (!_isPlaying) {
+				return this;
+			}
+
+			TWEEN.remove(this);
+			_isPlaying = false;
+
+			if (_onStopCallback !== null) {
+				_onStopCallback.call(_object);
+			}
+
+			this.stopChainedTweens();
+			return this;
+		};
+
+		this.stopChainedTweens = function () {
+
+			for (var i = 0, numChainedTweens = _chainedTweens.length; i < numChainedTweens; i++) {
+				_chainedTweens[i].stop();
+			}
+		};
+
+		this.delay = function (amount) {
+
+			_delayTime = amount;
+			return this;
+		};
+
+		this.repeat = function (times) {
+
+			_repeat = times;
+			return this;
+		};
+
+		this.yoyo = function (yoyo) {
+
+			_yoyo = yoyo;
+			return this;
+		};
+
+		this.easing = function (easing) {
+
+			_easingFunction = easing;
+			return this;
+		};
+
+		this.interpolation = function (interpolation) {
+
+			_interpolationFunction = interpolation;
+			return this;
+		};
+
+		this.chain = function () {
+
+			_chainedTweens = arguments;
+			return this;
+		};
+
+		this.onStart = function (callback) {
+
+			_onStartCallback = callback;
+			return this;
+		};
+
+		this.onUpdate = function (callback) {
+
+			_onUpdateCallback = callback;
+			return this;
+		};
+
+		this.onComplete = function (callback) {
+
+			_onCompleteCallback = callback;
+			return this;
+		};
+
+		this.onStop = function (callback) {
+
+			_onStopCallback = callback;
+			return this;
+		};
+
+		this.update = function (time) {
+
+			var property;
+			var elapsed;
+			var value;
+
+			if (time < _startTime) {
+				return true;
+			}
+
+			if (_onStartCallbackFired === false) {
+
+				if (_onStartCallback !== null) {
+					_onStartCallback.call(_object);
+				}
+
+				_onStartCallbackFired = true;
+			}
+
+			elapsed = (time - _startTime) / _duration;
+			elapsed = elapsed > 1 ? 1 : elapsed;
+
+			value = _easingFunction(elapsed);
+
+			for (property in _valuesEnd) {
+
+				// Don't update properties that do not exist in the source object
+				if (_valuesStart[property] === undefined) {
+					continue;
+				}
+
+				var start = _valuesStart[property] || 0;
+				var end = _valuesEnd[property];
+
+				if (end instanceof Array) {
+
+					_object[property] = _interpolationFunction(end, value);
+				} else {
+
+					// Parses relative end values with start as base (e.g.: +10, -3)
+					if (typeof end === 'string') {
+
+						if (end.startsWith('+') || end.startsWith('-')) {
+							end = start + parseFloat(end, 10);
+						} else {
+							end = parseFloat(end, 10);
+						}
+					}
+
+					// Protect against non numeric properties.
+					if (typeof end === 'number') {
+						_object[property] = start + (end - start) * value;
+					}
+				}
+			}
+
+			if (_onUpdateCallback !== null) {
+				_onUpdateCallback.call(_object, value);
+			}
+
+			if (elapsed === 1) {
+
+				if (_repeat > 0) {
+
+					if (isFinite(_repeat)) {
+						_repeat--;
+					}
+
+					// Reassign starting values, restart by making startTime = now
+					for (property in _valuesStartRepeat) {
+
+						if (typeof _valuesEnd[property] === 'string') {
+							_valuesStartRepeat[property] = _valuesStartRepeat[property] + parseFloat(_valuesEnd[property], 10);
+						}
+
+						if (_yoyo) {
+							var tmp = _valuesStartRepeat[property];
+
+							_valuesStartRepeat[property] = _valuesEnd[property];
+							_valuesEnd[property] = tmp;
+						}
+
+						_valuesStart[property] = _valuesStartRepeat[property];
+					}
+
+					if (_yoyo) {
+						_reversed = !_reversed;
+					}
+
+					_startTime = time + _delayTime;
+
+					return true;
+				} else {
+
+					if (_onCompleteCallback !== null) {
+						_onCompleteCallback.call(_object);
+					}
+
+					for (var i = 0, numChainedTweens = _chainedTweens.length; i < numChainedTweens; i++) {
+						// Make the chained tweens start exactly at the time they should,
+						// even if the `update()` method was called way past the duration of the tween
+						_chainedTweens[i].start(_startTime + _duration);
+					}
+
+					return false;
+				}
+			}
+
+			return true;
+		};
+	};
+
+	TWEEN.Easing = {
+
+		Linear: {
+
+			None: function None(k) {
+
+				return k;
+			}
+
+		},
+
+		Quadratic: {
+
+			In: function In(k) {
+
+				return k * k;
+			},
+
+			Out: function Out(k) {
+
+				return k * (2 - k);
+			},
+
+			InOut: function InOut(k) {
+
+				if ((k *= 2) < 1) {
+					return 0.5 * k * k;
+				}
+
+				return -0.5 * (--k * (k - 2) - 1);
+			}
+
+		},
+
+		Cubic: {
+
+			In: function In(k) {
+
+				return k * k * k;
+			},
+
+			Out: function Out(k) {
+
+				return --k * k * k + 1;
+			},
+
+			InOut: function InOut(k) {
+
+				if ((k *= 2) < 1) {
+					return 0.5 * k * k * k;
+				}
+
+				return 0.5 * ((k -= 2) * k * k + 2);
+			}
+
+		},
+
+		Quartic: {
+
+			In: function In(k) {
+
+				return k * k * k * k;
+			},
+
+			Out: function Out(k) {
+
+				return 1 - --k * k * k * k;
+			},
+
+			InOut: function InOut(k) {
+
+				if ((k *= 2) < 1) {
+					return 0.5 * k * k * k * k;
+				}
+
+				return -0.5 * ((k -= 2) * k * k * k - 2);
+			}
+
+		},
+
+		Quintic: {
+
+			In: function In(k) {
+
+				return k * k * k * k * k;
+			},
+
+			Out: function Out(k) {
+
+				return --k * k * k * k * k + 1;
+			},
+
+			InOut: function InOut(k) {
+
+				if ((k *= 2) < 1) {
+					return 0.5 * k * k * k * k * k;
+				}
+
+				return 0.5 * ((k -= 2) * k * k * k * k + 2);
+			}
+
+		},
+
+		Sinusoidal: {
+
+			In: function In(k) {
+
+				return 1 - Math.cos(k * Math.PI / 2);
+			},
+
+			Out: function Out(k) {
+
+				return Math.sin(k * Math.PI / 2);
+			},
+
+			InOut: function InOut(k) {
+
+				return 0.5 * (1 - Math.cos(Math.PI * k));
+			}
+
+		},
+
+		Exponential: {
+
+			In: function In(k) {
+
+				return k === 0 ? 0 : Math.pow(1024, k - 1);
+			},
+
+			Out: function Out(k) {
+
+				return k === 1 ? 1 : 1 - Math.pow(2, -10 * k);
+			},
+
+			InOut: function InOut(k) {
+
+				if (k === 0) {
+					return 0;
+				}
+
+				if (k === 1) {
+					return 1;
+				}
+
+				if ((k *= 2) < 1) {
+					return 0.5 * Math.pow(1024, k - 1);
+				}
+
+				return 0.5 * (-Math.pow(2, -10 * (k - 1)) + 2);
+			}
+
+		},
+
+		Circular: {
+
+			In: function In(k) {
+
+				return 1 - Math.sqrt(1 - k * k);
+			},
+
+			Out: function Out(k) {
+
+				return Math.sqrt(1 - --k * k);
+			},
+
+			InOut: function InOut(k) {
+
+				if ((k *= 2) < 1) {
+					return -0.5 * (Math.sqrt(1 - k * k) - 1);
+				}
+
+				return 0.5 * (Math.sqrt(1 - (k -= 2) * k) + 1);
+			}
+
+		},
+
+		Elastic: {
+
+			In: function In(k) {
+
+				var s;
+				var a = 0.1;
+				var p = 0.4;
+
+				if (k === 0) {
+					return 0;
+				}
+
+				if (k === 1) {
+					return 1;
+				}
+
+				if (!a || a < 1) {
+					a = 1;
+					s = p / 4;
+				} else {
+					s = p * Math.asin(1 / a) / (2 * Math.PI);
+				}
+
+				return -(a * Math.pow(2, 10 * (k -= 1)) * Math.sin((k - s) * (2 * Math.PI) / p));
+			},
+
+			Out: function Out(k) {
+
+				var s;
+				var a = 0.1;
+				var p = 0.4;
+
+				if (k === 0) {
+					return 0;
+				}
+
+				if (k === 1) {
+					return 1;
+				}
+
+				if (!a || a < 1) {
+					a = 1;
+					s = p / 4;
+				} else {
+					s = p * Math.asin(1 / a) / (2 * Math.PI);
+				}
+
+				return a * Math.pow(2, -10 * k) * Math.sin((k - s) * (2 * Math.PI) / p) + 1;
+			},
+
+			InOut: function InOut(k) {
+
+				var s;
+				var a = 0.1;
+				var p = 0.4;
+
+				if (k === 0) {
+					return 0;
+				}
+
+				if (k === 1) {
+					return 1;
+				}
+
+				if (!a || a < 1) {
+					a = 1;
+					s = p / 4;
+				} else {
+					s = p * Math.asin(1 / a) / (2 * Math.PI);
+				}
+
+				if ((k *= 2) < 1) {
+					return -0.5 * (a * Math.pow(2, 10 * (k -= 1)) * Math.sin((k - s) * (2 * Math.PI) / p));
+				}
+
+				return a * Math.pow(2, -10 * (k -= 1)) * Math.sin((k - s) * (2 * Math.PI) / p) * 0.5 + 1;
+			}
+
+		},
+
+		Back: {
+
+			In: function In(k) {
+
+				var s = 1.70158;
+
+				return k * k * ((s + 1) * k - s);
+			},
+
+			Out: function Out(k) {
+
+				var s = 1.70158;
+
+				return --k * k * ((s + 1) * k + s) + 1;
+			},
+
+			InOut: function InOut(k) {
+
+				var s = 1.70158 * 1.525;
+
+				if ((k *= 2) < 1) {
+					return 0.5 * (k * k * ((s + 1) * k - s));
+				}
+
+				return 0.5 * ((k -= 2) * k * ((s + 1) * k + s) + 2);
+			}
+
+		},
+
+		Bounce: {
+
+			In: function In(k) {
+
+				return 1 - TWEEN.Easing.Bounce.Out(1 - k);
+			},
+
+			Out: function Out(k) {
+
+				if (k < 1 / 2.75) {
+					return 7.5625 * k * k;
+				} else if (k < 2 / 2.75) {
+					return 7.5625 * (k -= 1.5 / 2.75) * k + 0.75;
+				} else if (k < 2.5 / 2.75) {
+					return 7.5625 * (k -= 2.25 / 2.75) * k + 0.9375;
+				} else {
+					return 7.5625 * (k -= 2.625 / 2.75) * k + 0.984375;
+				}
+			},
+
+			InOut: function InOut(k) {
+
+				if (k < 0.5) {
+					return TWEEN.Easing.Bounce.In(k * 2) * 0.5;
+				}
+
+				return TWEEN.Easing.Bounce.Out(k * 2 - 1) * 0.5 + 0.5;
+			}
+
+		}
+
+	};
+
+	TWEEN.Interpolation = {
+
+		Linear: function Linear(v, k) {
+
+			var m = v.length - 1;
+			var f = m * k;
+			var i = Math.floor(f);
+			var fn = TWEEN.Interpolation.Utils.Linear;
+
+			if (k < 0) {
+				return fn(v[0], v[1], f);
+			}
+
+			if (k > 1) {
+				return fn(v[m], v[m - 1], m - f);
+			}
+
+			return fn(v[i], v[i + 1 > m ? m : i + 1], f - i);
+		},
+
+		Bezier: function Bezier(v, k) {
+
+			var b = 0;
+			var n = v.length - 1;
+			var pw = Math.pow;
+			var bn = TWEEN.Interpolation.Utils.Bernstein;
+
+			for (var i = 0; i <= n; i++) {
+				b += pw(1 - k, n - i) * pw(k, i) * v[i] * bn(n, i);
+			}
+
+			return b;
+		},
+
+		CatmullRom: function CatmullRom(v, k) {
+
+			var m = v.length - 1;
+			var f = m * k;
+			var i = Math.floor(f);
+			var fn = TWEEN.Interpolation.Utils.CatmullRom;
+
+			if (v[0] === v[m]) {
+
+				if (k < 0) {
+					i = Math.floor(f = m * (1 + k));
+				}
+
+				return fn(v[(i - 1 + m) % m], v[i], v[(i + 1) % m], v[(i + 2) % m], f - i);
+			} else {
+
+				if (k < 0) {
+					return v[0] - (fn(v[0], v[0], v[1], v[1], -f) - v[0]);
+				}
+
+				if (k > 1) {
+					return v[m] - (fn(v[m], v[m], v[m - 1], v[m - 1], f - m) - v[m]);
+				}
+
+				return fn(v[i ? i - 1 : 0], v[i], v[m < i + 1 ? m : i + 1], v[m < i + 2 ? m : i + 2], f - i);
+			}
+		},
+
+		Utils: {
+
+			Linear: function Linear(p0, p1, t) {
+
+				return (p1 - p0) * t + p0;
+			},
+
+			Bernstein: function Bernstein(n, i) {
+
+				var fc = TWEEN.Interpolation.Utils.Factorial;
+
+				return fc(n) / fc(i) / fc(n - i);
+			},
+
+			Factorial: (function () {
+
+				var a = [1];
+
+				return function (n) {
+
+					var s = 1;
+
+					if (a[n]) {
+						return a[n];
+					}
+
+					for (var i = n; i > 1; i--) {
+						s *= i;
+					}
+
+					a[n] = s;
+					return s;
+				};
+			})(),
+
+			CatmullRom: function CatmullRom(p0, p1, p2, p3, t) {
+
+				var v0 = (p2 - p0) * 0.5;
+				var v1 = (p3 - p1) * 0.5;
+				var t2 = t * t;
+				var t3 = t * t2;
+
+				return (2 * p1 - 2 * p2 + v0 + v1) * t3 + (-3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 + v0 * t + p1;
+			}
+
+		}
+
+	};
+
+	// UMD (Universal Module Definition)
+	(function (root) {
+
+		if (true) {
+
+			// AMD
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return TWEEN;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else if (typeof module !== 'undefined' && typeof exports === 'object') {
+
+			// Node.js
+			module.exports = TWEEN;
+		} else if (root !== undefined) {
+
+			// Global variable
+			root.TWEEN = TWEEN;
+		}
+	})(undefined);
+
+	exports['default'] = TWEEN;
+	module.exports = exports['default'];
+
+/***/ },
+/* 213 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by fly on 2016/6/16 0016.
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	var lastTime = 0;
+	var vendors = ['ms', 'moz', 'webkit', 'o'];
+	for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+	    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+	    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+	}
+
+	if (!window.requestAnimationFrame) window.requestAnimationFrame = function (callback, element) {
+	    var currTime = new Date().getTime();
+	    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+	    var id = window.setTimeout(function () {
+	        callback(currTime + timeToCall);
+	    }, timeToCall);
+	    lastTime = currTime + timeToCall;
+	    return id;
+	};
+
+	if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function (id) {
+	    clearTimeout(id);
+	};
+
+	exports['default'] = window.requestAnimationFrame;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

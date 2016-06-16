@@ -1,0 +1,59 @@
+.f-index-page-C {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  overflow: hidden; }
+  .f-index-page-C.hide {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    -webkit-transition: -webkit-transform 500ms;
+    transition: transform 500ms; }
+  .f-index-page-C div {
+    position: absolute; }
+  .f-index-page-C .f-heart {
+    top: 3rem;
+    left: -1.5rem;
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  .f-index-page-C .f-camera {
+    width: 4rem;
+    left: 8vw;
+    top: 4vh;
+    z-index: 1;
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  .f-index-page-C .f-necktie {
+    width: 3rem;
+    top: 3rem;
+    left: 1.5rem;
+    z-index: 0;
+    -webkit-transform: translate3d(-100px, 0, 0);
+    transform: translate3d(-100px, 0, 0);
+    opacity: 0; }
+  .f-index-page-C .f-father-text {
+    width: 7rem;
+    right: .1rem;
+    top: 2.2rem;
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  .f-index-page-C .f-father {
+    width: 5rem;
+    bottom: 0;
+    right: 0;
+    -webkit-transform: translate3d(300px, 0, 0);
+    transform: translate3d(300px, 0, 0); }
+  .f-index-page-C .f-love {
+    width: 4rem;
+    bottom: 1.6rem;
+    left: 1.3rem;
+    opacity: 0; }
+  .f-index-page-C .f-logo {
+    width: 1.5rem;
+    bottom: 1rem;
+    left: 1rem;
+    opacity: 0; }
+
+/*# sourceMappingURL=f-index-page.css.map */

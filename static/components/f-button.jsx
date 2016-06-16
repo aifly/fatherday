@@ -1,56 +1,79 @@
-
 import React from 'react';
 import './scss/f-button.css';
 import PubSub from '../js/pubsub';
-
-
+import IScroll from 'iscroll';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-export default class FButton extends React.Component{
-    constructor(args){
+
+
+export default class FButton extends React.Component {
+    constructor(args) {
         super(...args);
-        this.touchStart=this.touchStart.bind(this);
-        this.touchEnd=this.touchEnd.bind(this);
-        this.uploadImage=this.uploadImage.bind(this);
+        this.touchStart = this.touchStart.bind(this);
+        this.touchEnd = this.touchEnd.bind(this);
+        this.uploadImage = this.uploadImage.bind(this);
         this.onChange = this.onChange.bind(this);
         this.state = {
-            btn1ClassList:"f-button1",
-            fatherPhoto:''
+            btn1ClassList: "f-button1",
+            fatherPhoto: '',
+            display: 'block',
+            content:''
         };
 
     }
 
-    uploadImage(){
-       this.refs['f-file'].click();
+    uploadImage() {
+
+        if (this.props.upload) {
+            this.refs['f-file'].click();
+        }
+        else {
+            alert('确定')
+        }
+
     }
 
-    touchStart(e){
+    touchStart(e) {
 
         this.refs['btn1'].classList.add('active');
 
     }
-    touchEnd(e){
+
+    touchEnd(e) {
         this.refs['btn1'].classList.remove('active');
     }
 
-    render(){
+    render() {
 
-        let btn1Style =  {
-            backgroundColor:this.props.theme.color1
-        },
-            btn2Style={
-                backgroundColor:this.props.theme.color2
+        let btn1Style = {
+                backgroundColor: this.props.theme.color1
+            },
+            btn2Style = {
+                backgroundColor: this.props.theme.color2
             }
+
         return (
-            <div className="f-button-group" onTouchEnd={this.touchEnd}>
-                <div ref="btn1" style={btn1Style} className='f-button1' onTouchTap={this.uploadImage} onTouchStart={this.touchStart} >{this.props.content}</div>
-                <div className="f-button2" style={btn2Style}>{this.props.content}</div>
-                <input type="file" ref="f-file" style={{opacity:0}} onChange={this.onChange}/>
+            <div ref={this.props.r} className="f-button-group" style={{display:this.state.display}}>
+                <div ref="btn1" style={btn1Style} onTouchEnd={this.touchEnd} className='f-button1'
+                     onTouchTap={this.uploadImage} onTouchStart={this.touchStart}>{this.state.content}</div>
+                <div className="f-button2" style={btn2Style}>{this.state.content}</div>
+                <input type="file" ref="f-file" style={{opacity:0,position:'fixed',zIndex:-1}}
+                       onChange={this.onChange}/>
             </div>
         )
     }
+
+    componentDidMount() {
+        this.setState({
+            display: this.props.display,
+            content:this.props.content
+        });
+    }
+
     onChange() {
+
+        PubSub.publish('start')
         let formData = new FormData();
         if (this.refs['f-file'].files.length <= 0) {
             return;
@@ -61,6 +84,7 @@ export default class FButton extends React.Component{
         formData.append('filename', 'fatherday');
         let s = this;
 
+
         $.ajax({
             url: s.props.baseUrl,
             type: "POST",
@@ -70,10 +94,25 @@ export default class FButton extends React.Component{
             success(data){
 
                 if (data.getret === 0) {
-                    let url='http://webapi.zmiti.com/' + data.geturl[0];
-                    console.log(url);
-                    PubSub.publish("changeFatherPhoto",url);
-                   
+                    let url = 'http://webapi.zmiti.com/' + data.geturl[0];
+                    PubSub.publish("changeFatherPhoto", {url, type: s.props.type});
+                    if (s.props.type === 'father') {
+                        $('.f-button-group').show();
+                        s.setState({
+                            content:"重新上传"
+                        });
+                    }
+
+                    let img = new Image();
+                    img.onload = ()=> {
+
+                        setTimeout(()=> {
+                            window.iscroll.refresh();
+                            PubSub.publish('stop');
+                        }, 1)
+
+                    }
+                    img.src = url;
                 }
 
             },
@@ -86,11 +125,13 @@ export default class FButton extends React.Component{
 }
 
 FButton.defaultProps = {
-    content:"秀秀老爸的照片",
-    theme:{
-        color1:'#f2921f',
-        color2:'#2f8764'
+    content: "秀秀老爸的照片",
+    theme: {
+        color1: '#f2921f',
+        color2: '#116b55'
     },
+    display: 'block',
+    upload: true,
     baseUrl: "http://webapi.zmiti.com/v1/upload/pub_upload_file/"
 };
 

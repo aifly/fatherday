@@ -3,16 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'/>
-    <title></title>
+    <title>父亲节,晒晒我和老爸</title>
+    <style>
+        html, body, div {
+            padding: 0;
+            margin: 0;
+        }
+
+        .f-loading{
+            width:100%;
+            height:100vh;
+            z-index:1000;
+            position: fixed;
+            background: #2b81af;
+            left:0;
+            top:0;
+        }
+        .f-loading.hide{
+            transition:.5s 1s;
+            -webkit-transition:.5s 1s;
+            transform: translate3d(0,-100vh,0);
+            -webkit-transform: translate3d(0,-100vh,0);
+            height:0;
+            transform-origin: top;
+            -webkit-transform-origin: top;
+            opacity:0;
+        }
+        .f-loading .loading{
+            width:100px;
+            height:100px;
+            position:absolute;
+            top:50%;
+            margin-top:-50px;
+            left:50%;
+            margin-left:-50px;
+        }
+        .f-loading svg{
+            background:transparent;
+            fill:none;
+        }
+        .loading span{
+            position: absolute;
+            top:36px;
+            color:#fff;
+            font-size:12px;
+            left:20px;;
+        }
+    </style>
 </head>
 <body>
+<p style="position: fixed;z-index:-1;opacity: 0;">父亲节,晒晒我和老爸</p>
+<div class="f-loading" id="loading">
+    <div class="loading">
+        <span>正在载入...</span>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
+            <path fill-opacity="0" stroke-width="2" stroke="#bbb" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z"/>
+            <path id="heart-path" fill-opacity="0" stroke-width="3" stroke="#ED6A5A" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z"/>
+        </svg>
+    </div>
+</div>
+
 <div id="fly-main">
 
 </div>
-<script src="http://localhost:3400/index.js"></script>
-<!--
-    <script src="./static/js/index.js"></script>
 
+<script src="./static/js/progressbar.js"></script>
+<script>
+    window.addEventListener('load', function () {
+
+        function loading(){
+            var bar = new ProgressBar.Path('#heart-path', {
+                easing: 'easeInOut',
+                duration: 1000
+            });
+            bar.set(0);
+            bar.animate(1);  // Number from 0.0 to 1.0
+        }
+        loading();
+        window.timer = setInterval(function(){
+            loading();
+        },2000);
+    });
+
+    function loaded(){
+        window.timer && clearInterval(window.timer);
+        document.getElementById('loading').classList.add('hide');
+    }
+    window.defaultTouched = false;
+    document.addEventListener('touchmove',function(e){
+        e.preventDefault();
+        return false;
+    });
+</script>
+<!--
+<script src="http://localhost:3400/index.js"></script>
 -->
+    <script src="./static/js/index.js"></script>
 </body>
 </html>
