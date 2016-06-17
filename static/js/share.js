@@ -110,6 +110,8 @@
 
 	var _iscroll2 = _interopRequireDefault(_iscroll);
 
+	var _utilMethodEs6 = __webpack_require__(172);
+
 	var path = './static/js/';
 
 	var bg = path + _staticImagesIndexBgPng2['default'];
@@ -121,12 +123,19 @@
 	        _classCallCheck(this, App);
 
 	        _get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, args);
+	        this.touchEnd = this.touchEnd.bind(this);
 	    }
 
 	    _createClass(App, [{
+	        key: 'touchEnd',
+	        value: function touchEnd(e) {//发送给老爸
+
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2['default'].createElement('div', { className: 'f-main-ui', style: { background: '#63bf9b url(' + bg + ') no-repeat center bottom', backgroundSize: 'cover' } }, _react2['default'].createElement('section', { className: 'f-main-content' }, _react2['default'].createElement('img', { className: 'f-main-share-1', src: './static/images/share_1.png', alt: '' }), _react2['default'].createElement('div', { className: 'f-main-line' }), _react2['default'].createElement('div', { className: 'f-main-text' }, _react2['default'].createElement('p', { className: 'f-main-text-content' }, '父爱，伟岸如青山，圣洁如冰雪，温暖如骄阳，宽广如江海。我在父亲的爱中成长，如今我长大了，我在父亲的爱中成长，如今我长大了，我要用更多的爱来回报你，我最亲爱的老爸')), _react2['default'].createElement('div', { className: 'f-main-img-content' }, _react2['default'].createElement('div', { className: 'f-main-img-items' }, _react2['default'].createElement('div', { className: 'f-main-img-line' }), _react2['default'].createElement('div', { className: 'f-main-img' }, _react2['default'].createElement('div', { className: 'f-main-img-item' }, _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: 'static/images/tape.png', alt: '' })), _react2['default'].createElement('div', null, _react2['default'].createElement('img', { src: './static/images/1.png', alt: '' }))))), _react2['default'].createElement('div', { className: 'f-btn-line' }), _react2['default'].createElement('div', { className: 'f-btn' }, _react2['default'].createElement('div', { className: 'f-button-group' }, _react2['default'].createElement('div', { ref: 'btn1', className: 'f-button1' }, '发送给老爸!'), _react2['default'].createElement('div', { className: 'f-button2' }, '发送给老爸!'))), _react2['default'].createElement('div', { className: 'f-btn-line', style: { height: '1rem' } }), _react2['default'].createElement('div', { className: 'f-main-logo' }, _react2['default'].createElement('img', { src: './static/images/logo.png', alt: '' })), _react2['default'].createElement('div', { className: 'f-btn-line', style: { height: '3rem' } }))));
+	            return _react2['default'].createElement('div', { className: 'f-main-ui',
+	                style: { background: '#63bf9b url(' + bg + ') no-repeat center bottom', backgroundSize: 'cover' } }, _react2['default'].createElement('section', { className: 'f-main-content' }, _react2['default'].createElement('img', { className: 'f-main-share-1', src: './static/images/share_1.png', alt: '' }), _react2['default'].createElement('div', { className: 'f-main-line' }), _react2['default'].createElement('div', { className: 'f-main-text' }, _react2['default'].createElement('p', { className: 'f-main-text-content' }, '父爱，伟岸如青山，圣洁如冰雪，温暖如骄阳，宽广如江海。我在父亲的爱中成长，如今我长大了，我在父亲的爱中成长，如今我长大了，我要用更多的爱来回报你，我最亲爱的老爸')), _react2['default'].createElement('div', { className: 'f-main-img-content' }, _react2['default'].createElement('div', { className: 'f-main-img-items' }, _react2['default'].createElement('div', { className: 'f-main-img-line' }), _react2['default'].createElement('div', { className: 'f-main-img-temp f-main-img' }, _react2['default'].createElement('div', { className: 'f-main-img-item' }, _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: 'static/images/tape.png', alt: '' })), _react2['default'].createElement('div', null, _react2['default'].createElement('img', { className: 'f-img1', src: './static/images/1.png', alt: '' }))), _react2['default'].createElement('div', { className: 'f-btn-line' })), _react2['default'].createElement('div', { className: 'f-main-img-temp f-main-img1' }, _react2['default'].createElement('div', { className: 'f-main-img-item' }, _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: 'static/images/tape.png', alt: '' })), _react2['default'].createElement('div', null, _react2['default'].createElement('img', { className: 'f-img2', src: './static/images/1.png', alt: '' }))), _react2['default'].createElement('div', { className: 'f-main-img-item1' }, _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: 'static/images/tape.png', alt: '' })), _react2['default'].createElement('div', null, _react2['default'].createElement('img', { className: 'f-img2', src: './static/images/1.png', alt: '' }))), _react2['default'].createElement('div', { className: 'f-btn-line', style: { marginTop: ".5rem" } })), _react2['default'].createElement('div', { className: 'f-main-img-temp f-main-img2' }, _react2['default'].createElement('div', { className: 'f-main-img-item' }, _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: 'static/images/tape.png', alt: '' })), _react2['default'].createElement('div', null, _react2['default'].createElement('img', { src: './static/images/1.png', alt: '' }))), _react2['default'].createElement('div', { className: 'f-main-img-item1' }, _react2['default'].createElement('figcaption', { className: 'f-tape' }, _react2['default'].createElement('img', { src: 'static/images/tape.png', alt: '' })), _react2['default'].createElement('div', null, _react2['default'].createElement('img', { src: './static/images/1.png', alt: '' }))), _react2['default'].createElement('div', { className: 'f-btn-line', style: { marginTop: ".5rem" } }))), _react2['default'].createElement('div', { className: 'f-btn' }, _react2['default'].createElement('div', { className: 'f-button-group' }, _react2['default'].createElement('div', { ref: 'btn1', onTouchEnd: this.touchEnd, className: 'f-button1' }, '发送给老爸!'), _react2['default'].createElement('div', { className: 'f-button2' }, '发送给老爸!'))), _react2['default'].createElement('div', { className: 'f-btn-line', style: { height: '1rem' } }), _react2['default'].createElement('div', { className: 'f-main-logo' }, _react2['default'].createElement('img', { src: './static/images/logo.png', alt: '' })), _react2['default'].createElement('div', { className: 'f-btn-line', style: { height: '3rem' } }))));
 	        }
 	    }, {
 	        key: 'componentDidMount',
@@ -134,6 +143,30 @@
 	            setTimeout(function () {
 	                new _iscroll2['default'](".f-main-ui");
 	            }, 100);
+	            var json = _utilMethodEs6.utilMethods.getQueryString("json");
+	            if (json) {
+	                document.querySelector(".f-main-text-content").innerHTML = json.content;
+	                var fatherPhoto = undefined,
+	                    myPhoto = undefined;
+	                fatherPhoto = json.fatherPhoto;
+	                myPhoto = json.myPhoto;
+
+	                if (fatherPhoto && myPhoto) {
+	                    var num = Math.ceil(_utilMethodEs6.utilMethods.r(0, 2));
+	                    if (num === 1) {
+	                        document.querySelector(".f-main-img1").style.display = "block";
+	                        document.getElementsByClassName("f-img2")[0].setAttribute("src", fatherPhoto);
+	                        document.getElementsByClassName("f-img2")[1].setAttribute("src", myPhoto);
+	                    } else if (num == 2) {
+	                        document.querySelector(".f-main-img1").style.display = "block";
+	                        document.getElementsByClassName("f-img2")[0].setAttribute("src", fatherPhoto);
+	                        document.getElementsByClassName("f-img2")[1].setAttribute("src", myPhoto);
+	                    }
+	                } else if (fatherPhoto) {
+	                    document.querySelector(".f-main-img").style.display = "block";
+	                    document.getElementsByClassName("f-img1")[0].setAttribute("src", fatherPhoto);
+	                }
+	            }
 	        }
 	    }]);
 
@@ -20746,7 +20779,175 @@
 
 
 /***/ },
-/* 172 */,
+/* 172 */
+/***/ function(module, exports) {
+
+	/**
+	 created by fly on 2016/4/11 0011
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	var utilMethods = {
+	    getGuid: function getGuid() {
+	        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+	            var r = Math.random() * 16 | 0,
+	                v = c == 'x' ? r : r & 0x3 | 0x8;
+	            return v.toString(16);
+	        });
+	    },
+	    r: function r(m, n) {
+	        return m + Math.random() * (n - m);
+	    },
+	    loading: function loading(arr, fn, fnEnd) {
+	        var len = arr.length;
+	        var count = 0;
+	        var i = 0;
+	        loadimg();
+	        function loadimg() {
+	            if (i === len) {
+	                return;
+	            }
+	            var img = new Image();
+	            img.onload = img.onerror = function () {
+	                count++;
+	                if (i < len - 1) {
+	                    i++;
+	                    loadimg();
+	                    fn && fn(i / (len - 1), img.src);
+	                } else {
+	                    fnEnd && fnEnd(img.src);
+	                }
+	            };
+	            img.src = arr[i];
+	        }
+	    },
+	    getQueryString: function getQueryString(name) {
+	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	        var r = window.location.search.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]);
+	        return null;
+	    },
+	    getStyle: function getStyle(obj) {
+	        return window.getComputedStyle ? window.getComputedStyle(obj, null) : obj.currentStyle;
+	    },
+	    hasClass: function hasClass(obj, className) {
+
+	        return Array.from(obj.classList).indexOf(className) > -1;
+	    },
+	    removeClass: function removeClass(obj, className) {
+	        if (obj.length) {
+	            obj.forEach(function (o) {
+	                o.classList.remove(className);
+	            });
+	        } else {
+	            obj.classList.remove(className);
+	        }
+	    },
+	    addClass: function addClass(obj, className) {
+	        if (obj.length) {
+	            obj.forEach(function (o) {
+	                o.classList.add(className);
+	            });
+	        } else {
+	            obj.classList.add(className);
+	        }
+	    },
+	    index: function index(elems, parent, selector) {
+	        var parent = parent || elems.parentNode,
+	            cindex = -1,
+	            selector = selector || "*";
+	        Array.from(parent.querySelectorAll(selector)).forEach(function (item, i) {
+	            "use strict";
+	            if (item === elems) {
+	                cindex = i;
+	            }
+	        });
+	        return cindex;
+	    },
+
+	    ajax: function ajax(opt) {
+	        var xhr = this.createXhrObject();
+	        xhr.onreadystatechange = function () {
+	            if (xhr.readyState != 4) return;
+	            xhr.status === 200 ? opt.success(xhr.responseText, xhr.responseXML) : opt.error(xhr.responseText, xhr.status);
+	        };
+	        xhr.open(opt.type, opt.url, true);
+	        if (opt.type !== 'POST') opt.data = null;else xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	        opt.data = this.parseQuery(opt.data);
+	        xhr.send(opt.data);
+	    },
+	    post: function post(url, success, data) {
+	        var popt = {
+	            url: url,
+	            type: 'POST',
+	            data: data,
+	            success: success,
+	            error: function error(data) {}
+	        };
+	        this.ajax(popt);
+	    },
+	    get: function get(url, success) {
+	        var gopt = {
+	            url: url,
+	            type: 'get',
+	            success: success,
+	            error: function error() {}
+	        };
+	        this.ajax(gopt);
+	    },
+	    createXhrObject: function createXhrObject() {
+	        var methods = [function () {
+	            return new XMLHttpRequest();
+	        }, function () {
+	            return new ActiveXObject('Msxml2.XMLHTTP');
+	        }, function () {
+	            return new ActiveXObject('Microsoft.XMLHTTP');
+	        }];
+	        for (var i = 0, len = methods.length; i < len; i++) {
+	            try {
+	                methods[i]();
+	            } catch (e) {
+	                continue;
+	            }
+	            this.createXhrObject = methods[i];
+	            return methods[i]();
+	        }
+	        throw new Error('Could not create an XHR object.');
+	    },
+	    parseQuery: function parseQuery(json) {
+	        if (typeof json == 'object') {
+	            var str = '';
+	            for (var i in json) {
+	                str += "&" + i + "=" + encodeURIComponent(json[i]);
+	            }
+	            return str.length == 0 ? str : str.substring(1);
+	        } else {
+	            return json;
+	        }
+	    }
+	};
+
+	if (!Array.from) {
+	    Array.from = function (c) {
+	        return Array.prototype.slice.call(c);
+	    };
+	}
+
+	var _$ = function _$(selector) {
+	    return document.querySelector(selector);
+	};
+	var $$ = function $$(selector, parent) {
+	    parent = parent || document;
+	    return [].slice.call(parent.querySelectorAll(selector));
+	};
+
+	exports['default'] = { utilMethods: utilMethods, _$: _$, $$: $$ };
+	module.exports = exports['default'];
+
+/***/ },
 /* 173 */,
 /* 174 */,
 /* 175 */,
@@ -22929,7 +23130,7 @@
 
 
 	// module
-	exports.push([module.id, "html,\nbody,\ndiv,\np,\nul,\nli,\nol,\ndl,\ndt,\ndd,\nheader,\nfooter,\nvideo,\nh1,\nh2,\nh3,\nh4,\ncanvas,\nsection,\nfigure {\n  padding: 0;\n  margin: 0;\n}\na {\n  text-decoration: none;\n}\nli {\n  list-style: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nimg {\n  border: none;\n  vertical-align: top;\n  width: 100%;\n}\ninput,\ntextarea,\nbutton {\n  outline: none;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\n  border-radius: .065rem !important;\n}\ninput[type=\"button\"],\ninput[type=\"submit\"],\ninput[type=\"reset\"] {\n  -webkit-appearance: none;\n}\ninput {\n  border: none;\n  -webkit-appearance: none;\n  border-radius: .065rem !important;\n}\ntextarea {\n  -webkit-appearance: none;\n}\nbody {\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\n  font-size: .4rem;\n  overflow: hidden;\n  height: 100%;\n}\n.transform3d {\n  -webkit-transform-style: preserve-3d;\n  -webkit-perspective: 800px;\n  transform-style: preserve-3d;\n  perspective: 800px;\n}\nbody {\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  height: 100%;\n  overflow: hidden;\n  -webkit-overflow-scrolling: touch;\n}\n.f-main-ui {\n  width: 100%;\n  height: 100vh;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n.f-main-ui .f-main-content {\n  width: 100%;\n}\n.f-main-ui .f-main-content .f-main-share-1 {\n  display: block;\n  position: absolute;\n}\n.f-main-ui .f-main-content .f-main-line {\n  height: 4.1rem;\n}\n.f-main-ui .f-main-content .f-main-text {\n  width: 8rem;\n  height: 4.7rem;\n  position: relative;\n  margin: 0 auto;\n}\n.f-main-ui .f-main-content .f-main-text p {\n  color: #3b1c00;\n  font-size: .5rem;\n  line-height: .95rem;\n}\n.f-main-ui .f-main-content .f-main-img-line {\n  height: .5rem;\n}\n.f-main-ui .f-main-content .f-main-img {\n  width: 100%;\n  position: relative;\n  margin: 0 auto;\n}\n.f-main-ui .f-main-content .f-main-img .f-tape {\n  position: absolute;\n  width: 90px;\n  left: -0.55rem;\n  top: -0.4rem;\n  z-index: 33;\n  transform: rotate(5deg);\n}\n.f-main-ui .f-main-content .f-main-img .f-main-img-item {\n  width: 6rem;\n  background-color: #fff;\n  position: relative;\n  margin: 0 auto;\n  padding: 9px 5px;\n  z-index: 20;\n  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);\n  -webkit-transform: rotate(5deg);\n  transform: rotate(5deg);\n}\n.f-main-ui .f-main-content .f-main-img .f-main-img-item div {\n  width: 5.5rem;\n  background-color: #254d70;\n  margin: 0 auto;\n  top: .5rem;\n}\n.f-main-ui .f-main-content .f-btn-line {\n  height: 1.5rem;\n}\n.f-main-ui .f-main-content .f-btn {\n  width: 100%;\n  height: 40px;\n  line-height: 40px;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group {\n  -webkit-user-select: none;\n  -webkit-user-drag: none;\n  position: relative;\n  width: 140px;\n  height: 36px;\n  margin: 0 auto;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button1,\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button-group .f-button2 {\n  position: absolute;\n  width: 100%;\n  height: 36px;\n  line-height: 36px;\n  text-align: center;\n  color: #fff;\n  z-index: 2;\n  border-radius: 4px;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button1 {\n  background-color: #77c4d3 !important;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button2 {\n  left: 5px;\n  top: 5px;\n  z-index: 1;\n  -webkit-filter: blur(2px);\n  background-color: #2f8764;\n}\n.f-main-ui .f-main-content .f-main-logo {\n  position: absolute;\n  right: .5rem;\n  width: 2rem;\n}\n.f-main-ui .f-main-content .f-main-logo img {\n  display: block;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody,\ndiv,\np,\nul,\nli,\nol,\ndl,\ndt,\ndd,\nheader,\nfooter,\nvideo,\nh1,\nh2,\nh3,\nh4,\ncanvas,\nsection,\nfigure {\n  padding: 0;\n  margin: 0;\n}\na {\n  text-decoration: none;\n}\nli {\n  list-style: none;\n}\nhtml,\nbody {\n  height: 100%;\n}\nimg {\n  border: none;\n  vertical-align: top;\n  width: 100%;\n}\ninput,\ntextarea,\nbutton {\n  outline: none;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\n  border-radius: .065rem !important;\n}\ninput[type=\"button\"],\ninput[type=\"submit\"],\ninput[type=\"reset\"] {\n  -webkit-appearance: none;\n}\ninput {\n  border: none;\n  -webkit-appearance: none;\n  border-radius: .065rem !important;\n}\ntextarea {\n  -webkit-appearance: none;\n}\nbody {\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\n  font-size: .4rem;\n  overflow: hidden;\n  height: 100%;\n}\n.transform3d {\n  -webkit-transform-style: preserve-3d;\n  -webkit-perspective: 800px;\n  transform-style: preserve-3d;\n  perspective: 800px;\n}\nbody {\n  font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  height: 100%;\n  overflow: hidden;\n  -webkit-overflow-scrolling: touch;\n}\n.f-main-ui {\n  width: 100%;\n  height: 100vh;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n.f-main-ui .f-main-content {\n  width: 100%;\n}\n.f-main-ui .f-main-content .f-main-share-1 {\n  display: block;\n  position: absolute;\n}\n.f-main-ui .f-main-content .f-main-line {\n  height: 4.1rem;\n}\n.f-main-ui .f-main-content .f-main-text {\n  width: 8rem;\n  height: 4.7rem;\n  position: relative;\n  margin: 0 auto;\n}\n.f-main-ui .f-main-content .f-main-text p {\n  color: #3b1c00;\n  font-size: .5rem;\n  line-height: .95rem;\n}\n.f-main-ui .f-main-content .f-main-img-line {\n  height: .5rem;\n}\n.f-main-ui .f-main-content .f-main-img {\n  width: 100%;\n  position: relative;\n  margin: 0 auto;\n  display: none;\n}\n.f-main-ui .f-main-content .f-main-img .f-main-img-item {\n  width: 6rem;\n  background-color: #fff;\n  position: relative;\n  margin: 0 auto;\n  padding: 9px 5px;\n  padding-bottom: 45px;\n  z-index: 20;\n  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);\n  -webkit-transform: rotate(5deg);\n  transform: rotate(5deg);\n}\n.f-main-ui .f-main-content .f-main-img .f-main-img-item .f-tape {\n  position: absolute;\n  width: 90px;\n  left: -0.55rem;\n  top: -0.4rem;\n  z-index: 33;\n  transform: rotate(5deg);\n}\n.f-main-ui .f-main-content .f-main-img .f-main-img-item div {\n  width: 5.5rem;\n  background-color: #254d70;\n  margin: 0 auto;\n  top: .5rem;\n}\n.f-main-ui .f-main-content .f-main-img1 {\n  width: 100%;\n  position: relative;\n  margin: 0 auto;\n  display: none;\n}\n.f-main-ui .f-main-content .f-main-img1 .f-main-img-item {\n  width: 5rem;\n  background-color: #fff;\n  position: relative;\n  margin: 0 auto;\n  padding: 9px 5px;\n  padding-bottom: 45px;\n  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);\n  left: -2.5rem;\n  top: .6rem;\n  -webkit-transform: rotate(25deg);\n  transform: rotate(25deg);\n  z-index: 20;\n}\n.f-main-ui .f-main-content .f-main-img1 .f-main-img-item .f-tape {\n  position: absolute;\n  width: 70px;\n  left: -0.6rem;\n  top: -0.8rem;\n  z-index: 33;\n}\n.f-main-ui .f-main-content .f-main-img1 .f-main-img-item div {\n  width: 4.5rem;\n  background-color: #254d70;\n  margin: 0 auto;\n  top: .5rem;\n}\n.f-main-ui .f-main-content .f-main-img1 .f-main-img-item1 {\n  width: 5rem;\n  background-color: #fff;\n  position: absolute;\n  margin: 0 auto;\n  padding: 9px 5px;\n  padding-bottom: 45px;\n  z-index: 20;\n  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);\n  left: 4.3rem;\n  top: -0.5rem;\n  z-index: 19;\n}\n.f-main-ui .f-main-content .f-main-img1 .f-main-img-item1 .f-tape {\n  position: absolute;\n  width: 70px;\n  right: .6rem;\n  top: -0.8rem;\n  z-index: 33;\n}\n.f-main-ui .f-main-content .f-main-img1 .f-main-img-item1 div {\n  width: 4.5rem;\n  background-color: #254d70;\n  margin: 0 auto;\n  top: .5rem;\n}\n.f-main-ui .f-main-content .f-main-img2 {\n  width: 100%;\n  position: relative;\n  margin: 0 auto;\n  display: none;\n}\n.f-main-ui .f-main-content .f-main-img2 .f-main-img-item {\n  width: 4rem;\n  background-color: #fff;\n  position: relative;\n  margin: 0 auto;\n  padding: 9px 5px;\n  padding-bottom: 45px;\n  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);\n  left: -2rem;\n  top: -0.2rem;\n  -webkit-transform: rotate(-10deg);\n  transform: rotate(-10deg);\n  z-index: 20;\n}\n.f-main-ui .f-main-content .f-main-img2 .f-main-img-item .f-tape {\n  position: absolute;\n  width: 70px;\n  left: -0.6rem;\n  top: -0.8rem;\n  z-index: 33;\n}\n.f-main-ui .f-main-content .f-main-img2 .f-main-img-item div {\n  width: 3.5rem;\n  background-color: #254d70;\n  margin: 0 auto;\n  top: .5rem;\n}\n.f-main-ui .f-main-content .f-main-img2 .f-main-img-item1 {\n  width: 4rem;\n  background-color: #fff;\n  position: absolute;\n  margin: 0 auto;\n  padding: 9px 5px;\n  padding-bottom: 45px;\n  z-index: 20;\n  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);\n  left: 5.3rem;\n  top: .5rem;\n  z-index: 19;\n}\n.f-main-ui .f-main-content .f-main-img2 .f-main-img-item1 .f-tape {\n  position: absolute;\n  width: 70px;\n  right: .6rem;\n  top: -0.8rem;\n  z-index: 33;\n}\n.f-main-ui .f-main-content .f-main-img2 .f-main-img-item1 div {\n  width: 3.5rem;\n  background-color: #254d70;\n  margin: 0 auto;\n  top: .5rem;\n}\n.f-main-ui .f-main-content .f-btn-line {\n  height: 1.5rem;\n}\n.f-main-ui .f-main-content .f-btn {\n  width: 100%;\n  height: 40px;\n  line-height: 40px;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group {\n  -webkit-user-select: none;\n  -webkit-user-drag: none;\n  position: relative;\n  width: 140px;\n  height: 36px;\n  margin: 0 auto;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button1,\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button-group .f-button2 {\n  position: absolute;\n  width: 100%;\n  height: 36px;\n  line-height: 36px;\n  text-align: center;\n  color: #fff;\n  z-index: 2;\n  border-radius: 4px;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button1 {\n  background-color: #77c4d3 !important;\n}\n.f-main-ui .f-main-content .f-btn .f-button-group .f-button2 {\n  left: 5px;\n  top: 5px;\n  z-index: 1;\n  -webkit-filter: blur(2px);\n  background-color: #2f8764;\n}\n.f-main-ui .f-main-content .f-main-logo {\n  position: absolute;\n  right: .5rem;\n  width: 2rem;\n}\n.f-main-ui .f-main-content .f-main-logo img {\n  display: block;\n}\n", ""]);
 
 	// exports
 
