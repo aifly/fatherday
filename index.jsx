@@ -40,18 +40,27 @@ class App extends React.Component {
         };
 
     }
-    onBlur(){
-
+    onBlur(e){
+        FButton.data.content = e.target.value;
     }
     defaultTap(e){
+
 
         if(e.target.nodeName === "TEXTAREA"){
             return;
         }
-
         e.preventDefault();
+        $('input[type="button"]').remove();
+        let a =document.createElement('input');
+        a.type='button';
+        a.style.position = 'fixed';
+        a.style.zIndex =-1;
+        a.style.opacity=0;
+        document.body.appendChild(a);
 
-        $(e.target).trigger('blur');
+        a.focus();
+
+
 
         return false;
     }
@@ -78,7 +87,7 @@ class App extends React.Component {
                             </div>
                             <section className="f-input-C">
                                 <img src={inputBg} alt=""/>
-                                <textarea name="" onBlur={this.onBlur} id="" ref="input" className="f-input" placeholder="献上你的祝福吧!"></textarea>
+                                <textarea  name="" onBlur={this.onBlur} id="" ref="input" className="f-input" placeholder="献上你的祝福吧!"></textarea>
                             </section>
                             <div className="f-btn">
                                 <FButton type="father" r="me"></FButton>

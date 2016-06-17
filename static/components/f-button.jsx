@@ -17,9 +17,16 @@ export default class FButton extends React.Component {
         this.state = {
             btn1ClassList: "f-button1",
             fatherPhoto: '',
+            myPhoto:'',
             display: 'block',
             content:''
         };
+        this.data = {
+            fatherPhoto:'',
+            myPhoto:''
+        }
+
+
 
     }
 
@@ -29,7 +36,7 @@ export default class FButton extends React.Component {
             this.refs['f-file'].click();
         }
         else {
-            alert('确定')
+            console.log(FButton.data)
         }
 
     }
@@ -85,6 +92,7 @@ export default class FButton extends React.Component {
         let s = this;
 
 
+
         $.ajax({
             url: s.props.baseUrl,
             type: "POST",
@@ -98,10 +106,21 @@ export default class FButton extends React.Component {
                     PubSub.publish("changeFatherPhoto", {url, type: s.props.type});
                     if (s.props.type === 'father') {
                         $('.f-button-group').show();
+
                         s.setState({
                             content:"重新上传"
                         });
+                        FButton.data.fatherPhoto = url;
                     }
+                    else if(s.props.type === "me"){
+                        s.setState({
+                            content:"重新上传"
+                        });
+                        FButton.data.myPhoto = url;
+
+                    }
+
+                    log(s.data)
 
                     let img = new Image();
                     img.onload = ()=> {
@@ -123,6 +142,9 @@ export default class FButton extends React.Component {
 
     }
 }
+
+FButton.data = {};
+window.s=FButton;
 
 FButton.defaultProps = {
     content: "秀秀老爸的照片",

@@ -181,7 +181,9 @@
 
 	    _createClass(App, [{
 	        key: 'onBlur',
-	        value: function onBlur() {}
+	        value: function onBlur(e) {
+	            _staticComponentsFButtonJsx2['default'].data.content = e.target.value;
+	        }
 	    }, {
 	        key: 'defaultTap',
 	        value: function defaultTap(e) {
@@ -189,10 +191,16 @@
 	            if (e.target.nodeName === "TEXTAREA") {
 	                return;
 	            }
-
 	            e.preventDefault();
+	            $('input[type="button"]').remove();
+	            var a = document.createElement('input');
+	            a.type = 'button';
+	            a.style.position = 'fixed';
+	            a.style.zIndex = -1;
+	            a.style.opacity = 0;
+	            document.body.appendChild(a);
 
-	            $(e.target).trigger('blur');
+	            a.focus();
 
 	            return false;
 	        }
@@ -22012,8 +22020,13 @@
 	        this.state = {
 	            btn1ClassList: "f-button1",
 	            fatherPhoto: '',
+	            myPhoto: '',
 	            display: 'block',
 	            content: ''
+	        };
+	        this.data = {
+	            fatherPhoto: '',
+	            myPhoto: ''
 	        };
 	    }
 
@@ -22024,7 +22037,7 @@
 	            if (this.props.upload) {
 	                this.refs['f-file'].click();
 	            } else {
-	                alert('确定');
+	                console.log(FButton.data);
 	            }
 	        }
 	    }, {
@@ -22089,10 +22102,19 @@
 	                        _jsPubsub2['default'].publish("changeFatherPhoto", { url: url, type: s.props.type });
 	                        if (s.props.type === 'father') {
 	                            $('.f-button-group').show();
+
 	                            s.setState({
 	                                content: "重新上传"
 	                            });
+	                            FButton.data.fatherPhoto = url;
+	                        } else if (s.props.type === "me") {
+	                            s.setState({
+	                                content: "重新上传"
+	                            });
+	                            FButton.data.myPhoto = url;
 	                        }
+
+	                        log(s.data);
 
 	                        var img = new Image();
 	                        img.onload = function () {
@@ -22114,6 +22136,9 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = FButton;
+
+	FButton.data = {};
+	window.s = FButton;
 
 	FButton.defaultProps = {
 	    content: "秀秀老爸的照片",
