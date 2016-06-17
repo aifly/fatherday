@@ -8,10 +8,19 @@ const bg = path + share;
 const shareBg=path+share1;
 import IScroll from 'iscroll';
 import {utilMethods,_$,$$} from './utilMethod.es6';
+
+
+
+
 class App extends React.Component {
     constructor(args) {
         super(...args);
         this.touchEnd = this.touchEnd.bind(this);
+        this.state = {
+            fatherPhoto:'',
+            myPhoto:'',
+            content:""
+        }
     }
 
     touchEnd(e) {//发送给老爸
@@ -26,7 +35,8 @@ class App extends React.Component {
                     <div className="f-main-line"></div>
                     <div className="f-main-text">
                         <p className="f-main-text-content">
-                            父爱，伟岸如青山，圣洁如冰雪，温暖如骄阳，宽广如江海。我在父亲的爱中成长，如今我长大了，我在父亲的爱中成长，如今我长大了，我要用更多的爱来回报你，我最亲爱的老爸</p>
+                            {this.state.content}
+                        </p>
                     </div>
                     <div className="f-main-img-content">
                         <div className="f-main-img-items">
@@ -37,7 +47,7 @@ class App extends React.Component {
                                         <img src="static/images/tape.png" alt=""/>
                                     </figcaption>
                                     <div>
-                                        <img className="f-img1" src="./static/images/1.png" alt=""/>
+                                        <img className="f-img1" src={this.state.fatherPhoto} alt=""/>
                                     </div>
                                 </div>
                                 <div className="f-btn-line"></div>
@@ -49,7 +59,7 @@ class App extends React.Component {
                                         <img src="static/images/tape.png" alt=""/>
                                     </figcaption>
                                     <div>
-                                        <img className="f-img2" src="./static/images/1.png" alt=""/>
+                                        {this.state.fatherPhoto &&  <img className="f-img2" src={this.state.fatherPhoto} alt=""/>}
                                     </div>
                                 </div>
                                 <div className="f-main-img-item1">
@@ -57,7 +67,7 @@ class App extends React.Component {
                                         <img src="static/images/tape.png" alt=""/>
                                     </figcaption>
                                     <div>
-                                        <img className="f-img2" src="./static/images/1.png" alt=""/>
+                                        {this.state.myPhoto&&<img className="f-img2" src={this.state.myPhoto} alt=""/>}
                                     </div>
                                 </div>
                                 <div className="f-btn-line" style={{marginTop:".5rem"}}></div>
@@ -104,34 +114,42 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout(function () {
-            new IScroll(".f-main-ui");
-        }, 100);
+
+
+        const imgArr = [bg,shareBg];
         var json = utilMethods.getQueryString("json");
         if (json) {
-            json = eval("(" + json + ")");
-            document.querySelector(".f-main-text-content").innerHTML = json.content;
+            json = JSON.parse(json);
             let fatherPhoto, myPhoto;
             fatherPhoto = json.fatherPhoto;
             myPhoto = json.myPhoto;
+            imgArr.push(fatherPhoto,myPhoto);
+            this.setState({
+                fatherPhoto:fatherPhoto,
+                myPhoto:myPhoto,
+                content:json.content
+            });
             if (fatherPhoto && myPhoto) {
                 let num = Math.ceil(utilMethods.r(0, 2));
                 if (num === 1) {
                     document.querySelector(".f-main-img1").style.display = "block";
-                    document.getElementsByClassName("f-img2")[0].setAttribute("src", fatherPhoto);
-                    document.getElementsByClassName("f-img2")[1].setAttribute("src", myPhoto);
                 }
                 else if (num == 2) {
                     document.querySelector(".f-main-img2").style.display = "block";
-                    document.getElementsByClassName("f-img3")[0].setAttribute("src", fatherPhoto);
-                    document.getElementsByClassName("f-img3")[1].setAttribute("src", myPhoto);
                 }
             }
             else if (fatherPhoto) {
                 document.querySelector(".f-main-img").style.display = "block";
-                document.getElementsByClassName("f-img1")[0].setAttribute("src", fatherPhoto);
             }
         }
+        utilMethods.loading(imgArr,null,()=>{
+            loaded();
+            setTimeout(function () {
+                new IScroll(".f-main-ui");
+            }, 100);
+        });
+
+
     }
 }
 
