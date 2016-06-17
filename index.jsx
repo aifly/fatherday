@@ -29,9 +29,6 @@ import FIndexPage from './static/components/f-index-page.jsx';
 
 import IScroll from 'iscroll';
 
-
-
-
 class App extends React.Component {
     constructor(args) {
         super(...args);
