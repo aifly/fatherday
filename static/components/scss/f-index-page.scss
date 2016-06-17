@@ -1,3 +1,4 @@
+
 @mixin pos($v) {
   @if
   $v == a {
@@ -104,27 +105,71 @@
   flex-flow: $v;
 }
 
+.f-index-page-C{
 
-.f-photo-C{
-  @include pos(r);
-  z-index: 100;
-  width:70vw;
-  margin:1.3rem auto;
-  padding:0.6rem 0.6rem 1.8rem 0.6rem;
-  box-sizing: border-box;
-  @include br(5px);
-  @include transform(rotate(-13deg));
-  .f-tape{
+  &.hide{
+    @include transform(translate3d(0,-100%,0));
+    @include transition_transform(500ms);
+  }
+  @include pos(a);
+  left:0;
+  top:0;
+  width:100vw;
+  height:100vh;
+
+  z-index:200;
+  overflow: hidden;
+
+  div{
     @include pos(a);
-    width:100px;
-    left:-1rem;
-    top:-1rem;
-    &:nth-of-type(2){
-      left:72%;
-      top:83%;
-    }
+  }
+  .f-heart{
+
+    top:3rem;
+    left:-1.5rem;
+    @include transform(scale(0));
+  }
+  .f-camera{
+    width:4rem;
+    left:8vw;
+    top:4vh;
+    z-index:1;
+    @include transform(scale(0));
+  }
+  .f-necktie{
+     width:3rem;
+     top:3rem;
+    left: 1.5rem;
+    z-index:0;
+    @include transform(translate3d(-100px,0,0));
+    opacity:0;
   }
 
+  .f-father-text{
+    width:7rem;
+    right: .1rem;
+    top:2.2rem;
+    @include transform(scale(0));
+  }
+
+  .f-father{
+    width:5rem;
+    bottom:0;
+    right:0;
+    @include transform(translate3d(300px,0,0));
+  }
+  .f-love{
+    width:4rem;
+    bottom:1.6rem;
+    left: 1.3rem;
+    opacity:0;
+  }
+  .f-logo{
+    width:1.5rem;
+    bottom:1rem;
+    left:1rem;
+    opacity:0;
+  }
 
 }
  

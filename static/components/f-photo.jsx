@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './scss/f-photo.css';
 import PubSub from '../js/pubsub';
@@ -7,35 +6,44 @@ import photobg from '../images/photobg.png';
 import tape from '../images/tape.png';
 
 
-export default class FPhoto extends React.Component{
-    constructor(args){
+export default class FPhoto extends React.Component {
+    constructor(args) {
         super(...args);
         this.state = {
-            fatherPhoto:'./static/images/1.png',
-            myPhoto:''
+            fatherPhoto: './static/images/1.png',
+            myPhoto: '',
+            display:'block'
         };
 
     }
 
-    changeFatherPhoto(fatherPhoto){
+    changeFatherPhoto(fatherPhoto) {
         this.setState({
-            fatherPhoto:fatherPhoto
+            fatherPhoto: fatherPhoto,
+            display:'block'
         });
     }
 
-    componentDidMount(){
+    componentDidMount() {
 
-        PubSub.subscribe('changeFatherPhoto',(b,a)=>{
-            this.changeFatherPhoto(a);
+        this.setState({
+            display: this.props.display
+        });
+
+        PubSub.subscribe('changeFatherPhoto', (b, a)=> {
+            if (a.type === this.props.type) {
+                this.changeFatherPhoto(a.url);
+            }
         });
     }
 
-    render(){
+    render() {
 
-        let style={
-            background:'url('+photobg+') repeat center center'
+        let style = {
+            background: 'url(' + photobg + ') repeat center center',
+            display: this.state.display
         };
-        return(
+        return (
             <figure className="f-photo-C" style={style}>
                 <img src={this.state.fatherPhoto} alt=""/>
                 <figcaption className="f-tape">
@@ -48,3 +56,7 @@ export default class FPhoto extends React.Component{
         )
     }
 };
+
+FPhoto.defaultProps = {
+    display: 'block'
+}

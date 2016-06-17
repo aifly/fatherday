@@ -20,7 +20,6 @@
   .f-button-group .f-button2 {
     left: 3px;
     top: 3px;
-    z-index: 1;
-    -webkit-filter: blur(2px); }
+    z-index: 1; }
 
 /*# sourceMappingURL=f-button.css.map */

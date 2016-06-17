@@ -138,20 +138,23 @@ body {
   height: 100%;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  background: #46a17d;
 }
 
 .f-main-ui{
   width:100vw;
   height:100vh;
   box-sizing: border-box;
-  overflow-y: auto;
-  overflow-x: hidden;
-
+  overflow:hidden;
+  .f-main-all{
+    width:100%;
+  }
 }
 .f-main-content{
   overflow: hidden;
   width:100vw;
-  height:200vh;
+  min-height: 90vh;
+  padding-bottom: 10vh;
   @include pos(r);
   .f-father{
     height:2.5rem;
@@ -179,8 +182,10 @@ body {
     width:80vw;
     top:1.3rem;
     left: 5vw;
+    z-index:2;
   }
   .f-input-C{
+    z-index: 1;
     margin-top:-2.8rem;
     @include pos(r);
     width:9rem;

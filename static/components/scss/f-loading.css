@@ -1,0 +1,21 @@
+.f-loading-C {
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  position: fixed;
+  background: #2b81af;
+  left: 0;
+  top: 0; }
+  .f-loading-C svg {
+    background: transparent;
+    fill: none; }
+  .f-loading-C .loading {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 50%;
+    margin-left: -50px; }
+
+/*# sourceMappingURL=f-loading.css.map */
