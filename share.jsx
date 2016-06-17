@@ -79,7 +79,7 @@ class App extends React.Component {
                                         <img src="static/images/tape.png" alt=""/>
                                     </figcaption>
                                     <div>
-                                        <img className="f-img3" src="./static/images/1.png" alt=""/>
+                                        {this.state.fatherPhoto && <img className="f-img3" src={this.state.fatherPhoto} alt=""/>}
                                     </div>
                                 </div>
                                 <div className="f-main-img-item1">
@@ -87,7 +87,7 @@ class App extends React.Component {
                                         <img src="static/images/tape.png" alt=""/>
                                     </figcaption>
                                     <div>
-                                        <img className="f-img3" src="./static/images/1.png" alt=""/>
+                                        {this.state.myPhoto &&  <img className="f-img3" src={this.state.myPhoto} alt=""/> }
                                     </div>
                                 </div>
                                 <div className="f-btn-line" style={{marginTop:".5rem"}}></div>
@@ -148,8 +148,6 @@ class App extends React.Component {
                 new IScroll(".f-main-ui");
             }, 100);
         });
-
-
     }
 }
 
