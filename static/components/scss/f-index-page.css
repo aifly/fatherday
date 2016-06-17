@@ -6,7 +6,7 @@
   height: 100vh;
   z-index: 200;
   overflow: hidden; }
-  .f-index-page-C.hide {
+  .f-index-page-C.hidden {
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
     -webkit-transition: -webkit-transform 500ms;
@@ -55,5 +55,21 @@
     bottom: 1rem;
     left: 1rem;
     opacity: 0; }
+  .f-index-page-C .f-info {
+    width: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -15px;
+    -webkit-animation: ltshake 1.5s infinite ease;
+    animation: ltshake 1.5s infinite ease; }
+
+@-webkit-keyframes ltshake {
+  from {
+    -webkit-transform: translateY(0);
+    opacity: 0; }
+  to {
+    -webkit-transform: translateY(-25px);
+    opacity: 1; } }
 
 /*# sourceMappingURL=f-index-page.css.map */

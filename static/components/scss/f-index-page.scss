@@ -107,7 +107,7 @@
 
 .f-index-page-C{
 
-  &.hide{
+  &.hidden{
     @include transform(translate3d(0,-100%,0));
     @include transition_transform(500ms);
   }
@@ -171,5 +171,19 @@
     opacity:0;
   }
 
+  .f-info{
+    width:30px;
+    @include pos(a);
+    bottom:20px;
+    left: 50%;
+    margin-left:-15px;
+    @include animation(ltshake 1.5s infinite ease);
+  }
+}
+
+
+@-webkit-keyframes ltshake{
+  from{-webkit-transform:translateY(0);opacity:0}
+  to {-webkit-transform: translateY(-25px);opacity: 1;}
 }
  

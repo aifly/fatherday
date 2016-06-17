@@ -3,6 +3,9 @@ import './scss/f-button.css';
 import PubSub from '../js/pubsub';
 import IScroll from 'iscroll';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import message from 'antd/lib/message';
+import 'antd/lib/message/style/css';
 injectTapEventPlugin();
 
 
@@ -105,7 +108,15 @@ export default class FButton extends React.Component {
             processData: false,
             success(data){
 
-                if (data.getret === 0) {
+                if(data.getisImg){
+
+                    message.error('请上传图片',2);
+                    PubSub.publish('stop');
+                    return;
+                }
+
+                if (data.getret === 0 ) {
+
                     let url = 'http://webapi.zmiti.com/' + data.geturl[0];
                     PubSub.publish("changeFatherPhoto", {url, type: s.props.type});
                     if (s.props.type === 'father') {
@@ -133,6 +144,8 @@ export default class FButton extends React.Component {
                     }
                     img.src = url;
                 }
+
+
 
             },
             error(msg){

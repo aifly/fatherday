@@ -24,6 +24,8 @@ const logo = l0;
 import ft from '../images/f-father-text.png';
 const ftext = path + ft;
 
+import info from '../images/info.png';
+
 import TWEEN from '../js/Tween';
 import requestAnimationFrame from '../js/requestAnimationFrame';
 import {utilMethods,_$,$$} from '../../utilMethod.es6';
@@ -71,6 +73,9 @@ export default class FIndexPage extends React.Component {
                 </div>
                 <div className="f-logo" ref="logo">
                     <img src={logo} alt=""/>
+                </div>
+                <div className="f-info">
+                    <img src={info} alt=""/>
                 </div>
             </div>
         )
@@ -192,10 +197,11 @@ export default class FIndexPage extends React.Component {
 
         $(this.refs['index-page']).swipe('up',(e,_this)=>{
             isStarting =false;
-            _this.classList.add('hide');
+            _this.classList.add('hidden');
             setTimeout(()=>{
                 window.defaultTouched =true;
-                $(_this).remove();
+
+               $(_this).remove();
             },1000);
         });
 
