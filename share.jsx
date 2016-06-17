@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './static/css/share.css';
 const path = './static/js/';
 import share from './static/images/index-bg.png';
+import share1 from './static/images/arron1.png';
 const bg = path + share;
+const shareBg=path+share1;
 import IScroll from 'iscroll';
 import {utilMethods,_$,$$} from './utilMethod.es6';
 class App extends React.Component {
@@ -11,13 +13,14 @@ class App extends React.Component {
         super(...args);
         this.touchEnd = this.touchEnd.bind(this);
     }
-    touchEnd(e) {//发送给老爸
 
+    touchEnd(e) {//发送给老爸
+        document.querySelector(".f-main-share").style.display = "block";
     }
+
     render() {
         return (
-            <div className="f-main-ui"
-                 style={{background:'#63bf9b url('+bg+') no-repeat center bottom',backgroundSize:'cover'}}>
+            <div className="f-main-ui" style={{background:'#63bf9b url('+bg+') no-repeat center bottom',backgroundSize:'cover'}}>
                 <section className="f-main-content">
                     <img className="f-main-share-1" src="./static/images/share_1.png" alt=""/>
                     <div className="f-main-line"></div>
@@ -83,7 +86,7 @@ class App extends React.Component {
                         </div>
                         <div className="f-btn">
                             <div className="f-button-group">
-                                <div ref="btn1"  onTouchEnd={this.touchEnd}  className='f-button1'>发送给老爸!</div>
+                                <div ref="btn1" onTouchEnd={this.touchEnd} className='f-button1'>发送给老爸!</div>
                                 <div className="f-button2">发送给老爸!</div>
                             </div>
                         </div>
@@ -94,6 +97,8 @@ class App extends React.Component {
                         <div className="f-btn-line" style={{height:'3rem'}}></div>
                     </div>
                 </section>
+                <div className="f-main-share" style={{background:'url('+shareBg+') no-repeat center bottom',backgroundSize:'cover'}}>
+                </div>
             </div>
         )
     }

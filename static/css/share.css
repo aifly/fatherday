@@ -300,3 +300,10 @@ body {
 .f-main-ui .f-main-content .f-main-logo img {
   display: block;
 }
+.f-main-ui .f-main-share {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+}
