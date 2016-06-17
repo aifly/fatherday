@@ -23,9 +23,9 @@ class App extends React.Component {
     }
 
     touchEnd() {//发送给老爸
-        document.querySelector(".f-main-share").style.display = "block";
+        this.refs['share'].classList.add('active');
         setTimeout(()=>{
-            document.querySelector(".f-main-share").style.display = "none";
+            this.refs['share'].classList.remove('active');
         },5000)
     }
 
@@ -112,7 +112,7 @@ class App extends React.Component {
                     </div>
 
                 </section>
-                <div className="f-main-share"
+                <div className="f-main-share" ref="share"
                      style={{background:'url('+shareBg+') no-repeat center bottom',backgroundSize:'cover'}}>
                 </div>
             </div>
