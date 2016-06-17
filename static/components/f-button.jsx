@@ -41,6 +41,7 @@ export default class FButton extends React.Component {
         }
         else {
 
+            FButton.data.content === undefined && (FButton.data.content = '');
             let json = encodeURI(JSON.stringify(FButton.data));
 
             window.location.href = './share.html?json=' + json;

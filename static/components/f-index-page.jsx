@@ -83,8 +83,6 @@ export default class FIndexPage extends React.Component {
 
     componentDidMount() {
 
-
-
         let
             s = this,
             heart = s.refs['heart'],
@@ -114,7 +112,7 @@ export default class FIndexPage extends React.Component {
 
         if (!heart.timer) {
             heart.timer = new TWEEN.Tween(heart.scale).to({scale: 1.4}, 2000)
-                .delay(1400)
+                .delay(1000)
                 .easing(TWEEN.Easing.Elastic.InOut)
                 .onUpdate(()=> {
                     s.setTransform(heart, 'scale(' + heart.scale.scale + ')');
@@ -200,7 +198,6 @@ export default class FIndexPage extends React.Component {
             _this.classList.add('hidden');
             setTimeout(()=>{
                 window.defaultTouched =true;
-
                $(_this).remove();
             },1000);
         });

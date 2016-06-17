@@ -102,11 +102,14 @@ class App extends React.Component {
 
                         </div>
                         <div className="f-btn" ref="btn" >
-                                <FButton theme={{color1:'rgb(119, 196, 211)',color2:' rgb(47, 135, 100)'}} content="发送给老爸" upload='send' sendFn={this.touchEnd}></FButton>
+                                <FButton theme={{color1:'rgb(119, 196, 211)',color2:' rgb(47, 135, 100)'}} content="分享出去" upload='send' sendFn={this.touchEnd}></FButton>
                         </div>
                         <div className="f-btn-line" style={{height:'1rem'}}></div>
                         <div className="f-main-logo" ref="logo">
                             <img src="./static/images/logo.png" alt=""/>
+                        </div>
+                        <div className="f-btn" >
+                            <FButton  content="我也做一个" upload='send' sendFn={()=>{window.location.href='./index.html'}}></FButton>
                         </div>
                         <div className="f-btn-line" style={{height:'1rem'}}></div>
                     </div>
