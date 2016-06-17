@@ -113,7 +113,7 @@ class App extends React.Component {
 
                 </section>
                 <div className="f-main-share" ref="share"
-                     style={{background:'url('+shareBg+') no-repeat center bottom',backgroundSize:'cover'}}>
+                     style={{background:'url('+shareBg+') no-repeat center top',backgroundSize:'cover'}}>
                 </div>
             </div>
         )
