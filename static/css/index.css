@@ -32,7 +32,8 @@ body {
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #46a17d; }
   .f-main-ui .f-main-all {
     width: 100%; }
 
