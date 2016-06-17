@@ -126,5 +126,14 @@
     left:50%;
     margin-left:-50px;
   }
+  .f-exit{
+    @include pos(a);
+    color:#fff;
+    width:100vw;
+    bottom:10px;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+  }
 }
  

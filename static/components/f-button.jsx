@@ -89,7 +89,7 @@ export default class FButton extends React.Component {
 
     onChange() {
 
-        PubSub.publish('start')
+        PubSub.publish('start');
         let formData = new FormData();
         if (this.refs['f-file'].files.length <= 0) {
             return;
@@ -146,11 +146,10 @@ export default class FButton extends React.Component {
                     img.src = url;
                 }
 
-
-
             },
-            error(msg){
-
+            error(){
+                message.warning('上传图片失败,不上传图片也可以分享哦.',4);
+                PubSub.publish('stop');
             }
         });
 

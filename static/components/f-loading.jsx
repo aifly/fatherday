@@ -2,6 +2,7 @@ import React from 'react';
 import './scss/f-loading.css';
 import PubSub from '../js/pubsub';
 
+
 export default class FLoading extends React.Component{
     constructor(args){
         super(...args);
@@ -32,7 +33,7 @@ export default class FLoading extends React.Component{
         this.setState({
             starting:false
         });
-        this.timer && clearInterval(this.timer);
+          this.timer && clearInterval(this.timer);
     }
     componentDidMount(){
         PubSub.subscribe("start",()=>{
@@ -53,6 +54,7 @@ export default class FLoading extends React.Component{
                         <path id="heart-path1" fill-opacity="0" stroke-width="3" stroke="#ED6A5A" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z"/>
                     </svg>
                 </div>
+                <div className="f-exit" onTouchTap={()=>{this.stop()}}>时间太久了,不上传了</div>
             </div>
         )
     }
@@ -60,4 +62,4 @@ export default class FLoading extends React.Component{
 
 FLoading.defaultProps={
     loadingText:''
-}
+};

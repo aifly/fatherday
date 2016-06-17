@@ -17,5 +17,13 @@
     margin-top: -50px;
     left: 50%;
     margin-left: -50px; }
+  .f-loading-C .f-exit {
+    position: absolute;
+    color: #fff;
+    width: 100vw;
+    bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center; }
 
 /*# sourceMappingURL=f-loading.css.map */
