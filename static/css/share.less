@@ -184,7 +184,6 @@ body {
         }
         div {
           width: 5.5rem;
-          background-color: #254d70;
           margin: 0 auto;
           top: .5rem;
         }
@@ -217,7 +216,6 @@ body {
         }
         div {
           width: 4.5rem;
-          background-color: #254d70;
           margin: 0 auto;
           top: .5rem;
         }
@@ -243,7 +241,6 @@ body {
         }
         div {
           width: 4.5rem;
-          background-color: #254d70;
           margin: 0 auto;
           top: .5rem;
         }
@@ -276,7 +273,6 @@ body {
         }
         div {
           width: 3.5rem;
-          background-color: #254d70;
           margin: 0 auto;
           top: .5rem;
         }
@@ -302,7 +298,6 @@ body {
         }
         div {
           width: 3.5rem;
-          background-color: #254d70;
           margin: 0 auto;
           top: .5rem;
         }
@@ -311,46 +306,20 @@ body {
     .f-btn-line{
       height:1.5rem;
     }
-    .f-btn {
-      width: 100%;
-      height: 40px;
-      line-height: 40px;
-      .f-button-group {
-        -webkit-user-select: none;
-        -webkit-user-drag: none;
-        position: relative;
-        width: 140px;
-        height: 36px;
-        margin: 0 auto;
-        .f-button1, .f-button-group .f-button2 {
-          position: absolute;
-          width: 100%;
-          height: 36px;
-          line-height: 36px;
-          text-align: center;
-          color: #fff;
-          z-index: 2;
-          border-radius: 4px;
-        }
-        .f-button1 {
-          background-color: rgb(119, 196, 211) !important;
-        }
-        .f-button2 {
-          left: 5px;
-          top: 5px;
-          z-index: 1;
-          -webkit-filter: blur(2px);
-          background-color: rgb(47, 135, 100);
-        }
-      }
-    }
+
     .f-main-logo{
-      .position(a);
-      right:.5rem;
+      float: right;
+      margin-right:.5rem;
       width:2rem;
       //bottom:-1.8rem;
       img{
         display: block;
+      }
+      &.has-img{
+        margin-top:-2.5rem;
+      }
+      &.has-img1{
+        margin-top:-2.5rem;
       }
     }
   }
@@ -363,3 +332,10 @@ body {
     top:0;
   }
 }
+
+.f-btn{
+  &.no-img{
+    margin-top:3rem;
+  }
+}
+

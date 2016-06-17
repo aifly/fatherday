@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scale=no"/>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'/>
     <title>父亲节,晒晒我和老爸</title>
     <style>
         html, body, div {
@@ -99,8 +99,20 @@
         e.preventDefault();
         return false;
     });
+    document.addEventListener('touchstart',function(){
+        var music =document.getElementById('music');
+        if(music.paused){
+            music.play();
+        }
+    });
 </script>
 
 <script src="./static/js/share.js"></script>
+<!--
+<script src="http://localhost:3400/share.js"></script>
+-->
+
+<audio src="./static/music/bg.mp3" id="music" autoplay loop></audio>
+
 </body>
 </html>

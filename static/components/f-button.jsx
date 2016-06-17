@@ -6,7 +6,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 
-
 export default class FButton extends React.Component {
     constructor(args) {
         super(...args);
@@ -17,26 +16,32 @@ export default class FButton extends React.Component {
         this.state = {
             btn1ClassList: "f-button1",
             fatherPhoto: '',
-            myPhoto:'',
+            myPhoto: '',
             display: 'block',
-            content:''
+            content: ''
         };
         this.data = {
-            fatherPhoto:'',
-            myPhoto:''
+            fatherPhoto: '',
+            myPhoto: ''
         }
-
 
 
     }
 
     uploadImage() {
 
-        if (this.props.upload) {
+        if (this.props.upload === 'send') {
+            this.props.sendFn();
+        }
+        else if(this.props.upload){
             this.refs['f-file'].click();
         }
         else {
-            console.log(FButton.data)
+
+            let json = encodeURI(JSON.stringify(FButton.data));
+
+            window.location.href = './share.html?json=' + json;
+
         }
 
     }
@@ -74,7 +79,7 @@ export default class FButton extends React.Component {
     componentDidMount() {
         this.setState({
             display: this.props.display,
-            content:this.props.content
+            content: this.props.content
         });
     }
 
@@ -92,7 +97,6 @@ export default class FButton extends React.Component {
         let s = this;
 
 
-
         $.ajax({
             url: s.props.baseUrl,
             type: "POST",
@@ -108,20 +112,16 @@ export default class FButton extends React.Component {
                         $('.f-button-group').show();
 
                         s.setState({
-                            content:"重新上传"
+                            content: "重新上传"
                         });
                         FButton.data.fatherPhoto = url;
                     }
-                    else if(s.props.type === "me"){
+                    else if (s.props.type === "me") {
                         s.setState({
-                            content:"重新上传"
+                            content: "重新上传"
                         });
                         FButton.data.myPhoto = url;
-
                     }
-
-                    log(s.data)
-
                     let img = new Image();
                     img.onload = ()=> {
 
@@ -144,7 +144,7 @@ export default class FButton extends React.Component {
 }
 
 FButton.data = {};
-window.s=FButton;
+window.s = FButton;
 
 FButton.defaultProps = {
     content: "秀秀老爸的照片",

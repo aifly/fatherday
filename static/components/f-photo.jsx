@@ -10,7 +10,7 @@ export default class FPhoto extends React.Component {
     constructor(args) {
         super(...args);
         this.state = {
-            fatherPhoto: './static/images/1.png',
+            fatherPhoto: '',
             myPhoto: '',
             display:'block'
         };

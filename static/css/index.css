@@ -76,10 +76,13 @@ body {
       z-index: 10;
       left: 10%;
       top: 3.2rem; }
-  .f-main-content .f-btn {
-    width: 100vw;
-    height: 40px;
-    line-height: 40px;
-    margin-top: 1rem; }
+
+.f-btn {
+  width: 100vw;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 1rem; }
+  .f-btn.no-img {
+    margin-top: 3rem; }
 
 /*# sourceMappingURL=index.css.map */

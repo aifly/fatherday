@@ -200,12 +200,14 @@ body {
       top:3.2rem;
     }
   }
+}
 
-  .f-btn{
-    width:100vw;
-    height:40px;
-    line-height:40px;
-    margin-top:1rem;
+.f-btn{
+  width:100vw;
+  height:40px;
+  line-height:40px;
+  margin-top:1rem;
+  &.no-img{
+    margin-top:3rem;
   }
 }
- 
